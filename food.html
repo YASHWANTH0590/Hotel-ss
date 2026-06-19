@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         :root {
@@ -37,27 +38,40 @@
                 radial-gradient(circle at 85% 100%, rgba(212, 175, 55, .05), transparent 45%);
         }
 
-        .navbar {
-            background: var(--charcoal-dark);
-            border-bottom: 1px solid var(--border-gold);
-            padding: 18px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+.navbar{
+    background:var(--charcoal-dark);
+    border-bottom:1px solid var(--border-gold);
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.lang-btn{
+    background:transparent;
+    color:var(--gold);
+    border:1px solid var(--gold);
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.lang-btn:hover{
+    background:var(--gold);
+    color:var(--charcoal-dark);
+}
 
         .logo {
             background: linear-gradient(120deg, var(--gold-pale), var(--gold), var(--gold-soft));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-size: 30px;
+           
             font-weight: 700;
             letter-spacing: 4px;
             text-decoration: none;
+            font-size: 20px;
         }
 
         .nav-right {
@@ -378,37 +392,27 @@
         }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            .navbar {
-                padding: 15px;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            
-            .logo {
-                font-size: 24px;
-            }
-            
-            .filter-buttons {
-                padding: 10px;
-            }
-            
-            .filter-buttons button {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-            
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+       @media(max-width:768px){
+    .navbar{
+        padding:15px 20px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .lang-btn{
+        padding:8px 14px;
+        font-size:14px;
+    }
+}
     </style>
 </head>
 <body>
     <nav class="navbar">
         <a href="index.html" class="logo">SS HOTELS</a>
         <div class="nav-right">
-            <a class="back-btn" href="../index.html">← Back</a>
+            <!-- <a class="back-btn" href="../index.html">← Back</a> -->
             <button class="lang-btn" onclick="toggleLanguage()">English | తెలుగు</button>
         </div>
     </nav>
@@ -883,7 +887,7 @@ Please confirm this order. Thank you! 🙏`;
 
             // Open WhatsApp with the order message
 const whatsappUrl =
-`https://wa.me/919381300610?text=${encodeURIComponent(message)}`;
+`https://wa.me/919030796171?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
 
