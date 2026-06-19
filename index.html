@@ -1,0 +1,347 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SS HOTELS</title>
+
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+:root{
+    --charcoal:#121212;
+    --charcoal-dark:#0A0A0A;
+    --charcoal-card:#1C1C1C;
+    --charcoal-card-hover:#212121;
+    --gold:#D4AF37;
+    --gold-soft:#C9A66B;
+    --gold-pale:#E8D9B5;
+    --cream:#F2EDE2;
+    --muted:#9C9282;
+    --border-gold:rgba(212,175,55,.25);
+}
+
+body{
+    background:var(--charcoal);
+    color:var(--cream);
+    min-height:100vh;
+    font-family:'Poppins',sans-serif;
+    background-image:
+        radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
+        radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
+}
+.navbar{
+    background:var(--charcoal-dark);
+    border-bottom:1px solid var(--border-gold);
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    background:linear-gradient(
+        120deg,
+        var(--gold-pale),
+        var(--gold),
+        var(--gold-soft)
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:4px;
+    text-decoration:none;
+}
+
+.lang-btn{
+    background:transparent;
+    color:var(--gold);
+    border:1px solid var(--gold);
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.lang-btn:hover{
+    background:var(--gold);
+    color:var(--charcoal-dark);
+}
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+}
+.welcome{
+    background:var(--charcoal-card);
+    border:1px solid var(--border-gold);
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.welcome h1{
+    color:var(--gold-pale);
+    font-weight:600;
+}
+
+.room{
+    font-size:22px;
+    color:var(--cream);
+    font-weight:600;
+    margin:12px 0;
+}
+
+.room span{
+    color:var(--gold);
+}
+
+.message{
+    color:var(--muted);
+}
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.card{
+    position:relative;
+    overflow:hidden;
+    background:var(--charcoal-card);
+    border:1px solid var(--border-gold);
+    border-radius:18px;
+    padding:30px 20px;
+    text-align:center;
+    cursor:pointer;
+    transition:.4s;
+}
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-150%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(
+        50deg,
+        transparent,
+        rgba(72, 63, 31, 0.12),
+        rgba(212, 175, 55, 0.203),
+        rgba(212,175,55,.12),
+        transparent
+    );
+    transform:skewX(-25deg);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:var(--charcoal-card-hover);
+    border-color:var(--gold);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.45),
+        0 0 20px rgba(212,175,55,.15);
+}
+
+.card:hover::before{
+    animation:shine 1s ease;
+}
+
+@keyframes shine{
+    100%{
+        left:200%;
+    }
+}
+
+.icon{
+    font-size:45px;
+    margin-bottom:15px;
+    color:var(--gold);
+    filter:drop-shadow(0 0 6px rgba(212,175,55,.25));
+}
+.card h3{
+    color:var(--gold-pale);
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+.footer{
+    text-align:center;
+    margin-top:40px;
+    padding:20px;
+    color:var(--gold-soft);
+    letter-spacing:.5px;
+}
+@media(max-width:768px){
+
+    .logo{
+        font-size:22px;
+    }
+
+    .welcome{
+        padding:20px;
+    }
+
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo">
+    SS HOTELS
+</a>
+
+    <button class="lang-btn" onclick="toggleLanguage()">
+        English | తెలుగు
+    </button>
+</nav>
+
+
+
+<div class="container">
+
+    <div class="welcome">
+
+        <h1 id="welcomeText">Welcome Back 👋!</h1>
+
+        <div class="room">
+            Room No :
+            <span id="roomNo">---</span>
+        </div>
+
+        <p class="message" id="messageText">
+            Hope you are having a comfortable stay!
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card" onclick="location.href='/food.html'">
+    <div class="icon">🍽️</div>
+    <h3 id="foodTitle">Order Food</h3>
+    <p>Browse menu and order instantly</p>
+    </div>
+
+        <div class="card" onclick="location.href='/wifi.html'">
+            <div class="icon">📶</div>
+            <h3 id="wifiTitle">WiFi Access</h3>
+            <p>Get connected instantly</p>
+        </div>
+
+        <div class="card" onclick="location.href='tel:+919999999999'">
+            <div class="icon">☎️</div>
+            <h3 id="receptionTitle">Call Reception</h3>
+            <p>Need assistance? Contact reception</p>
+        </div>
+
+        <div class="card" onclick="location.href='/info.html'">
+            <div class="icon">🏨</div>
+            <h3 id="hotelTitle">Hotel Info</h3>
+            <p>Services, timings and facilities</p>
+        </div>
+
+        <div class="card" onclick="location.href='/explore.html'">
+            <div class="icon">🗺️</div>
+            <h3 id="exploreTitle">Explore Samalkot</h3>
+            <p>Discover nearby attractions</p>
+        </div>
+
+        <div class="card" onclick="location.href='/support.html'">
+            <div class="icon">💬</div>
+            <h3 id="whatsappTitle">WhatsApp Support</h3>
+            <p>Chat with our support team</p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    ✨ Thank You For Choosing SS HOTELS ✨
+</div>
+
+<script>
+
+// ROOM NUMBER FROM QR URL
+const params = new URLSearchParams(window.location.search);
+const room = params.get("room");
+
+if(room){
+    document.getElementById("roomNo").innerText = room;
+}
+
+// WHATSAPP SUPPORT
+function openWhatsapp(){
+
+    let roomNo = room || "Unknown";
+
+    let msg =
+`Hello SS HOTELS,
+
+I need assistance.
+
+Room Number: ${roomNo}`;
+
+    window.open(
+        `https://wa.me/919999999999?text=${encodeURIComponent(msg)}`,
+        '_blank'
+    );
+}
+
+// LANGUAGE SWITCH
+let telugu = false;
+
+function toggleLanguage(){
+
+    telugu = !telugu;
+
+    if(telugu){
+
+        document.getElementById("welcomeText").innerHTML =
+        "👋 తిరిగి స్వాగతం";
+
+        document.getElementById("messageText").innerHTML =
+        "మీ బస సౌకర్యవంతంగా సాగుతుందని ఆశిస్తున్నాము!";
+
+        document.getElementById("foodTitle").innerHTML =
+        "ఆహారం ఆర్డర్ చేయండి";
+
+        document.getElementById("wifiTitle").innerHTML =
+        "వైఫై యాక్సెస్";
+
+        document.getElementById("receptionTitle").innerHTML =
+        "రిసెప్షన్‌కు కాల్ చేయండి";
+
+        document.getElementById("hotelTitle").innerHTML =
+        "హోటల్ సమాచారం";
+
+        document.getElementById("exploreTitle").innerHTML =
+        "సామర్లకోటను అన్వేషించండి";
+
+        document.getElementById("whatsappTitle").innerHTML =
+        "వాట్సాప్ సహాయం";
+
+    }else{
+        location.reload();
+    }
+}
+
+</script>
+
+</body>
+</html>

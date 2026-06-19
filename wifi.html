@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SS HOTELS | WiFi Access</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+:root{
+    --charcoal:#121212;
+    --charcoal-dark:#0A0A0A;
+    --charcoal-card:#1C1C1C;
+    --charcoal-field:#161616;
+    --gold:#D4AF37;
+    --gold-soft:#C9A66B;
+    --gold-pale:#E8D9B5;
+    --cream:#F2EDE2;
+    --muted:#9C9282;
+    --border-gold:rgba(212,175,55,.25);
+}
+
+body{
+    background:var(--charcoal);
+    color:var(--cream);
+    min-height:100vh;
+    font-family:'Poppins',sans-serif;
+    background-image:
+        radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
+        radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
+}
+
+.navbar{
+    background:var(--charcoal-dark);
+    border-bottom:1px solid var(--border-gold);
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    background:linear-gradient(
+        120deg,
+        var(--gold-pale),
+        var(--gold),
+        var(--gold-soft)
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:4px;
+    text-decoration:none;
+}
+
+.back-btn{
+    background:transparent;
+    color:var(--gold);
+    border:1px solid var(--gold);
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:var(--gold);
+    color:var(--charcoal-dark);
+}
+
+.container{
+    max-width:480px;
+    margin:auto;
+    padding:60px 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.wifi-icon{
+    font-size:50px;
+    color:var(--gold);
+    margin-bottom:18px;
+    filter:drop-shadow(0 0 8px rgba(212,175,55,.3));
+}
+
+.page-title{
+    color:var(--gold-pale);
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:24px;
+    margin-bottom:6px;
+    text-align:center;
+}
+
+.page-sub{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:35px;
+    text-align:center;
+}
+
+.wifi-card{
+    width:100%;
+    background:var(--charcoal-card);
+    border:1px solid var(--border-gold);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.field{
+    margin-bottom:22px;
+}
+
+.field:last-child{
+    margin-bottom:0;
+}
+
+.field-label{
+    display:block;
+    color:var(--gold-soft);
+    font-size:12px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.field-value-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    background:var(--charcoal-field);
+    border:1px solid var(--border-gold);
+    border-radius:12px;
+    padding:14px 16px;
+}
+
+.field-value{
+    color:var(--cream);
+    font-size:18px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    letter-spacing:.5px;
+    word-break:break-all;
+}
+
+.copy-btn{
+    background:transparent;
+    border:1px solid var(--border-gold);
+    color:var(--gold);
+    border-radius:8px;
+    padding:8px 10px;
+    cursor:pointer;
+    font-size:15px;
+    flex-shrink:0;
+    transition:.25s;
+    font-family:'Poppins',sans-serif;
+}
+
+.copy-btn:hover{
+    background:var(--gold);
+    color:var(--charcoal-dark);
+}
+
+.copy-btn.copied{
+    background:var(--gold);
+    color:var(--charcoal-dark);
+}
+
+.footer{
+    text-align:center;
+    margin-top:40px;
+    padding:20px;
+    color:var(--gold-soft);
+    letter-spacing:.5px;
+    font-size:14px;
+}
+
+@media(max-width:768px){
+    .logo{
+        font-size:22px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+        <a href="index.html" class="logo">
+    SS HOTELS
+</a>
+    <a class="back-btn" href="index.html">← Back</a>
+</nav>
+
+<div class="container">
+
+    <div class="wifi-icon">📶</div>
+    <div class="page-title">WiFi Access</div>
+    <div class="page-sub">Connect to our complimentary high-speed WiFi</div>
+
+    <div class="wifi-card">
+
+        <div class="field">
+            <span class="field-label">Network Name</span>
+            <div class="field-value-row">
+                <span class="field-value" id="wifiName">SS_HOTELS_GUEST</span>
+                <button class="copy-btn" onclick="copyText('wifiName', this)">Copy</button>
+            </div>
+        </div>
+
+        <div class="field">
+            <span class="field-label">Password</span>
+            <div class="field-value-row">
+                <span class="field-value" id="wifiPass">Welcome@123</span>
+                <button class="copy-btn" onclick="copyText('wifiPass', this)">Copy</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    ✨ Thank You For Choosing SS HOTELS ✨
+</div>
+
+<script>
+function copyText(id, btn){
+    const text = document.getElementById(id).innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+        const original = btn.innerText;
+        btn.innerText = "Copied";
+        btn.classList.add("copied");
+
+        setTimeout(() => {
+            btn.innerText = original;
+            btn.classList.remove("copied");
+        }, 1500);
+    });
+}
+</script>
+
+</body>
+</html>

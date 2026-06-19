@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Food | SS HOTELS</title>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap)" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --charcoal: #121212;
+            --charcoal-dark: #0A0A0A;
+            --charcoal-card: #1C1C1C;
+            --charcoal-card-hover: #212121;
+            --charcoal-field: #161616;
+            --gold: #D4AF37;
+            --gold-soft: #C9A66B;
+            --gold-pale: #E8D9B5;
+            --cream: #F2EDE2;
+            --muted: #9C9282;
+            --border-gold: rgba(212, 175, 55, .25);
+        }
+
+        body {
+            background: var(--charcoal);
+            color: var(--cream);
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background-image:
+                radial-gradient(circle at 15% 0%, rgba(212, 175, 55, .06), transparent 40%),
+                radial-gradient(circle at 85% 100%, rgba(212, 175, 55, .05), transparent 45%);
+        }
+
+        .navbar {
+            background: var(--charcoal-dark);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            background: linear-gradient(120deg, var(--gold-pale), var(--gold), var(--gold-soft));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-decoration: none;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn, .lang-btn {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        .back-btn:hover, .lang-btn:hover {
+            background: var(--gold);
+            color: var(--charcoal-dark);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .header {
+            margin-top: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: var(--gold-pale);
+            font-weight: 600;
+            font-size: 26px;
+        }
+
+        .room {
+            color: var(--gold);
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 14px 20px;
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            background: var(--charcoal-field);
+            color: var(--cream);
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            transition: .3s;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, .15);
+        }
+
+        .search-bar::placeholder {
+            color: var(--muted);
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 15px 20px;
+            background: var(--charcoal-dark);
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .filter-buttons button {
+            background: transparent;
+            color: var(--gold-soft);
+            border: 1px solid var(--border-gold);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .filter-buttons button:hover,
+        .filter-buttons button.active {
+            background: var(--gold);
+            color: var(--charcoal-dark);
+            border-color: var(--gold);
+        }
+
+        /* Food Cards Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .food-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--charcoal-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 18px;
+            transition: .3s;
+        }
+
+        .food-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, .10), rgba(212, 175, 55, .22), rgba(212, 175, 55, .10), transparent);
+            transform: skewX(-25deg);
+        }
+
+        .food-card:hover {
+            background: var(--charcoal-card-hover);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .food-card:hover::before {
+            animation: shine 1s ease;
+        }
+
+        @keyframes shine {
+            100% { left: 200%; }
+        }
+
+        .food-card.hidden {
+            display: none;
+        }
+
+        .food-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 18px 18px 0 0;
+        }
+
+        .food-details {
+            padding: 15px 18px;
+        }
+
+        .food-name {
+            font-size: 17px;
+            color: var(--cream);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .food-price {
+            color: var(--gold-soft);
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .food-category {
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            background: var(--charcoal-field);
+            color: var(--gold);
+            font-size: 18px;
+            cursor: pointer;
+            transition: .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:hover {
+            background: var(--gold);
+            color: var(--charcoal-dark);
+        }
+
+        .qty-input {
+            width: 50px;
+            padding: 8px;
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            text-align: center;
+            background: var(--charcoal-field);
+            color: var(--cream);
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+        }
+
+        .qty-input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: var(--charcoal-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .order-summary h3 {
+            color: var(--gold-pale);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .order-items {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-gold);
+            color: var(--cream);
+            font-size: 14px;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .order-btn {
+            width: 100%;
+            background: var(--gold);
+            color: var(--charcoal-dark);
+            border: none;
+            padding: 16px;
+            font-size: 17px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: .5px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .order-btn:hover {
+            opacity: .9;
+            box-shadow: 0 0 20px rgba(212, 175, 55, .25);
+        }
+
+        .order-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--gold-soft);
+            letter-spacing: .5px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--muted);
+            font-size: 16px;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 15px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            .filter-buttons {
+                padding: 10px;
+            }
+            
+            .filter-buttons button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">SS HOTELS</a>
+        <div class="nav-right">
+            <a class="back-btn" href="../index.html">← Back</a>
+            <button class="lang-btn" onclick="toggleLanguage()">English | తెలుగు</button>
+        </div>
+    </nav>
+
+    <div class="filter-buttons">
+        <button class="active" onclick="filterFood('all')">All</button>
+        <button onclick="filterFood('breakfast')">Breakfast</button>
+        <button onclick="filterFood('lunch')">Lunch</button>
+        <button onclick="filterFood('dinner')">Dinner</button>
+        <button onclick="filterFood('snacks')">Snacks</button>
+        <button onclick="filterFood('beverages')">Beverages</button>
+        <button onclick="filterFood('south-indian')">South Indian</button>
+        <button onclick="filterFood('north-indian')">North Indian</button>
+        <button onclick="filterFood('chinese')">Chinese</button>
+        <button onclick="filterFood('desserts')">Desserts</button>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="menuTitle">🍽️ SS HOTELS MENU</h1>
+            <div class="room">
+                <span id="roomLabel">Room No:</span> <span id="roomNo">...</span>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchBar" placeholder="🔍 Search for dishes..." oninput="searchFood()">
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu-grid" id="menuGrid">
+            <!-- South Indian - Breakfast -->
+            <div class="food-card south-indian breakfast" data-name="Idli" data-price="40">
+                <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&h=300&fit=crop" alt="Idli" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">South Indian • Breakfast</div>
+                    <div class="food-name">Idli</div>
+                    <div class="food-price">₹40</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card south-indian breakfast" data-name="Masala Dosa" data-price="90">
+                <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Idli" class="food-image">               <div class="food-details">
+                    <div class="food-category">South Indian • Breakfast</div>
+                    <div class="food-name">Masala Dosa</div>
+                    <div class="food-price">₹90</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card south-indian breakfast" data-name="Uttapam" data-price="100">
+                <img src="https://media.istockphoto.com/id/2012905499/photo/south-indian-food-uttapam.jpg?s=2048x2048&w=is&k=20&c=rVsNjMJlNfMMt_Dy_C04J2HI-G7u-IakpR-GRn0Yih4=" alt="Uttapam" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">South Indian • Breakfast</div>
+                    <div class="food-name">Uttapam</div>
+                    <div class="food-price">₹100</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- North Indian - Dinner -->
+            <div class="food-card north-indian dinner" data-name="Roti" data-price="40">
+                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop" alt="Roti" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">North Indian • Dinner</div>
+                    <div class="food-name">Roti</div>
+                    <div class="food-price">₹40</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card north-indian dinner" data-name="Chicken Curry" data-price="200">
+                <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&h=300&fit=crop" alt="Chicken Curry" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">North Indian • Dinner</div>
+                    <div class="food-name">Chicken Curry</div>
+                    <div class="food-price">₹200</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card north-indian dinner" data-name="Paneer Butter Masala" data-price="220">
+                <img src="https://images.unsplash.com/photo-1631452180539-96aca7d48617?w=400&h=300&fit=crop" alt="Paneer Butter Masala" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">North Indian • Dinner</div>
+                    <div class="food-name">Paneer Butter Masala</div>
+                    <div class="food-price">₹220</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lunch - Biryani -->
+            <div class="food-card lunch" data-name="Chicken Biryani" data-price="320">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=300&fit=crop" alt="Chicken Biryani" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Lunch Special</div>
+                    <div class="food-name">Chicken Biryani</div>
+                    <div class="food-price">₹320</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card lunch" data-name="Mutton Biryani" data-price="450">
+                <img src="https://images.unsplash.com/photo-1642821373181-696a54913e93?w=400&h=300&fit=crop" alt="Mutton Biryani" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Lunch Special</div>
+                    <div class="food-name">Mutton Biryani</div>
+                    <div class="food-price">₹450</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chinese -->
+            <div class="food-card chinese" data-name="Chicken Fried Rice" data-price="220">
+                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" alt="Chicken Fried Rice" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Chinese</div>
+                    <div class="food-name">Chicken Fried Rice</div>
+                    <div class="food-price">₹220</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card chinese" data-name="Chicken Noodles" data-price="200">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=300&fit=crop" alt="Chicken Noodles" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Chinese</div>
+                    <div class="food-name">Chicken Noodles</div>
+                    <div class="food-price">₹200</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snacks -->
+            <div class="food-card snacks" data-name="French Fries" data-price="120">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&h=300&fit=crop" alt="French Fries" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Snacks</div>
+                    <div class="food-name">French Fries</div>
+                    <div class="food-price">₹120</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card snacks" data-name="Veg Puff" data-price="30">
+                <img src="https://media.istockphoto.com/id/2184015891/photo/puff-aloo-patties.jpg?s=2048x2048&w=is&k=20&c=0THcxOSquwfHa2BKnj6YeoyKI4HmG2Bx7dxVGOOx5Hg=" alt="Veg Puff" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Snacks</div>
+                    <div class="food-name">Veg Puff</div>
+                    <div class="food-price">₹30</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beverages -->
+            <div class="food-card beverages" data-name="Tea" data-price="20">
+                <img src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=400&h=300&fit=crop" alt="Tea" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Beverages</div>
+                    <div class="food-name">Tea</div>
+                    <div class="food-price">₹20</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card beverages" data-name="Coffee" data-price="30">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop" alt="Coffee" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Beverages</div>
+                    <div class="food-name">Coffee</div>
+                    <div class="food-price">₹30</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card beverages" data-name="Cool Drink" data-price="40">
+                <img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop" alt="Cool Drink" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Beverages</div>
+                    <div class="food-name">Cool Drink</div>
+                    <div class="food-price">₹40</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="food-card desserts" data-name="Gulab Jamun" data-price="60">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWU1iimD7ByKMXeyUWYVzhTXyK0dfA0OaKZlLUhWeHiU1G4MjX2ULm4ZCRrtWYJEiSPD-_Bk5Y_8VXVGl-Rz4yn0y9NqRQcaHPUZhInQ&s=10" alt="Gulab Jamun" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Desserts</div>
+                    <div class="food-name">Gulab Jamun</div>
+                    <div class="food-price">₹60</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card desserts" data-name="Ice Cream" data-price="80">
+                <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=300&fit=crop" alt="Ice Cream" class="food-image">
+                <div class="food-details">
+                    <div class="food-category">Desserts</div>
+                    <div class="food-name">Ice Cream</div>
+                    <div class="food-price">₹80</div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults">
+            No dishes found. Try a different search term.
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary" id="orderSummary" style="display: none;">
+            <h3 id="summaryTitle">📋 Order Summary</h3>
+            <div class="order-items" id="orderItems"></div>
+            <div class="order-total">
+                <span id="totalLabel">Total:</span>
+                <span id="totalAmount">₹0</span>
+            </div>
+        </div>
+
+        <!-- Place Order Button -->
+        <button class="order-btn" id="orderBtn" onclick="placeOrder()" disabled>
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span id="orderBtnText">Place Order via WhatsApp</span>
+        </button>
+    </div>
+
+    <div class="footer">
+        ✨ Thank You For Choosing SS HOTELS ✨
+    </div>
+
+    <script>
+        // Get room number from URL
+        const params = new URLSearchParams(window.location.search);
+        const room = params.get("room") || "...";
+        document.getElementById("roomNo").innerText = room;
+
+        let currentFilter = 'all';
+        let telugu = false;
+
+        // Translation data
+        const translations = {
+            en: {
+                menuTitle: "🍽️ SS HOTELS MENU",
+                roomLabel: "Room No:",
+                searchPlaceholder: "🔍 Search for dishes...",
+                summaryTitle: "📋 Order Summary",
+                totalLabel: "Total:",
+                orderBtnText: "Place Order via WhatsApp",
+                noResults: "No dishes found. Try a different search term.",
+                filters: {
+                    all: "All",
+                    breakfast: "Breakfast",
+                    lunch: "Lunch",
+                    dinner: "Dinner",
+                    snacks: "Snacks",
+                    beverages: "Beverages",
+                    "south-indian": "South Indian",
+                    "north-indian": "North Indian",
+                    chinese: "Chinese",
+                    desserts: "Desserts"
+                }
+            },
+            te: {
+                menuTitle: "🍽️ ఎస్ఎస్ హోటల్స్ మెనూ",
+                roomLabel: "గది నెంబర్:",
+                searchPlaceholder: "🔍 వంటకాలను వెతకండి...",
+                summaryTitle: "📋 ఆర్డర్ సారాంశం",
+                totalLabel: "మొత్తం:",
+                orderBtnText: "వాట్సాప్ ద్వారా ఆర్డర్ చేయండి",
+                noResults: "వంటకాలు కనుగొనబడలేదు. వేరే పదంతో ప్రయత్నించండి.",
+                filters: {
+                    all: "అన్నీ",
+                    breakfast: "అల్పాహారం",
+                    lunch: "భోజనం",
+                    dinner: "రాత్రి భోజనం",
+                    snacks: "స్నాక్స్",
+                    beverages: "పానీయాలు",
+                    "south-indian": "దక్షిణ భారతీయ",
+                    "north-indian": "ఉత్తర భారతీయ",
+                    chinese: "చైనీస్",
+                    desserts: "డెజర్ట్స్"
+                }
+            }
+        };
+
+        // Change quantity
+        function changeQty(btn, change) {
+            const input = btn.parentElement.querySelector('.qty-input');
+            let value = parseInt(input.value) || 0;
+            value = Math.max(0, Math.min(20, value + change));
+            input.value = value;
+            updateOrder();
+        }
+
+        // Update order summary
+        function updateOrder() {
+            const cards = document.querySelectorAll('.food-card');
+            const orderItems = document.getElementById('orderItems');
+            const orderSummary = document.getElementById('orderSummary');
+            const orderBtn = document.getElementById('orderBtn');
+            let total = 0;
+            let itemsHtml = '';
+            let hasItems = false;
+
+            cards.forEach(card => {
+                const qty = parseInt(card.querySelector('.qty-input').value) || 0;
+                if (qty > 0) {
+                    hasItems = true;
+                    const name = card.dataset.name;
+                    const price = parseInt(card.dataset.price);
+                    const itemTotal = qty * price;
+                    total += itemTotal;
+                    itemsHtml += `<div class="order-item"><span>${name} × ${qty}</span><span>₹${itemTotal}</span></div>`;
+                }
+            });
+
+            orderItems.innerHTML = itemsHtml;
+            document.getElementById('totalAmount').textContent = `₹${total}`;
+            orderSummary.style.display = hasItems ? 'block' : 'none';
+            orderBtn.disabled = !hasItems;
+        }
+
+        // Search functionality
+        function searchFood() {
+            const searchTerm = document.getElementById('searchBar').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.food-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                const matchesSearch = name.includes(searchTerm);
+                const matchesFilter = currentFilter === 'all' || card.classList.contains(currentFilter);
+
+                if (matchesSearch && matchesFilter) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // Filter functionality
+        function filterFood(category) {
+            currentFilter = category;
+
+            // Update active button
+            document.querySelectorAll('.filter-buttons button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().replace(' ', '-') === category || 
+                    (category === 'all' && btn.textContent === 'All')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            searchFood(); // Re-apply search with new filter
+        }
+
+        // Place order via WhatsApp
+        function placeOrder() {
+            const cards = document.querySelectorAll('.food-card');
+            let orderList = [];
+            let total = 0;
+
+            cards.forEach(card => {
+                const qty = parseInt(card.querySelector('.qty-input').value) || 0;
+                if (qty > 0) {
+                    const name = card.dataset.name;
+                    const price = parseInt(card.dataset.price);
+                    const itemTotal = qty * price;
+                    total += itemTotal;
+                    orderList.push(`• ${name} × ${qty} = ₹${itemTotal}`);
+                }
+            });
+
+            if (orderList.length === 0) {
+                alert(telugu ? "దయచేసి కనీసం ఒక వంటకాన్ని ఎంచుకోండి." : "Please select at least one item.");
+                return;
+            }
+
+            const message = `🏨 *SS HOTELS - FOOD ORDER*
+
+📍 *Room No:* ${room}
+
+━━━━━━━━━━━━━━━
+📋 *Order Details:*
+━━━━━━━━━━━━━━━
+${orderList.join('\n')}
+
+━━━━━━━━━━━━━━━
+💰 *Total Amount:* ₹${total}
+━━━━━━━━━━━━━━━
+
+Please confirm this order. Thank you! 🙏`;
+
+            // Open WhatsApp with the order message
+const whatsappUrl =
+`https://wa.me/919381300610?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Language toggle
+        function toggleLanguage() {
+            telugu = !telugu;
+            const lang = telugu ? 'te' : 'en';
+            const t = translations[lang];
+
+            document.getElementById('menuTitle').textContent = t.menuTitle;
+            document.getElementById('roomLabel').textContent = t.roomLabel;
+            document.getElementById('searchBar').placeholder = t.searchPlaceholder;
+            document.getElementById('summaryTitle').textContent = t.summaryTitle;
+            document.getElementById('totalLabel').textContent = t.totalLabel;
+            document.getElementById('orderBtnText').textContent = t.orderBtnText;
+            document.getElementById('noResults').textContent = t.noResults;
+
+            // Update filter buttons
+            const filterButtons = document.querySelectorAll('.filter-buttons button');
+            const filterKeys = ['all', 'breakfast', 'lunch', 'dinner', 'snacks', 'beverages', 'south-indian', 'north-indian', 'chinese', 'desserts'];
+            filterButtons.forEach((btn, index) => {
+                btn.textContent = t.filters[filterKeys[index]];
+            });
+        }
+
+        // Initialize
+        updateOrder();
+    </script>
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Times New Roman', Times, serif;
+}
+
+:root{
+--charcoal:#121212;
+--charcoal-dark:#0A0A0A;
+--charcoal-card:#1C1C1C;
+--charcoal-card-hover:#212121;
+--gold:#D4AF37;
+--gold-soft:#C9A66B;
+--gold-pale:#E8D9B5;
+--cream:#F2EDE2;
+--muted:#9C9282;
+--border-gold:rgba(212,175,55,.25);
+}
+
+body{
+background:var(--charcoal);
+color:var(--cream);
+min-height:100vh;
+/* padding:30px 20px; */
+background-image:
+radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
+radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
+}
+
+.navbar{
+    background:var(--charcoal-dark);
+    border-bottom:1px solid var(--border-gold);
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom: 25px;
+}
+.logo{
+    background:linear-gradient(
+        120deg,
+        var(--gold-pale),
+        var(--gold),
+        var(--gold-soft)
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:4px;
+    text-decoration:none;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.back-btn{
+    background:transparent;
+    color:var(--gold);
+    border:1px solid var(--gold);
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:var(--gold);
+    color:var(--charcoal-dark);
+}
+
+.lang-btn{
+    background:transparent;
+    color:var(--gold);
+    border:1px solid var(--gold);
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.lang-btn:hover{
+    background:var(--gold);
+    color:var(--charcoal-dark);
+}
+
+.section{
+max-width:1000px;
+margin:0 auto 25px;
+background:var(--charcoal-card);
+border:1px solid var(--border-gold);
+border-radius:20px;
+padding:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+transition:.3s;
+}
+
+.section:hover{
+border-color:var(--gold);
+box-shadow:
+0 10px 30px rgba(0,0,0,.35),
+0 0 20px rgba(212,175,55,.10);
+}
+
+.section h2{
+color:var(--gold);
+font-size:28px;
+margin-bottom:20px;
+padding-bottom:12px;
+border-bottom:1px solid var(--border-gold);
+}
+
+.section p{
+color:var(--cream);
+line-height:1.9;
+font-size:17px;
+}
+
+.section ul{
+list-style:none;
+}
+
+.section ul li{
+color:var(--cream);
+padding:12px 0;
+border-bottom:1px solid rgba(212,175,55,.08);
+line-height:1.7;
+}
+
+.section ul li:last-child{
+border-bottom:none;
+}
+.location-btn{
+    float:right;
+    background:linear-gradient(
+        135deg,
+        var(--gold-pale),
+        var(--gold),
+        var(--gold-soft)
+    );
+    color:#000;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.location-btn:hover{
+    opacity:.9;
+}
+
+.section ul li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:12px 0;
+}
+
+/* ABOUT SECTION */
+
+.section:first-child{
+text-align:center;
+}
+
+.section:first-child h2{
+font-size:34px;
+color:var(--gold-pale);
+}
+
+.section:first-child p{
+color:var(--cream);
+font-size:18px;
+}
+
+/* THANK YOU SECTION */
+
+.section:last-child{
+text-align:center;
+}
+
+.section:last-child h2{
+color:var(--gold-pale);
+border:none;
+}
+
+.section:last-child p{
+color:var(--gold-soft);
+font-size:18px;
+}
+.map-btn{
+background:linear-gradient(
+135deg,
+var(--gold-pale),
+var(--gold),
+var(--gold-soft)
+);
+color:#000;
+border:none;
+padding:14px 24px;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+font-weight:700;
+transition:.3s;
+}
+
+.map-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 15px rgba(212,175,55,.25);
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+body{
+    padding:20px 15px;
+}
+
+.section{
+    padding:20px;
+}
+
+.section h2{
+    font-size:22px;
+}
+
+.section p,
+.section ul li{
+    font-size:15px;
+}
+
+.section:first-child h2{
+    font-size:28px;
+}
+
+
+}
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+    SS HOTELS
+</a>
+
+<div class="nav-right">
+
+    <a class="back-btn" href="index.html">
+        ← Back
+    </a>
+
+    <button class="lang-btn" onclick="toggleLanguage()">
+        English | తెలుగు
+    </button>
+
+</div>
+
+
+</nav>
+
+<div class="section" id="aboutSection">
+        <h2>🏨 About SS HOTELS</h2>
+
+
+<p>
+    Welcome to SS HOTELS, your comfortable home away from home in the heart of Samarlakota, Andhra Pradesh.
+    Conveniently located near transportation hubs, business centers, and local attractions, our hotel offers a perfect combination of comfort, convenience, and warm hospitality.
+</p>
+
+<br>
+
+<p>
+    Whether you are visiting for business, family functions, pilgrimages, or leisure travel, SS HOTELS provides a peaceful and welcoming environment for every guest.
+    Our commitment to quality service ensures a memorable and relaxing stay.
+</p>
+
+
+</div>
+
+<div class="section" id="whySection">
+        <h2>✨ Why Choose Us</h2>
+
+
+<ul>
+    <li>✔ Comfortable and Well-Maintained Rooms</li>
+    <li>✔ Family-Friendly Environment</li>
+    <li>✔ Restaurant and Room Service</li>
+    <li>✔ Daily Housekeeping</li>
+    <li>✔ 24/7 Guest Assistance</li>
+    <li>✔ Safe and Secure Property</li>
+    <li>✔ Prime Location in Samarlakota</li>
+</ul>
+
+
+</div>
+
+<div class="section" id="timingSection">
+        <h2>⏰ Hotel Timings</h2>
+
+
+<p>
+    Check-In Time: 12:00 PM<br>
+    Check-Out Time: 11:00 AM
+</p>
+
+<br>
+
+<p>
+    Restaurant Hours<br>
+    Breakfast: 7:00 AM – 10:30 AM<br>
+    Lunch: 12:00 PM – 3:00 PM<br>
+    Dinner: 7:00 PM – 10:30 PM
+</p>
+
+
+</div>
+
+<div class="section" id="facilitySection">
+        <h2>🏨 Facilities & Services</h2>
+
+
+<ul>
+    <li>✓ Room Service</li>
+    <li>✓ Housekeeping</li>
+    <li>✓ Restaurant</li>
+    <li>✓ Laundry Service</li>
+    <li>✓ Parking Facility</li>
+    <li>✓ CCTV Security</li>
+    <li>✓ Power Backup</li>
+    <li>✓ Reception Assistance</li>
+</ul>
+
+
+</div>
+
+<div class="section" id="exploreSection">
+        <h2>🗺️ Explore Samarlakota</h2>
+
+
+<p>
+    During your stay, explore some of the most popular attractions near our hotel.
+</p>
+
+<br>
+
+<ul>
+
+    <li>
+        📍 Kumararama Bhimeswara Swamy Temple
+        <button class="location-btn"
+        onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple+Samarlakota','_blank')">
+            Location
+        </button>
+    </li>
+
+    <li>
+        📍 Draksharamam Temple
+        <button class="location-btn"
+        onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">
+            Location
+        </button>
+    </li>
+
+    <li>
+        📍 Kakinada Beach
+        <button class="location-btn"
+        onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">
+            Location
+        </button>
+    </li>
+
+    <li>
+        📍 Coringa Wildlife Sanctuary
+        <button class="location-btn"
+        onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">
+            Location
+        </button>
+    </li>
+
+</ul>
+
+</div>
+<div class="section" id="locationSection">
+        <h2>📍 Hotel Location</h2>
+
+<p>
+    SS HOTELS is conveniently located in Samarlakota,
+    Andhra Pradesh, providing easy access to temples,
+    railway station, local markets, and nearby attractions.
+</p>
+
+<br>
+
+<button class="map-btn" onclick="openMap()">
+    🗺️ View on Google Maps
+</button>
+
+</div>
+
+<div class="section" id="policySection">
+        <h2>📜 Hotel Policies</h2>
+
+
+<ul>
+    <li>❌ Smoking inside rooms is not permitted.</li>
+    <li>❌ Loud music after 10:00 PM is not allowed.</li>
+    <li>❌ Damage to hotel property may incur charges.</li>
+    <li>✅ Please secure valuables responsibly.</li>
+    <li>✅ Keep your room locked when leaving.</li>
+</ul>
+
+</div>
+
+<div class="section" id="thankSection">
+        <h2>🙏 Thank You</h2>
+
+
+<p>
+    Thank you for choosing SS HOTELS.
+    We are honored to be a part of your journey and wish you a pleasant and comfortable stay in Samarlakota.
+</p>
+
+</div>
+
+
+<!-- Telugu convertion -->
+ <script>
+
+ let telugu = false;
+
+function toggleLanguage(){
+
+
+telugu = !telugu;
+
+if(telugu){
+    document.getElementById("whySection").innerHTML = `
+<h2>✨ మమ్మల్ని ఎందుకు ఎంచుకోవాలి</h2>
+
+<ul>
+    <li>✔ సౌకర్యవంతమైన మరియు పరిశుభ్రమైన గదులు</li>
+    <li>✔ కుటుంబాలకు అనుకూలమైన వాతావరణం</li>
+    <li>✔ రెస్టారెంట్ మరియు రూమ్ సర్వీస్</li>
+    <li>✔ ప్రతిరోజూ హౌస్ కీపింగ్</li>
+    <li>✔ 24/7 అతిథి సహాయం</li>
+    <li>✔ భద్రమైన ప్రాంగణం</li>
+    <li>✔ సామర్లకోటలో ప్రధాన స్థానం</li>
+</ul>
+`;
+
+    document.querySelectorAll(".section h2")[0].innerHTML =
+    "🏨 SS హోటల్స్ గురించి";
+
+    document.querySelectorAll(".section h2")[1].innerHTML =
+    "✨ మమ్మల్ని ఎందుకు ఎంచుకోవాలి";
+
+   
+    document.getElementById("timingSection").innerHTML = `
+    <h2>⏰ హోటల్ సమయాలు</h2>
+
+    <p>
+    చెక్-ఇన్ సమయం : మధ్యాహ్నం 12:00 గంటలు<br>
+    చెక్-అవుట్ సమయం : ఉదయం 11:00 గంటలు
+    </p>
+
+    <br>
+
+    <p>
+    <strong>రెస్టారెంట్ సమయాలు</strong><br>
+
+    అల్పాహారం : ఉదయం 7:00 – 10:30<br>
+
+    మధ్యాహ్న భోజనం : మధ్యాహ్నం 12:00 – 3:00<br>
+
+    రాత్రి భోజనం : సాయంత్రం 7:00 – 10:30
+    </p>
+    `;
+
+
+    document.getElementById("facilitySection").innerHTML = `
+    <h2>🏨 సౌకర్యాలు & సేవలు</h2>
+
+    <ul>
+        <li>✓ రూమ్ సర్వీస్</li>
+        <li>✓ హౌస్ కీపింగ్ సేవలు</li>
+        <li>✓ రెస్టారెంట్ సౌకర్యం</li>
+        <li>✓ లాండ్రీ సేవలు</li>
+        <li>✓ ఉచిత పార్కింగ్ సౌకర్యం</li>
+        <li>✓ CCTV భద్రతా వ్యవస్థ</li>
+        <li>✓ 24 గంటల విద్యుత్ బ్యాకప్</li>
+        <li>✓ 24/7 రిసెప్షన్ సహాయం</li>
+    </ul>
+    `;
+
+    document.querySelectorAll(".section h2")[4].innerHTML =
+    "🗺️ సామర్లకోటను అన్వేషించండి";
+    document.querySelectorAll(".section p")[4].innerHTML =
+    "మీ బస సమయంలో సామర్లకోట మరియు పరిసర ప్రాంతాలలోని ప్రముఖ పర్యాటక మరియు ఆధ్యాత్మిక ప్రదేశాలను సందర్శించండి.";
+        document.querySelectorAll(".location-btn")[0].innerHTML = "స్థానం";
+    document.querySelectorAll(".location-btn")[1].innerHTML = "స్థానం";
+    document.querySelectorAll(".location-btn")[2].innerHTML = "స్థానం";
+    document.querySelectorAll(".location-btn")[3].innerHTML = "స్థానం";
+
+    document.querySelectorAll(".section ul")[2].innerHTML = `
+    <li>
+    📍 కుమారరామ భీమేశ్వర స్వామి దేవాలయం
+    <button class="location-btn"
+    onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple+Samarlakota','_blank')">
+    స్థానం
+    </button>
+    </li>
+
+    <li>
+    📍 ద్రాక్షారామ భీమేశ్వర స్వామి దేవాలయం
+    <button class="location-btn"
+    onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">
+    స్థానం
+    </button>
+    </li>
+
+    <li>
+    📍 కాకినాడ బీచ్
+    <button class="location-btn"
+    onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">
+    స్థానం
+    </button>
+    </li>
+
+    <li>
+    📍 కోరింగా వన్యప్రాణి అభయారణ్యం
+    <button class="location-btn"
+    onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">
+    స్థానం
+    </button>
+    </li>
+    `;
+        
+        document.getElementById("locationSection").innerHTML = `
+        <h2>📍 హోటల్ స్థానం</h2>
+
+        <p>
+        SS HOTELS ఆంధ్రప్రదేశ్‌లోని సామర్లకోటలో సౌకర్యవంతమైన ప్రాంతంలో ఉంది.
+        దేవాలయాలు, రైల్వే స్టేషన్, స్థానిక మార్కెట్లు మరియు పర్యాటక ప్రాంతాలకు సులభంగా చేరుకోవచ్చు.
+        </p>
+
+        <br>
+
+        <button class="map-btn" onclick="openMap()">
+        🗺️ గూగుల్ మ్యాప్స్‌లో చూడండి
+        </button>
+    `;
+
+
+    document.querySelectorAll(".section h2")[6].innerHTML =
+    "📜 హోటల్ నియమాలు";
+    document.querySelectorAll(".section ul")[3].innerHTML = `
+    <li>❌ గదులలో ధూమపానం అనుమతించబడదు.</li>
+    <li>❌ రాత్రి 10:00 గంటల తర్వాత పెద్ద శబ్దం చేయకూడదు.</li>
+    <li>❌ హోటల్ ఆస్తులకు నష్టం కలిగిస్తే అదనపు ఛార్జీలు వర్తించవచ్చు.</li>
+    <li>✅ మీ విలువైన వస్తువులను సురక్షితంగా ఉంచండి.</li>
+    <li>✅ బయటకు వెళ్లేటప్పుడు గది తలుపు లాక్ చేయండి.</li>
+    `;
+
+    document.querySelectorAll(".section h2")[7].innerHTML =
+    "🙏 ధన్యవాదాలు";
+
+    document.querySelectorAll(".section p")[0].innerHTML =
+    "ఆంధ్రప్రదేశ్‌లోని సామర్లకోట హృదయంలో ఉన్న SS HOTELS కి స్వాగతం. సౌకర్యం, నాణ్యమైన సేవలు మరియు ఆతిథ్యంతో మేము మీకు ఉత్తమ అనుభవాన్ని అందించడానికి కట్టుబడి ఉన్నాము.";
+
+    document.querySelectorAll(".section p")[1].innerHTML =
+    "వ్యాపారం, కుటుంబ కార్యక్రమాలు, తీర్థయాత్రలు లేదా విహారయాత్రల కోసం వచ్చిన అతిథులకు ప్రశాంతమైన మరియు సౌకర్యవంతమైన వాతావరణాన్ని అందిస్తున్నాము.";
+    
+    document.getElementById("thankSection").innerHTML = `
+<h2>🙏 ధన్యవాదాలు</h2>
+
+<p>
+SS HOTELS ను ఎంచుకున్నందుకు ధన్యవాదాలు.
+
+మీ బస ఆనందదాయకంగా, సౌకర్యవంతంగా మరియు చిరస్మరణీయంగా ఉండాలని మేము కోరుకుంటున్నాము.
+</p>
+`;
+    
+}else{
+    location.reload();
+}
+
+
+}
+
+    </script>
+</body>
+</html>

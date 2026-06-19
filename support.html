@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Support | SS HOTELS</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+:root{
+    --charcoal:#121212;
+    --charcoal-dark:#0A0A0A;
+    --charcoal-card:#1C1C1C;
+    --charcoal-card-hover:#212121;
+    --gold:#D4AF37;
+    --gold-soft:#C9A66B;
+    --gold-pale:#E8D9B5;
+    --cream:#F2EDE2;
+    --muted:#9C9282;
+    --border-gold:rgba(212,175,55,.25);
+}
+
+body{
+    background:var(--charcoal);
+    color:var(--cream);
+    min-height:100vh;
+    background-image:
+        radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
+        radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
+}
+
+.navbar{
+    background:var(--charcoal-dark);
+    border-bottom:1px solid var(--border-gold);
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    background:linear-gradient(
+        120deg,
+        var(--gold-pale),
+        var(--gold),
+        var(--gold-soft)
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:4px;
+    text-decoration:none;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.back-btn{
+    background:transparent;
+    color:var(--gold);
+    border:1px solid var(--gold);
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:var(--gold);
+    color:var(--charcoal-dark);
+}
+
+.lang-btn{
+    background:transparent;
+    color:var(--gold);
+    border:1px solid var(--gold);
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:25px 20px;
+}
+.header{
+    background:var(--charcoal-card);
+    border:1px solid var(--border-gold);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    color:var(--gold-pale);
+    margin-bottom:10px;
+}
+
+.room{
+    color:var(--gold);
+    font-size:18px;
+    font-weight:600;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:var(--charcoal-card);
+    border:1px solid var(--border-gold);
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:var(--gold);
+    background:var(--charcoal-card-hover);
+    box-shadow:0 0 20px rgba(212,175,55,.15);
+}
+
+.icon{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.card h3{
+    color:var(--gold-pale);
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.custom-box{
+    margin-top:25px;
+    background:var(--charcoal-card);
+    border:1px solid var(--border-gold);
+    border-radius:18px;
+    padding:25px;
+}
+
+.custom-box h2{
+    color:var(--gold-pale);
+    margin-bottom:15px;
+}
+
+textarea{
+    width:100%;
+    min-height:120px;
+    background:var(--charcoal-dark);
+    color:var(--cream);
+    border:1px solid var(--border-gold);
+    border-radius:12px;
+    padding:15px;
+    resize:none;
+    outline:none;
+}
+
+textarea:focus{
+    border-color:var(--gold);
+}
+
+.send-btn{
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:700;
+    background:linear-gradient(
+        135deg,
+        var(--gold-pale),
+        var(--gold),
+        var(--gold-soft)
+    );
+    color:#000;
+}
+
+.send-btn:hover{
+    opacity:.95;
+}
+
+.back{
+    text-align:center;
+    margin-top:25px;
+}
+
+.back a{
+    color:var(--gold);
+    text-decoration:none;
+}
+
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.lang-btn:hover{
+    background:var(--gold);
+    color:var(--charcoal-dark);
+}
+</style>
+
+</head>
+<body>
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        SS HOTELS
+    </a>
+
+    <div class="nav-right">
+
+        <a class="back-btn" href="index.html">
+            ← Back
+        </a>
+
+        <button class="lang-btn" onclick="toggleLanguage()">
+            English | తెలుగు
+        </button>
+
+    </div>
+
+</nav>
+<div class="container">
+
+<div class="header">
+    <h1>💬 Guest Support Center</h1>
+    <div class="room">
+        Room No: <span id="roomNo">---</span>
+    </div>
+</div>
+
+<div class="grid">
+
+    <div class="card" onclick="sendRequest('Housekeeping Assistance')">
+        <div class="icon">🧹</div>
+        <h3>Housekeeping</h3>
+        <p>Cleaning & room assistance</p>
+    </div>
+
+    <div class="card" onclick="sendRequest('Food Related Issue')">
+        <div class="icon">🍽️</div>
+        <h3>Food Support</h3>
+        <p>Food order & restaurant help</p>
+    </div>
+
+    <div class="card" onclick="sendRequest('WiFi Problem')">
+        <div class="icon">📶</div>
+        <h3>WiFi Issue</h3>
+        <p>Internet connectivity support</p>
+    </div>
+
+    <div class="card" onclick="sendRequest('Need Extra Blanket / Pillow')">
+        <div class="icon">🛏️</div>
+        <h3>Extra Bedding</h3>
+        <p>Blankets, pillows & extras</p>
+    </div>
+
+    <div class="card" onclick="sendRequest('Taxi Booking Required')">
+        <div class="icon">🚕</div>
+        <h3>Taxi Service</h3>
+        <p>Local transportation help</p>
+    </div>
+
+    <div class="card" onclick="sendRequest('Laundry Service Required')">
+        <div class="icon">🧺</div>
+        <h3>Laundry</h3>
+        <p>Clothes washing service</p>
+    </div>
+
+</div>
+
+<div class="custom-box">
+
+    <h2>✍️ Describe Your Issue</h2>
+
+    <textarea id="issue"
+    placeholder="Example: AC is not cooling properly..."></textarea>
+
+    <button class="send-btn" onclick="sendCustomIssue()">
+        Send via WhatsApp
+    </button>
+
+</div>
+
+
+
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const room = params.get("room") || "Unknown";
+
+document.getElementById("roomNo").innerText = room;
+
+const whatsappNumber = "918143139444";
+
+function sendRequest(type){
+
+    const message =
+`🏨 SS HOTELS SUPPORT
+
+Room No: ${room}
+
+Request Type:
+${type}
+
+Please assist me.`;
+
+    window.open(
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+        '_blank'
+    );
+}
+
+function sendCustomIssue(){
+
+    const issue = document.getElementById("issue").value.trim();
+
+    if(issue === ""){
+        alert("Please enter your issue.");
+        return;
+    }
+
+    const message =
+`🏨 SS HOTELS SUPPORT
+
+Room No: ${room}
+
+Issue:
+${issue}`;
+
+    window.open(
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+        '_blank'
+    );
+}
+
+let telugu = false;
+
+function toggleLanguage(){
+
+    telugu = !telugu;
+
+    if(telugu){
+
+        document.querySelector(".header h1").innerHTML =
+        "💬 అతిథుల సహాయ కేంద్రం";
+
+        document.querySelector(".room").innerHTML =
+        `గది నంబర్: <span id="roomNo">${room}</span>`;
+
+        document.querySelectorAll(".card h3")[0].innerHTML =
+        "హౌస్ కీపింగ్";
+
+        document.querySelectorAll(".card p")[0].innerHTML =
+        "గది శుభ్రపరచడం మరియు సహాయం";
+
+        document.querySelectorAll(".card h3")[1].innerHTML =
+        "ఆహార సహాయం";
+
+        document.querySelectorAll(".card p")[1].innerHTML =
+        "ఆహార ఆర్డర్ మరియు రెస్టారెంట్ సహాయం";
+
+        document.querySelectorAll(".card h3")[2].innerHTML =
+        "వైఫై సమస్య";
+
+        document.querySelectorAll(".card p")[2].innerHTML =
+        "ఇంటర్నెట్ కనెక్టివిటీ సహాయం";
+
+        document.querySelectorAll(".card h3")[3].innerHTML =
+        "అదనపు పరుపు";
+
+        document.querySelectorAll(".card p")[3].innerHTML =
+        "దుప్పట్లు మరియు దిండ్లు";
+
+        document.querySelectorAll(".card h3")[4].innerHTML =
+        "టాక్సీ సేవ";
+
+        document.querySelectorAll(".card p")[4].innerHTML =
+        "స్థానిక రవాణా సహాయం";
+
+        document.querySelectorAll(".card h3")[5].innerHTML =
+        "లాండ్రీ";
+
+        document.querySelectorAll(".card p")[5].innerHTML =
+        "బట్టల ఉతికే సేవ";
+
+        document.querySelector(".custom-box h2").innerHTML =
+        "✍️ మీ సమస్యను వివరించండి";
+
+        document.getElementById("issue").placeholder =
+        "ఉదాహరణ: AC సరిగా చల్లబరచడం లేదు...";
+
+        document.querySelector(".send-btn").innerHTML =
+        "వాట్సాప్ ద్వారా పంపండి";
+
+    }else{
+
+        location.reload();
+
+    }
+}
+</script>
+
+</body>
+</html>
