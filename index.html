@@ -80,24 +80,44 @@
     font-size:14px;
     letter-spacing:1px;
 }
-
 @media(max-width:768px){
+
     .footer{
-        padding:40px 15px 25px;
+        flex-shrink:0;
+        margin-top:5px;
+        padding:6px 8px;
+        text-align:center;
     }
 
     .footer h2{
-        font-size:1.6rem;
+        font-size:18px;
+        margin-bottom:4px;
+        letter-spacing:1px;
+    }
+
+    .footer p{
+        font-size:11px;
+        margin:2px 0;
+        line-height:1.3;
+    }
+
+    .social-icons{
+        margin:8px 0;
+        gap:8px;
     }
 
     .social-icons a{
-        width:45px;
-        height:45px;
-        font-size:20px;
+        width:32px;
+        height:32px;
+        font-size:14px;
+    }
+
+    .copyright{
+        margin-top:6px;
+        padding-top:6px;
+        font-size:10px;
     }
 }
-
-
 
 :root{
     --charcoal:#121212;
@@ -266,13 +286,6 @@ font-size: 20px;
 .card p{
     color:var(--muted);
     font-size:14px;
-}
-.footer{
-    text-align:center;
-    margin-top:40px;
-    padding:20px;
-    color:var(--gold-soft);
-    letter-spacing:.5px;
 }
 
 /* ===== MOBILE: fit all 6 cards on one screen, no scrolling ===== */
@@ -534,9 +547,7 @@ function toggleLanguage(){
       <h2>SS HOTELS</h2>
 
       <p>Samalkot, Kakinada, Andhra Pradesh</p>
-      <p>📞 +91 xxxxxxxx</p>
-      <p>📧 info@sshotels.in</p>
-
+      <p>📞 +91 8143139444 | 📧 info@sshotels.in</p>
       
 <div class="social-icons">
 
