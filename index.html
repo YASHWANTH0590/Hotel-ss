@@ -1,9 +1,11 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SS HOTELS</title>
+<title>SS GRAND INN</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
 
 
 <style>
@@ -13,6 +15,89 @@
     box-sizing:border-box;
     font-family:'Times New Roman', Times, serif;
 }
+
+.footer{
+    background:#0A0A0A;
+    border-top:1px solid rgba(212,175,55,0.25);
+    padding:10px 10px 10px;
+    text-align:center;
+    color:#F2EDE2;
+    margin-top:80px;
+}
+
+.footer h2{
+    color:#D4AF37;
+    font-size:2rem;
+    margin-bottom:15px;
+    letter-spacing:3px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.footer p{
+    color:#C9C9C9;
+    margin:8px 0;
+    font-size:15px;
+    line-height:1.6;
+}
+.social-icons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin:25px 0;
+}
+
+.social-icons a{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    border:1px solid #D4AF37;
+    color:#D4AF37;
+    text-decoration:none;
+    font-size:22px;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    background:#D4AF37;
+    color:#121212;
+}
+.social-icons a:hover{
+    background:#D4AF37;
+    color:#121212;
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(212,175,55,0.4);
+}
+
+.copyright{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid rgba(212,175,55,0.15);
+    color:#8F8F8F;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+@media(max-width:768px){
+    .footer{
+        padding:40px 15px 25px;
+    }
+
+    .footer h2{
+        font-size:1.6rem;
+    }
+
+    .social-icons a{
+        width:45px;
+        height:45px;
+        font-size:20px;
+    }
+}
+
+
 
 :root{
     --charcoal:#121212;
@@ -25,6 +110,10 @@
     --cream:#F2EDE2;
     --muted:#9C9282;
     --border-gold:rgba(212,175,55,.25);
+}
+
+html, body{
+    height:100%;
 }
 
 body{
@@ -185,16 +274,118 @@ font-size: 20px;
     color:var(--gold-soft);
     letter-spacing:.5px;
 }
+
+/* ===== MOBILE: fit all 6 cards on one screen, no scrolling ===== */
 @media(max-width:768px){
 
+    html, body{
+        height:100%;
+        overflow:hidden;
+    }
+
+    body{
+        display:flex;
+        flex-direction:column;
+        height:100dvh;
+        min-height:100vh;
+    }
+
+    .navbar{
+        flex-shrink:0;
+        padding:12px 16px;
+    }
+
     .logo{
-        font-size:22px;
+        font-size:18px;
+        letter-spacing:2px;
+    }
+
+    .lang-btn{
+        padding:6px 12px;
+        font-size:12px;
+    }
+
+    .container{
+        flex:1 1 auto;
+        display:flex;
+        flex-direction:column;
+        min-height:0;
+        padding:12px;
     }
 
     .welcome{
-        padding:20px;
+        flex-shrink:0;
+        padding:14px 16px;
+        margin-bottom:10px;
+        border-radius:14px;
     }
 
+    .welcome h1{
+        font-size:15px;
+    }
+
+    .room{
+        font-size:18px;
+        margin:6px 0;
+    }
+
+    .message{
+        font-size:11.5px;
+    }
+
+    .cards{
+        flex:1 1 auto;
+        min-height:0;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:repeat(3, 1fr);
+        gap:10px;
+    }
+
+    .card{
+        padding:8px 6px;
+        border-radius:14px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        min-height:0;
+    }
+
+    .icon{
+        font-size:24px;
+        margin-bottom:5px;
+    }
+
+    .card h3{
+        font-size:12.5px;
+        margin-bottom:3px;
+        line-height:1.2;
+    }
+
+    .card p{
+        font-size:10px;
+        line-height:1.2;
+    }
+
+    .footer{
+        flex-shrink:0;
+        margin-top:8px;
+        padding:8px;
+        font-size:10.5px;
+    }
+}
+
+/* Extra-short phones: shrink a little further */
+@media(max-width:768px) and (max-height:620px){
+    .welcome{ padding:10px 14px; margin-bottom:8px; }
+    .welcome h1{ font-size:13px; }
+    .room{ font-size:16px; margin:4px 0; }
+    .message{ font-size:10.5px; }
+    .icon{ font-size:20px; margin-bottom:3px; }
+    .card h3{ font-size:11.5px; }
+    .card p{ display:none; }
+    .footer{ font-size:9.5px; padding:6px; }
 }
 </style>
 </head>
@@ -202,7 +393,7 @@ font-size: 20px;
 
 <nav class="navbar">
     <a href="index.html" class="logo">
-    SS HOTELS
+    SS GRAND INN
 </a>
 
     <button class="lang-btn" onclick="toggleLanguage()">
@@ -220,7 +411,7 @@ font-size: 20px;
 
         <div class="room">
             Room No :
-            <span id="roomNo">---</span>
+            <span id="roomNo">101</span>
         </div>
 
         <p class="message" id="messageText">
@@ -271,10 +462,7 @@ font-size: 20px;
 
 </div>
 
-<div class="footer">
-    ✨ Thank You For Choosing SS HOTELS ✨
-</div>
-
+ 
 <script>
 
 // ROOM NUMBER FROM QR URL
@@ -288,7 +476,7 @@ if(room){
 // WHATSAPP SUPPORT
 function openWhatsapp(){
 
-    let roomNo = room || "Unknown";
+    let roomNo = room || "101";
 
     let msg =
 `Hello SS HOTELS,
@@ -298,7 +486,7 @@ I need assistance.
 Room Number: ${roomNo}`;
 
     window.open(
-        `https://wa.me/919999999999?text=${encodeURIComponent(msg)}`,
+        `https://wa.me/91xxxxxxxxxx?text=${encodeURIComponent(msg)}`,
         '_blank'
     );
 }
@@ -342,6 +530,34 @@ function toggleLanguage(){
 }
 
 </script>
+<footer class   ="footer">
+      <h2>SS HOTELS</h2>
+
+      <p>Samalkot, Kakinada, Andhra Pradesh</p>
+      <p>📞 +91 xxxxxxxx</p>
+      <p>📧 info@sshotels.in</p>
+
+      
+<div class="social-icons">
+
+    <a href="https://facebook.com" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="https://instagram.com" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://wa.me/91xxxxxxxxxx" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</div>
+
+      <p class="copyright">
+        © 2026 SS GRAND INN. All Rights Reserved.
+      </p>
+    </footer>
 
 </body>
 </html>

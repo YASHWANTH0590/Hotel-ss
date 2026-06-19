@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SS HOTELS | WiFi Access</title>
+<title>Wifi | SS GRAND INN</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
 
 <style>
 *{
@@ -12,6 +16,7 @@
     box-sizing:border-box;
     font-family:'Times New Roman', Times, serif;
 }
+
 
 :root{
     --charcoal:#121212;
@@ -195,13 +200,96 @@ body{
         font-size:22px;
     }
 }
+
+.footer{
+    background:#0A0A0A;
+    border-top:1px solid rgba(212,175,55,0.25);
+    padding:10px 10px 10px;
+    text-align:center;
+    color:#F2EDE2;
+    margin-top:80px;
+}
+
+.footer h2{
+    color:#D4AF37;
+    font-size:2rem;
+    margin-bottom:15px;
+    letter-spacing:3px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.footer p{
+    color:#C9C9C9;
+    margin:8px 0;
+    font-size:15px;
+    line-height:1.6;
+}
+.social-icons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin:25px 0;
+}
+
+.social-icons a{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    border:1px solid #D4AF37;
+    color:#D4AF37;
+    text-decoration:none;
+    font-size:22px;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    background:#D4AF37;
+    color:#121212;
+}
+.social-icons a:hover{
+    background:#D4AF37;
+    color:#121212;
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(212,175,55,0.4);
+}
+
+.copyright{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid rgba(212,175,55,0.15);
+    color:#8F8F8F;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+@media(max-width:768px){
+    .footer{
+        padding:40px 15px 25px;
+    }
+
+    .footer h2{
+        font-size:1.6rem;
+    }
+
+    .social-icons a{
+        width:45px;
+        height:45px;
+        font-size:20px;
+    }
+}
+
+
 </style>
 </head>
 <body>
 
 <nav class="navbar">
         <a href="index.html" class="logo">
-    SS HOTELS
+    SS GRAND INN
 </a>
     <!-- <a class="back-btn" href="index.html">← Back</a> -->
 </nav>
@@ -234,9 +322,6 @@ body{
 
 </div>
 
-<div class="footer">
-    ✨ Thank You For Choosing SS HOTELS ✨
-</div>
 
 <script>
 function copyText(id, btn){
@@ -254,6 +339,35 @@ function copyText(id, btn){
     });
 }
 </script>
+ <footer class   ="footer">
+      <h2>SS HOTELS</h2>
+
+      <p>Samalkot, Kakinada, Andhra Pradesh</p>
+      <p>📞 +91 xxxxxxxxxx</p>
+      <p>📧 info@sshotels.in</p>
+
+      
+<div class="social-icons">
+
+    <a href="https://facebook.com" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="https://instagram.com" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://wa.me/91xxxxxxxxxx" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</div>
+
+      <p class="copyright">
+        © 2026 SS GRAND INN. All Rights Reserved.
+      </p>
+    </footer>
+
 
 </body>
 </html>

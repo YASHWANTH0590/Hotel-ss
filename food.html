@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Food | SS HOTELS</title>
-    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap)" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Order | SS GRAND INN</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
 
     <style>
         * {
@@ -158,8 +160,9 @@
             gap: 10px;
             justify-content: center;
             padding: 15px 20px;
-            background: var(--charcoal-dark);
-            border-bottom: 1px solid var(--border-gold);
+            /* background: var(--charcoal-dark); */
+            /* border-bottom: 1px solid var(--border-gold); */
+            margin-top: 5px;
         }
 
         .filter-buttons button {
@@ -246,6 +249,7 @@
         }
 
         .food-price {
+            display: none;
             color: var(--gold-soft);
             font-weight: 600;
             font-size: 15px;
@@ -406,11 +410,92 @@
         font-size:14px;
     }
 }
+
+.footer{
+    background:#0A0A0A;
+    border-top:1px solid rgba(212,175,55,0.25);
+    padding:10px 10px 10px;
+    text-align:center;
+    color:#F2EDE2;
+    margin-top:80px;
+}
+
+.footer h2{
+    color:#D4AF37;
+    font-size:2rem;
+    margin-bottom:15px;
+    letter-spacing:3px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.footer p{
+    color:#C9C9C9;
+    margin:8px 0;
+    font-size:15px;
+    line-height:1.6;
+}
+.social-icons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin:25px 0;
+}
+
+.social-icons a{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    border:1px solid #D4AF37;
+    color:#D4AF37;
+    text-decoration:none;
+    font-size:22px;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    background:#D4AF37;
+    color:#121212;
+}
+.social-icons a:hover{
+    background:#D4AF37;
+    color:#121212;
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(212,175,55,0.4);
+}
+
+.copyright{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid rgba(212,175,55,0.15);
+    color:#8F8F8F;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+@media(max-width:768px){
+    .footer{
+        padding:40px 15px 25px;
+    }
+
+    .footer h2{
+        font-size:1.6rem;
+    }
+
+    .social-icons a{
+        width:45px;
+        height:45px;
+        font-size:20px;
+    }
+}
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="logo">SS HOTELS</a>
+        <a href="index.html" class="logo">SS GRAND INN</a>
         <div class="nav-right">
             <!-- <a class="back-btn" href="../index.html">← Back</a> -->
             <button class="lang-btn" onclick="toggleLanguage()">English | తెలుగు</button>
@@ -434,7 +519,7 @@
         <div class="header">
             <h1 id="menuTitle">🍽️ SS HOTELS MENU</h1>
             <div class="room">
-                <span id="roomLabel">Room No:</span> <span id="roomNo">...</span>
+                <span id="roomLabel">Room No:</span> <span id="roomNo">101</span>
             </div>
         </div>
 
@@ -451,7 +536,6 @@
                 <div class="food-details">
                     <div class="food-category">South Indian • Breakfast</div>
                     <div class="food-name">Idli</div>
-                    <div class="food-price">₹40</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -460,7 +544,7 @@
                 </div>
             </div>
 
-            <div class="food-card south-indian breakfast" data-name="Masala Dosa" data-price="90">
+            <div class="food-card south-indian breakfast" data-name="Masala Dosa" >
                 <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Idli" class="food-image">               <div class="food-details">
                     <div class="food-category">South Indian • Breakfast</div>
                     <div class="food-name">Masala Dosa</div>
@@ -473,12 +557,11 @@
                 </div>
             </div>
 
-            <div class="food-card south-indian breakfast" data-name="Uttapam" data-price="100">
+            <div class="food-card south-indian breakfast" data-name="Uttapam" >
                 <img src="https://media.istockphoto.com/id/2012905499/photo/south-indian-food-uttapam.jpg?s=2048x2048&w=is&k=20&c=rVsNjMJlNfMMt_Dy_C04J2HI-G7u-IakpR-GRn0Yih4=" alt="Uttapam" class="food-image">
                 <div class="food-details">
                     <div class="food-category">South Indian • Breakfast</div>
                     <div class="food-name">Uttapam</div>
-                    <div class="food-price">₹100</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -488,12 +571,11 @@
             </div>
 
             <!-- North Indian - Dinner -->
-            <div class="food-card north-indian dinner" data-name="Roti" data-price="40">
+            <div class="food-card north-indian dinner" data-name="Roti" >
                 <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop" alt="Roti" class="food-image">
                 <div class="food-details">
                     <div class="food-category">North Indian • Dinner</div>
                     <div class="food-name">Roti</div>
-                    <div class="food-price">₹40</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -502,12 +584,11 @@
                 </div>
             </div>
 
-            <div class="food-card north-indian dinner" data-name="Chicken Curry" data-price="200">
+            <div class="food-card north-indian dinner" data-name="Chicken Curry" >
                 <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&h=300&fit=crop" alt="Chicken Curry" class="food-image">
                 <div class="food-details">
                     <div class="food-category">North Indian • Dinner</div>
                     <div class="food-name">Chicken Curry</div>
-                    <div class="food-price">₹200</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -516,12 +597,11 @@
                 </div>
             </div>
 
-            <div class="food-card north-indian dinner" data-name="Paneer Butter Masala" data-price="220">
+            <div class="food-card north-indian dinner" data-name="Paneer Butter Masala" >
                 <img src="https://images.unsplash.com/photo-1631452180539-96aca7d48617?w=400&h=300&fit=crop" alt="Paneer Butter Masala" class="food-image">
                 <div class="food-details">
                     <div class="food-category">North Indian • Dinner</div>
                     <div class="food-name">Paneer Butter Masala</div>
-                    <div class="food-price">₹220</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -531,12 +611,11 @@
             </div>
 
             <!-- Lunch - Biryani -->
-            <div class="food-card lunch" data-name="Chicken Biryani" data-price="320">
+            <div class="food-card lunch" data-name="Chicken Biryani" >
                 <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=300&fit=crop" alt="Chicken Biryani" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Lunch Special</div>
                     <div class="food-name">Chicken Biryani</div>
-                    <div class="food-price">₹320</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -545,12 +624,11 @@
                 </div>
             </div>
 
-            <div class="food-card lunch" data-name="Mutton Biryani" data-price="450">
+            <div class="food-card lunch" data-name="Mutton Biryani" >
                 <img src="https://images.unsplash.com/photo-1642821373181-696a54913e93?w=400&h=300&fit=crop" alt="Mutton Biryani" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Lunch Special</div>
                     <div class="food-name">Mutton Biryani</div>
-                    <div class="food-price">₹450</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -560,12 +638,11 @@
             </div>
 
             <!-- Chinese -->
-            <div class="food-card chinese" data-name="Chicken Fried Rice" data-price="220">
+            <div class="food-card chinese" data-name="Chicken Fried Rice" >
                 <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" alt="Chicken Fried Rice" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Chinese</div>
                     <div class="food-name">Chicken Fried Rice</div>
-                    <div class="food-price">₹220</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -574,12 +651,11 @@
                 </div>
             </div>
 
-            <div class="food-card chinese" data-name="Chicken Noodles" data-price="200">
+            <div class="food-card chinese" data-name="Chicken Noodles" >
                 <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=300&fit=crop" alt="Chicken Noodles" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Chinese</div>
                     <div class="food-name">Chicken Noodles</div>
-                    <div class="food-price">₹200</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -589,12 +665,11 @@
             </div>
 
             <!-- Snacks -->
-            <div class="food-card snacks" data-name="French Fries" data-price="120">
+            <div class="food-card snacks" data-name="French Fries" >
                 <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400&h=300&fit=crop" alt="French Fries" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Snacks</div>
                     <div class="food-name">French Fries</div>
-                    <div class="food-price">₹120</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -603,12 +678,11 @@
                 </div>
             </div>
 
-            <div class="food-card snacks" data-name="Veg Puff" data-price="30">
+            <div class="food-card snacks" data-name="Veg Puff" >
                 <img src="https://media.istockphoto.com/id/2184015891/photo/puff-aloo-patties.jpg?s=2048x2048&w=is&k=20&c=0THcxOSquwfHa2BKnj6YeoyKI4HmG2Bx7dxVGOOx5Hg=" alt="Veg Puff" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Snacks</div>
                     <div class="food-name">Veg Puff</div>
-                    <div class="food-price">₹30</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -618,12 +692,11 @@
             </div>
 
             <!-- Beverages -->
-            <div class="food-card beverages" data-name="Tea" data-price="20">
+            <div class="food-card beverages" data-name="Tea" >
                 <img src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=400&h=300&fit=crop" alt="Tea" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Beverages</div>
                     <div class="food-name">Tea</div>
-                    <div class="food-price">₹20</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -632,12 +705,11 @@
                 </div>
             </div>
 
-            <div class="food-card beverages" data-name="Coffee" data-price="30">
+            <div class="food-card beverages" data-name="Coffee" >
                 <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop" alt="Coffee" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Beverages</div>
                     <div class="food-name">Coffee</div>
-                    <div class="food-price">₹30</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -646,12 +718,11 @@
                 </div>
             </div>
 
-            <div class="food-card beverages" data-name="Cool Drink" data-price="40">
+            <div class="food-card beverages" data-name="Cool Drink" >
                 <img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop" alt="Cool Drink" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Beverages</div>
                     <div class="food-name">Cool Drink</div>
-                    <div class="food-price">₹40</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -661,12 +732,11 @@
             </div>
 
             <!-- Desserts -->
-            <div class="food-card desserts" data-name="Gulab Jamun" data-price="60">
+            <div class="food-card desserts" data-name="Gulab Jamun" >
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWU1iimD7ByKMXeyUWYVzhTXyK0dfA0OaKZlLUhWeHiU1G4MjX2ULm4ZCRrtWYJEiSPD-_Bk5Y_8VXVGl-Rz4yn0y9NqRQcaHPUZhInQ&s=10" alt="Gulab Jamun" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Desserts</div>
                     <div class="food-name">Gulab Jamun</div>
-                    <div class="food-price">₹60</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -675,12 +745,11 @@
                 </div>
             </div>
 
-            <div class="food-card desserts" data-name="Ice Cream" data-price="80">
+            <div class="food-card desserts" data-name="Ice Cream" >
                 <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=300&fit=crop" alt="Ice Cream" class="food-image">
                 <div class="food-details">
                     <div class="food-category">Desserts</div>
                     <div class="food-name">Ice Cream</div>
-                    <div class="food-price">₹80</div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
                         <input type="number" class="qty-input" value="0" min="0" max="20" onchange="updateOrder()">
@@ -695,14 +764,14 @@
             No dishes found. Try a different search term.
         </div>
 
-        <!-- Order Summary -->
+        Order Summary
         <div class="order-summary" id="orderSummary" style="display: none;">
             <h3 id="summaryTitle">📋 Order Summary</h3>
             <div class="order-items" id="orderItems"></div>
-            <div class="order-total">
+            <!-- <div class="order-total">
                 <span id="totalLabel">Total:</span>
                 <span id="totalAmount">₹0</span>
-            </div>
+            </div> -->
         </div>
 
         <!-- Place Order Button -->
@@ -714,14 +783,11 @@
         </button>
     </div>
 
-    <div class="footer">
-        ✨ Thank You For Choosing SS HOTELS ✨
-    </div>
 
     <script>
         // Get room number from URL
         const params = new URLSearchParams(window.location.search);
-        const room = params.get("room") || "...";
+        const room = params.get("room") || "101";
         document.getElementById("roomNo").innerText = room;
 
         let currentFilter = 'all';
@@ -788,24 +854,28 @@
             const orderItems = document.getElementById('orderItems');
             const orderSummary = document.getElementById('orderSummary');
             const orderBtn = document.getElementById('orderBtn');
-            let total = 0;
+            // let total = 0;
             let itemsHtml = '';
             let hasItems = false;
 
             cards.forEach(card => {
                 const qty = parseInt(card.querySelector('.qty-input').value) || 0;
+
                 if (qty > 0) {
                     hasItems = true;
+
                     const name = card.dataset.name;
-                    const price = parseInt(card.dataset.price);
-                    const itemTotal = qty * price;
-                    total += itemTotal;
-                    itemsHtml += `<div class="order-item"><span>${name} × ${qty}</span><span>₹${itemTotal}</span></div>`;
+
+                    itemsHtml += `
+                    <div class="order-item">
+                        <span> ${name}</span>
+                        <span>Qty: ${qty}</span>
+                    </div>`;
                 }
             });
 
             orderItems.innerHTML = itemsHtml;
-            document.getElementById('totalAmount').textContent = `₹${total}`;
+            // document.getElementById('totalAmount').textContent = `₹${total}`;
             orderSummary.style.display = hasItems ? 'block' : 'none';
             orderBtn.disabled = !hasItems;
         }
@@ -858,10 +928,8 @@
                 const qty = parseInt(card.querySelector('.qty-input').value) || 0;
                 if (qty > 0) {
                     const name = card.dataset.name;
-                    const price = parseInt(card.dataset.price);
-                    const itemTotal = qty * price;
-                    total += itemTotal;
-                    orderList.push(`• ${name} × ${qty} = ₹${itemTotal}`);
+                    orderList.push(`• ${name} × ${qty}`);
+
                 }
             });
 
@@ -870,7 +938,7 @@
                 return;
             }
 
-            const message = `🏨 *SS HOTELS - FOOD ORDER*
+            const message = `🏨 *SS GRAND INN - FOOD ORDER*
 
 📍 *Room No:* ${room}
 
@@ -878,16 +946,13 @@
 📋 *Order Details:*
 ━━━━━━━━━━━━━━━
 ${orderList.join('\n')}
-
-━━━━━━━━━━━━━━━
-💰 *Total Amount:* ₹${total}
 ━━━━━━━━━━━━━━━
 
 Please confirm this order. Thank you! 🙏`;
 
             // Open WhatsApp with the order message
 const whatsappUrl =
-`https://wa.me/919030796171?text=${encodeURIComponent(message)}`;
+`https://wa.me/91xxxxxxxxxx?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
 
@@ -916,5 +981,35 @@ const whatsappUrl =
         // Initialize
         updateOrder();
     </script>
+
+    <footer class   ="footer">
+      <h2>SS HOTELS</h2>
+
+      <p>Samalkot, Kakinada, Andhra Pradesh</p>
+      <p>📞 +91 xxxxxxxxxx</p>
+      <p>📧 info@sshotels.in</p>
+
+      
+<div class="social-icons">
+
+    <a href="https://facebook.com" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="https://instagram.com" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://wa.me/91xxxxxxxxxx" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</div>
+
+      <p class="copyright">
+        © 2026 SS GRAND INN. All Rights Reserved.
+      </p>
+    </footer>
+
 </body>
 </html>
