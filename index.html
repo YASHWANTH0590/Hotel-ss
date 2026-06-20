@@ -317,18 +317,15 @@ body{
         flex-shrink:0;
     }
 
-.container{
-    max-width:1200px;
-    margin-top: 10px;
-    padding:25px;
-}
 
-.welcome{
-    max-width:500px;
-    margin:0 auto 30px;
-    text-align:center;
-    
-}
+    .container{
+        padding:12px;
+    }
+   .welcome{
+        margin:0 auto 12px;
+        padding:14px;
+        text-align:center;
+    }
 
     .welcome h1{
         font-size:15px;
@@ -343,24 +340,16 @@ body{
         font-size:11.5px;
     }
 
-    .cards{
-        flex:1 1 auto;
-        min-height:0;
+      .cards{
         display:grid;
         grid-template-columns:1fr 1fr;
-        grid-template-rows:repeat(3, 1fr);
-        gap:10px;
-        
+        gap:8px;
+        margin-bottom:0;
     }
 
     .card{
-        padding:8px 6px;
-        border-radius:14px;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        min-height:0;
+        padding:10px 6px;
+        min-height:110px;
     }
 
     .icon{
@@ -380,12 +369,10 @@ body{
     }
 
     .footer{
-        flex-shrink:0;
-        margin-top:8px;
-        padding:8px;
-        font-size:10.5px;
-        
+        margin-top:10px;
+        padding:6px;
     }
+
 }
 
 /* Extra-short phones: shrink a little further */
