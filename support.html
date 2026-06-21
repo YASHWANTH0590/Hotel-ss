@@ -19,70 +19,23 @@
 }
 
 .footer{
-    background:#0A0A0A;
-    border-top:1px solid rgba(212,175,55,0.25);
-    padding:10px 10px 10px;
     text-align:center;
-    color:#F2EDE2;
-    margin-top:80px;
-}
-
-.footer h2{
-    color:#D4AF37;
-    font-size:2rem;
-    margin-bottom:15px;
-    letter-spacing:3px;
-    font-weight:700;
-    text-transform:uppercase;
-}
-
-.footer p{
-    color:#C9C9C9;
-    margin:8px 0;
-    font-size:15px;
-    line-height:1.6;
-}
-.social-icons{
-    display:flex;
-    justify-content:center;
-    gap:18px;
-    margin:25px 0;
-}
-
-.social-icons a{
-    width:50px;
-    height:50px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    border:1px solid #D4AF37;
-    color:#D4AF37;
-    text-decoration:none;
-    font-size:22px;
-    transition:.3s;
-}
-
-.social-icons a:hover{
-    background:#D4AF37;
-    color:#121212;
-}
-.social-icons a:hover{
-    background:#D4AF37;
-    color:#121212;
-    transform:translateY(-5px);
-    box-shadow:0 0 20px rgba(212,175,55,0.4);
-}
-
-.copyright{
     margin-top:20px;
-    padding-top:20px;
-    border-top:1px solid rgba(212,175,55,0.15);
-    color:#8F8F8F;
+    padding:12px;
+    color:#F2EDE2;
     font-size:14px;
-    letter-spacing:1px;
+    width:100%;
 }
 
+.footer a{
+    color:#F2EDE2;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.footer a:hover{
+    color:#D4AF37;
+}
 @media(max-width:768px){
     .footer{
         padding:40px 15px 25px;
@@ -118,6 +71,7 @@ body{
     background:var(--charcoal);
     color:var(--cream);
     min-height:100vh;
+    font-family:'time',sans-serif;
     background-image:
         radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
         radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
@@ -126,43 +80,30 @@ body{
 .navbar{
     background:var(--charcoal-dark);
     border-bottom:1px solid var(--border-gold);
-    padding:18px clamp(14px, 4vw, 30px);
+    padding:10px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:10px;
 }
 
-        .logo {
-            background: linear-gradient(120deg, var(--gold-pale), var(--gold), var(--gold-soft));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-           
-            font-weight: 700;
-            letter-spacing: clamp(1px, 1vw, 4px);
-            text-decoration: none;
-            font-size: clamp(14px, 4.6vw, 20px);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            min-width: 0;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    line-height:0;
+}
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-        }
+.logo img{
+    height: 75px;
+    width:auto;
+    display:block;
+}
 
 .nav-right{
     display:flex;
     align-items:center;
     gap:12px;
+    flex-shrink:0;
 }
-
-
 
 .lang-btn{
     background:transparent;
@@ -311,17 +252,15 @@ textarea:focus{
     .grid{
         grid-template-columns:1fr;
     }
-}
 
-.nav-right{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
+    .navbar{
+        flex-shrink:0;
+        padding:8px 14px;
+    }
 
-.lang-btn:hover{
-    background:var(--gold);
-    color:var(--charcoal-dark);
+    .logo img{
+        height:50px;
+    }
 }
 </style>
 
@@ -331,7 +270,7 @@ textarea:focus{
 <nav class="navbar">
 
     <a href="index.html" class="logo">
-        SS GRAND INN
+        <img src="/Img/logo.png" alt="SS Grand Inn Logo">
     </a>
 
     <div class="nav-right">
@@ -340,10 +279,7 @@ textarea:focus{
             ← Back
         </a> -->
 
-        <button class="lang-btn" onclick="toggleLanguage()">
-            English | తెలుగు
-        </button>
-
+  
     </div>
 
 </nav>
@@ -465,97 +401,67 @@ ${issue}`;
 }
 
 let telugu = false;
+const lang = localStorage.getItem("lang") || "en";
 
-function toggleLanguage(){
+if(lang === "te"){
 
-    telugu = !telugu;
+    document.querySelector(".header h1").innerHTML =
+    "💬 అతిథుల సహాయ కేంద్రం";
 
-    if(telugu){
+    document.querySelector(".room").innerHTML =
+    `గది నంబర్: <span id="roomNo">${room}</span>`;
 
-        document.querySelector(".header h1").innerHTML =
-        "💬 అతిథుల సహాయ కేంద్రం";
+    document.querySelectorAll(".card h3")[0].innerHTML =
+    "హౌస్ కీపింగ్";
 
-        document.querySelector(".room").innerHTML =
-        `గది నంబర్: <span id="roomNo">${room}</span>`;
+    document.querySelectorAll(".card p")[0].innerHTML =
+    "గది శుభ్రపరచడం మరియు సహాయం";
 
-        document.querySelectorAll(".card h3")[0].innerHTML =
-        "హౌస్ కీపింగ్";
+    document.querySelectorAll(".card h3")[1].innerHTML =
+    "ఆహార సహాయం";
 
-        document.querySelectorAll(".card p")[0].innerHTML =
-        "గది శుభ్రపరచడం మరియు సహాయం";
+    document.querySelectorAll(".card p")[1].innerHTML =
+    "ఆహార ఆర్డర్ మరియు రెస్టారెంట్ సహాయం";
 
-        document.querySelectorAll(".card h3")[1].innerHTML =
-        "ఆహార సహాయం";
+    document.querySelectorAll(".card h3")[2].innerHTML =
+    "వైఫై సమస్య";
 
-        document.querySelectorAll(".card p")[1].innerHTML =
-        "ఆహార ఆర్డర్ మరియు రెస్టారెంట్ సహాయం";
+    document.querySelectorAll(".card p")[2].innerHTML =
+    "ఇంటర్నెట్ కనెక్టివిటీ సహాయం";
 
-        document.querySelectorAll(".card h3")[2].innerHTML =
-        "వైఫై సమస్య";
+    document.querySelectorAll(".card h3")[3].innerHTML =
+    "అదనపు పరుపు";
 
-        document.querySelectorAll(".card p")[2].innerHTML =
-        "ఇంటర్నెట్ కనెక్టివిటీ సహాయం";
+    document.querySelectorAll(".card p")[3].innerHTML =
+    "దుప్పట్లు మరియు దిండ్లు";
 
-        document.querySelectorAll(".card h3")[3].innerHTML =
-        "అదనపు పరుపు";
+    document.querySelectorAll(".card h3")[4].innerHTML =
+    "టాక్సీ సేవ";
 
-        document.querySelectorAll(".card p")[3].innerHTML =
-        "దుప్పట్లు మరియు దిండ్లు";
+    document.querySelectorAll(".card p")[4].innerHTML =
+    "స్థానిక రవాణా సహాయం";
 
-        document.querySelectorAll(".card h3")[4].innerHTML =
-        "టాక్సీ సేవ";
+    document.querySelectorAll(".card h3")[5].innerHTML =
+    "లాండ్రీ సేవ";
 
-        document.querySelectorAll(".card p")[4].innerHTML =
-        "స్థానిక రవాణా సహాయం";
+    document.querySelectorAll(".card p")[5].innerHTML =
+    "బట్టల ఉతికే సేవ";
 
-        document.querySelectorAll(".card h3")[5].innerHTML =
-        "లాండ్రీ";
+    document.querySelector(".custom-box h2").innerHTML =
+    "✍️ మీ సమస్యను వివరించండి";
 
-        document.querySelectorAll(".card p")[5].innerHTML =
-        "బట్టల ఉతికే సేవ";
+    document.getElementById("issue").placeholder =
+    "ఉదాహరణ: AC సరిగా చల్లబరచడం లేదు...";
 
-        document.querySelector(".custom-box h2").innerHTML =
-        "✍️ మీ సమస్యను వివరించండి";
-
-        document.getElementById("issue").placeholder =
-        "ఉదాహరణ: AC సరిగా చల్లబరచడం లేదు...";
-
-        document.querySelector(".send-btn").innerHTML =
-        "వాట్సాప్ ద్వారా పంపండి";
-
-    }else{
-
-        location.reload();
-
-    }
+    document.querySelector(".send-btn").innerHTML =
+    "వాట్సాప్ ద్వారా పంపండి";
 }
 </script>
 <footer class   ="footer">
-      <h2>SS HOTELS</h2>
-
-      <p>Samalkot, Kakinada, Andhra Pradesh</p>
-     <p>📞 +91 xxxxxxxxxx | 📧 info@sshotels.in</p>
-
+       <a href="/index.html">
+        © SS Grand Inn • Luxury Stay, Exceptional Hospitality
+    </a>
       
-<div class="social-icons">
-
-    <a href="https://facebook.com" target="_blank">
-        <i class="fa-brands fa-facebook-f"></i>
-    </a>
-
-    <a href="https://instagram.com" target="_blank">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
-
-    <a href="https://wa.me/91 xxxxxxxxxx" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-</div>
-
-      <p class="copyright">
-        © 2026 SS GRAND INN. All Rights Reserved.
-      </p>
     </footer>
 </body>
 </html>

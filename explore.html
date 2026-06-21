@@ -34,40 +34,32 @@ body{
     background:var(--charcoal);
     color:var(--cream);
     min-height:100vh;
+    font-family:'time',sans-serif;
     background-image:
         radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
         radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
 }
+
 .navbar{
     background:var(--charcoal-dark);
     border-bottom:1px solid var(--border-gold);
-    padding:27px clamp(14px, 4vw, 30px);
+    padding:10px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:10px;
 }
 
 .logo{
-    background:linear-gradient(
-        120deg,
-        var(--gold-pale),
-        var(--gold),
-        var(--gold-soft)
-    );
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    font-size:clamp(14px, 4.6vw, 20px);
-    font-weight:700;
-    letter-spacing:clamp(1px, 1vw, 4px);
-    text-decoration:none;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    min-width:0;
+    display:flex;
+    align-items:center;
+    line-height:0;
 }
 
+.logo img{
+    height: 75px;
+    width:auto;
+    display:block;
+}
 .nav-right{
     display:flex;
     align-items:center;
@@ -90,33 +82,9 @@ body{
 }
 
 .container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:80vh;
-    padding:20px;
-}
-
-.coming-soon{
-    max-width:700px;
-    width:100%;
-    text-align:center;
-    background:var(--charcoal-card);
-    border:1px solid var(--border-gold);
-    border-radius:20px;
-    padding:50px 30px;
-}
-
-.coming-soon h1{
-    color:var(--gold-pale);
-    margin-bottom:15px;
-    font-size:38px;
-}
-
-.coming-soon p{
-    color:var(--gold-soft);
-    font-size:18px;
-    line-height:1.8;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
 }
 
 
@@ -133,73 +101,80 @@ body{
     .coming-soon p{
         font-size:16px;
     }
-}
-.footer{
-    background:#0A0A0A;
-    border-top:1px solid rgba(212,175,55,0.25);
-padding:10px 10px 10px;
+}.footer{
     text-align:center;
+    width:100%;
+    padding:15px;
+    margin-top:30px;
+    border-top:1px solid rgba(212,175,55,.15);
+}
+
+.footer a{
     color:#F2EDE2;
-    margin-top:80px;
+    text-decoration:none;
 }
 
-.footer h2{
+.footer a:hover{
     color:#D4AF37;
-    font-size:2rem;
-    margin-bottom:15px;
-    letter-spacing:3px;
-    font-weight:700;
-    text-transform:uppercase;
+}
+.places{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    margin-top:30px;
 }
 
-.footer p{
+.place-card{
+    background:#161616;
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:16px;
+    padding:20px;
+    text-align:left;
+}
+
+.place-card h3{
+    color:#E8D9B5;
+    margin-bottom:10px;
+}
+
+.place-card p{
     color:#C9C9C9;
-    margin:8px 0;
-    font-size:15px;
+    font-size:14px;
+    margin-bottom:8px;
     line-height:1.6;
 }
-.social-icons{
-    display:flex;
-    justify-content:center;
-    gap:18px;
-    margin:25px 0;
+
+.place-card button{
+    margin-top:10px;
+    background:linear-gradient(
+        135deg,
+        #E8D9B5,
+        #D4AF37,
+        #C9A66B
+    );
+    color:#000;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
 }
 
-.social-icons a{
-    width:50px;
-    height:50px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    border:1px solid #D4AF37;
-    color:#D4AF37;
-    text-decoration:none;
-    font-size:22px;
-    transition:.3s;
+.place-card button:hover{
+    opacity:.9;
 }
 
-.social-icons a:hover{
-    background:#D4AF37;
-    color:#121212;
-}
-.social-icons a:hover{
-    background:#D4AF37;
-    color:#121212;
-    transform:translateY(-5px);
-    box-shadow:0 0 20px rgba(212,175,55,0.4);
-}
 
-.copyright{
-    margin-top:20px;
-    padding-top:20px;
-    border-top:1px solid rgba(212,175,55,0.15);
-    color:#8F8F8F;
-    font-size:14px;
-    letter-spacing:1px;
-}
+
 
 @media(max-width:768px){
+        .navbar{
+        flex-shrink:0;
+        padding:8px 14px;
+    }
+        .logo img{
+        height:50px;
+    }
     .footer{
         padding:40px 15px 25px;
     }
@@ -214,15 +189,15 @@ padding:10px 10px 10px;
         font-size:20px;
     }
 }
+
 </style>
 
 </head>
 <body>
 
 <nav class="navbar">
-
 <a href="index.html" class="logo">
-    SS GRAND INN
+    <img src="/Img/logo.png" alt="SS Grand Inn Logo">
 </a>
 
 <div class="nav-right">
@@ -236,43 +211,146 @@ padding:10px 10px 10px;
 
 <div class="container">
 
-<div class="coming-soon">
 
-    <h1>🗺️ Explore Samarlakota</h1>
-    <h2>Coming Soon...</h2>
-</div>
+    <h1 id="exploreTitle">🗺️ Explore Samarlakota</h1>
 
-</div>
-<footer class   ="footer">
-      <h2>SS HOTELS</h2>
+<p id="exploreSub">
+Popular places to visit near SS Grand Inn.
+</p>
 
-      <p>Samalkot, Kakinada, Andhra Pradesh</p>
-    <p>📞 +91 xxxxxxxxxx | 📧 info@sshotels.in</p>
+    <div class="places">
 
-      
-<div class="social-icons">
+        <div class="place-card">
+            <h3>🛕 Kumararama Bhimeswara Swamy Temple</h3>
+            <p>One of the famous Pancharama Kshetras located in Samarlakota.</p>
+            <p><strong>Distance:</strong> 2 km</p>
+            <button onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple+Samarlakota','_blank')">
+                📍 View Location
+            </button>
+        </div>
 
-    <a href="https://facebook.com" target="_blank">
-        <i class="fa-brands fa-facebook-f"></i>
-    </a>
+        <div class="place-card">
+            <h3>🛕 Draksharamam Temple</h3>
+            <p>Ancient Shiva temple and important pilgrimage destination.</p>
+            <p><strong>Distance:</strong> 18 km</p>
+            <button onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">
+                📍 View Location
+            </button>
+        </div>
 
-    <a href="https://instagram.com" target="_blank">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
+        <div class="place-card">
+            <h3>🏖️ Kakinada Beach</h3>
+            <p>Popular beach destination for evening walks and relaxation.</p>
+            <p><strong>Distance:</strong> 15 km</p>
+            <button onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">
+                📍 View Location
+            </button>
+        </div>
 
-    <a href="https://wa.me/91xxxxxxxxxx" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+        <div class="place-card">
+            <h3>🌳 Coringa Wildlife Sanctuary</h3>
+            <p>Beautiful mangrove forest and wildlife sanctuary.</p>
+            <p><strong>Distance:</strong> 25 km</p>
+            <button onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">
+                📍 View Location
+            </button>
+        </div>
 
-</div>
+        <div class="place-card">
+            <h3>🚂 Samarlakota Railway Station</h3>
+            <p>Major railway junction connecting East Godavari region.</p>
+            <p><strong>Distance:</strong> Opposite Hotel</p>
+            <button onclick="window.open('https://maps.google.com/?q=Samalkot+Railway+Station','_blank')">
+                📍 View Location
+            </button>
+        </div>
 
-      <p class="copyright">
-        © 2026 SS GRAND INN. All Rights Reserved.
-      </p>
-    </footer>
+        <div class="place-card">
+            <h3>🛍️ Kakinada City Center</h3>
+            <p>Shopping, restaurants and entertainment hub.</p>
+            <p><strong>Distance:</strong> 14 km</p>
+            <button onclick="window.open('https://maps.google.com/?q=Kakinada','_blank')">
+                📍 View Location
+            </button>
+        </div>
+ </div>
+  </div>
+<footer>
+    <p class="footer">
+        <a href="/index.html">
+            © SS Grand Inn • Luxury Stay, Exceptional Hospitality
+        </a>
+    </p>
+</footer>   
 
+<script>
+const lang = localStorage.getItem("lang") || "en";
+
+if(lang === "te"){
+
+    document.getElementById("exploreTitle").innerHTML =
+    "🗺️ సామర్లకోటను అన్వేషించండి";
+
+    document.getElementById("exploreSub").innerHTML =
+    "SS గ్రాండ్ ఇన్ సమీపంలో సందర్శించదగిన ప్రముఖ ప్రదేశాలు.";
+
+    const cards = document.querySelectorAll(".place-card");
+
+    cards[0].innerHTML = `
+        <h3>🛕 కుమారరామ భీమేశ్వర స్వామి ఆలయం</h3>
+        <p>సామర్లకోటలోని ప్రసిద్ధ పంచారామ క్షేత్రాలలో ఒకటి.</p>
+        <p><strong>దూరం:</strong> 2 కి.మీ</p>
+        <button onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple+Samarlakota','_blank')">
+        📍 స్థానం
+        </button>
+    `;
+
+    cards[1].innerHTML = `
+        <h3>🛕 ద్రాక్షారామం ఆలయం</h3>
+        <p>ప్రాచీన శివాలయం మరియు ప్రముఖ పుణ్యక్షేత్రం.</p>
+        <p><strong>దూరం:</strong> 18 కి.మీ</p>
+        <button onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">
+        📍 స్థానం
+        </button>
+    `;
+
+    cards[2].innerHTML = `
+        <h3>🏖️ కాకినాడ బీచ్</h3>
+        <p>సాయంత్రం విహారం మరియు విశ్రాంతికి ప్రసిద్ధ ప్రదేశం.</p>
+        <p><strong>దూరం:</strong> 15 కి.మీ</p>
+        <button onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">
+        📍 స్థానం
+        </button>
+    `;
+
+    cards[3].innerHTML = `
+        <h3>🌳 కోరింగా వన్యప్రాణి అభయారణ్యం</h3>
+        <p>అందమైన మడ అడవులు మరియు వన్యప్రాణుల సంరక్షణ కేంద్రం.</p>
+        <p><strong>దూరం:</strong> 25 కి.మీ</p>
+        <button onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">
+        📍 స్థానం
+        </button>
+    `;
+
+    cards[4].innerHTML = `
+        <h3>🚂 సామర్లకోట రైల్వే స్టేషన్</h3>
+        <p>తూర్పు గోదావరి జిల్లాలోని ప్రధాన రైల్వే జంక్షన్.</p>
+        <p><strong>దూరం:</strong> హోటల్ ఎదురుగా</p>
+        <button onclick="window.open('https://maps.google.com/?q=Samalkot+Railway+Station','_blank')">
+        📍 స్థానం
+        </button>
+    `;
+
+    cards[5].innerHTML = `
+        <h3>🛍️ కాకినాడ సిటీ సెంటర్</h3>
+        <p>షాపింగ్, రెస్టారెంట్లు మరియు వినోదానికి ప్రసిద్ధి.</p>
+        <p><strong>దూరం:</strong> 14 కి.మీ</p>
+        <button onclick="window.open('https://maps.google.com/?q=Kakinada','_blank')">
+        📍 స్థానం
+        </button>
+    `;
+}
+</script>
 
 </body>
-</html>
-
 </html>

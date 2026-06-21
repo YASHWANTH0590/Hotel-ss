@@ -43,29 +43,23 @@
 .navbar{
     background:var(--charcoal-dark);
     border-bottom:1px solid var(--border-gold);
-    padding:18px clamp(14px, 4vw, 30px);
+    padding:10px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:10px;
 }
 
-        .logo {
-            background: linear-gradient(120deg, var(--gold-pale), var(--gold), var(--gold-soft));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-           
-            font-weight: 700;
-            letter-spacing: clamp(1px, 1vw, 4px);
-            text-decoration: none;
-            font-size: clamp(14px, 4.6vw, 20px);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            min-width: 0;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    line-height:0;
+}
 
+.logo img{
+    height: 75px;
+    width:auto;
+    display:block;
+}
         .nav-right {
             display: flex;
             align-items: center;
@@ -369,14 +363,8 @@
             height: 24px;
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: var(--gold-soft);
-            letter-spacing: .5px;
-        }
-
+       
+        
         .no-results {
             text-align: center;
             padding: 40px;
@@ -386,73 +374,32 @@
         }
 
         /* Responsive */
-
 .footer{
-    background:#0A0A0A;
-    border-top:1px solid rgba(212,175,55,0.25);
-    padding:10px 10px 10px;
     text-align:center;
-    color:#F2EDE2;
-    margin-top:80px;
-}
-
-.footer h2{
-    color:#D4AF37;
-    font-size:2rem;
-    margin-bottom:15px;
-    letter-spacing:3px;
-    font-weight:700;
-    text-transform:uppercase;
-}
-
-.footer p{
-    color:#C9C9C9;
-    margin:8px 0;
-    font-size:15px;
-    line-height:1.6;
-}
-.social-icons{
-    display:flex;
-    justify-content:center;
-    gap:18px;
-    margin:25px 0;
-}
-
-.social-icons a{
-    width:50px;
-    height:50px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    border:1px solid #D4AF37;
-    color:#D4AF37;
-    text-decoration:none;
-    font-size:22px;
-    transition:.3s;
-}
-
-.social-icons a:hover{
-    background:#D4AF37;
-    color:#121212;
-}
-.social-icons a:hover{
-    background:#D4AF37;
-    color:#121212;
-    transform:translateY(-5px);
-    box-shadow:0 0 20px rgba(212,175,55,0.4);
-}
-
-.copyright{
     margin-top:20px;
-    padding-top:20px;
-    border-top:1px solid rgba(212,175,55,0.15);
-    color:#8F8F8F;
+    padding:12px;
+    color:#F2EDE2;
     font-size:14px;
-    letter-spacing:1px;
+    width:100%;
 }
 
+.footer a{
+    color:#F2EDE2;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.footer a:hover{
+    color:#D4AF37;
+}
 @media(max-width:768px){
+            .navbar{
+        flex-shrink:0;
+        padding:8px 14px;
+    }
+        .logo img{
+        height:50px;
+    }
     .footer{
         padding:40px 15px 25px;
     }
@@ -471,11 +418,10 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="logo">SS GRAND INN</a>
-        <div class="nav-right">
-            <!-- <a class="back-btn" href="../index.html">← Back</a> -->
-            <button class="lang-btn" onclick="toggleLanguage()">English | తెలుగు</button>
-        </div>
+<a href="index.html" class="logo">
+    <img src="/Img/logo.png" alt="SS Grand Inn Logo">
+</a>
+
     </nav>
 
     <div class="filter-buttons">
@@ -933,58 +879,87 @@ const whatsappUrl =
         }
 
         // Language toggle
-        function toggleLanguage() {
-            telugu = !telugu;
-            const lang = telugu ? 'te' : 'en';
-            const t = translations[lang];
+const lang = localStorage.getItem("lang") || "en";
 
-            document.getElementById('menuTitle').textContent = t.menuTitle;
-            document.getElementById('roomLabel').textContent = t.roomLabel;
-            document.getElementById('searchBar').placeholder = t.searchPlaceholder;
-            document.getElementById('summaryTitle').textContent = t.summaryTitle;
-            document.getElementById('totalLabel').textContent = t.totalLabel;
-            document.getElementById('orderBtnText').textContent = t.orderBtnText;
-            document.getElementById('noResults').textContent = t.noResults;
+if(lang === "te"){
 
-            // Update filter buttons
-            const filterButtons = document.querySelectorAll('.filter-buttons button');
-            const filterKeys = ['all', 'breakfast', 'lunch', 'dinner', 'snacks', 'beverages', 'south-indian', 'north-indian', 'chinese', 'desserts'];
-            filterButtons.forEach((btn, index) => {
-                btn.textContent = t.filters[filterKeys[index]];
-            });
-        }
+    document.getElementById("menuTitle").innerHTML =
+    "🍽️ ఎస్ఎస్ గ్రాండ్ ఇన్ మెనూ";
 
-        // Initialize
-        updateOrder();
+    document.getElementById("roomLabel").innerHTML =
+    "గది నం:";
+
+    document.getElementById("searchBar").placeholder =
+    "🔍 వంటకాలను వెతకండి...";
+    const categories = document.querySelectorAll(".food-category");
+
+categories[0].innerHTML = "దక్షిణ భారతీయ • అల్పాహారం";
+categories[1].innerHTML = "దక్షిణ భారతీయ • అల్పాహారం";
+categories[2].innerHTML = "దక్షిణ భారతీయ • అల్పాహారం";
+
+categories[3].innerHTML = "ఉత్తర భారతీయ • రాత్రి భోజనం";
+categories[4].innerHTML = "ఉత్తర భారతీయ • రాత్రి భోజనం";
+categories[5].innerHTML = "ఉత్తర భారతీయ • రాత్రి భోజనం";
+
+categories[6].innerHTML = "ప్రత్యేక భోజనం";
+categories[7].innerHTML = "ప్రత్యేక భోజనం";
+
+categories[8].innerHTML = "చైనీస్";
+categories[9].innerHTML = "చైనీస్";
+
+categories[10].innerHTML = "స్నాక్స్";
+categories[11].innerHTML = "స్నాక్స్";
+
+categories[12].innerHTML = "పానీయాలు";
+categories[13].innerHTML = "పానీయాలు";
+categories[14].innerHTML = "పానీయాలు";
+
+categories[15].innerHTML = "డెజర్ట్స్";
+categories[16].innerHTML = "డెజర్ట్స్";
+
+    const foodNames = document.querySelectorAll(".food-name");
+
+    foodNames[0].innerHTML = "ఇడ్లీ";
+    foodNames[1].innerHTML = "మసాలా దోస";
+    foodNames[2].innerHTML = "ఉత్తప్పం";
+    foodNames[3].innerHTML = "రోటీ";
+    foodNames[4].innerHTML = "చికెన్ కర్రీ";
+    foodNames[5].innerHTML = "పనీర్ బటర్ మసాలా";
+    foodNames[6].innerHTML = "చికెన్ బిర్యానీ";
+    foodNames[7].innerHTML = "మటన్ బిర్యానీ";
+    foodNames[8].innerHTML = "చికెన్ ఫ్రైడ్ రైస్";
+    foodNames[9].innerHTML = "చికెన్ నూడుల్స్";
+    foodNames[10].innerHTML = "ఫ్రెంచ్ ఫ్రైస్";
+    foodNames[11].innerHTML = "వెజ్ పఫ్";
+    foodNames[12].innerHTML = "టీ";
+    foodNames[13].innerHTML = "కాఫీ";
+    foodNames[14].innerHTML = "కూల్ డ్రింక్";
+    foodNames[15].innerHTML = "గులాబ్ జామున్";
+    foodNames[16].innerHTML = "ఐస్ క్రీమ్";
+
+ const buttons = document.querySelectorAll(".filter-buttons button");
+
+buttons[0].innerHTML = "అన్నీ";
+buttons[1].innerHTML = "అల్పాహారం";
+buttons[2].innerHTML = "భోజనం";
+buttons[3].innerHTML = "రాత్రి భోజనం";
+buttons[4].innerHTML = "స్నాక్స్";
+buttons[5].innerHTML = "పానీయాలు";
+buttons[6].innerHTML = "దక్షిణ భారతీయ";
+buttons[7].innerHTML = "ఉత్తర భారతీయ";
+buttons[8].innerHTML = "చైనీస్";
+buttons[9].innerHTML = "డెజర్ట్స్";
+}
+
+updateOrder();
     </script>
 
-    <footer class   ="footer">
-      <h2>SS HOTELS</h2>
-
-      <p>Samalkot, Kakinada, Andhra Pradesh</p>
-      <p>📞 +91 xxxxxxxxxx | 📧 info@sshotels.in</p>
-
-      
-<div class="social-icons">
-
-    <a href="https://facebook.com" target="_blank">
-        <i class="fa-brands fa-facebook-f"></i>
+<p class="footer">
+    <a href="/index.html">
+        © SS Grand Inn • Luxury Stay, Exceptional Hospitality
     </a>
-
-    <a href="https://instagram.com" target="_blank">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
-
-    <a href="https://wa.me/91xxxxxxxxxx" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-</div>
-
-      <p class="copyright">
-        © 2026 SS GRAND INN. All Rights Reserved.
-      </p>
-    </footer>
+</p>
+    
 
 </body>
 </html>

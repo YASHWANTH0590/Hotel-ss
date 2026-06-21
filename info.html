@@ -30,52 +30,41 @@ font-family:'Times New Roman', Times, serif;
 }
 
 body{
-background:var(--charcoal);
-color:var(--cream);
-min-height:100vh;
-
-
-background-image:
-radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
-radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
+    background:var(--charcoal);
+    color:var(--cream);
+    min-height:100vh;
+    font-family:'time',sans-serif;
+    background-image:
+        radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
+        radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
 }
 
 .navbar{
     background:var(--charcoal-dark);
     border-bottom:1px solid var(--border-gold);
-    padding:18px clamp(14px, 4vw, 30px);
+    padding:10px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:10px;
 }
 
-        .logo {
-            background: linear-gradient(120deg, var(--gold-pale), var(--gold), var(--gold-soft));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-           
-            font-weight: 700;
-            letter-spacing: clamp(1px, 1vw, 4px);
-            text-decoration: none;
-            font-size: clamp(14px, 4.6vw, 20px);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            min-width: 0;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    line-height:0;
+}
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-        }
+.logo img{
+    height: 75px;
+    width:auto;
+    display:block;
+}
+
 .nav-right{
     display:flex;
     align-items:center;
     gap:12px;
+    flex-shrink:0;
 }
 
 .lang-btn{
@@ -238,6 +227,14 @@ box-shadow:0 5px 15px rgba(212,175,55,.25);
 
 @media(max-width:768px){
 
+.navbar{
+    flex-shrink:0;
+    padding:8px 14px;
+}
+
+.logo img{
+    height:50px;
+}
 
 .section{
     padding:20px;
@@ -258,72 +255,25 @@ box-shadow:0 5px 15px rgba(212,175,55,.25);
 
 }
 .footer{
-    background:#0A0A0A;
-    border-top:1px solid rgba(212,175,55,0.25);
-    padding:10px 10px 10px;
     text-align:center;
-    color:#F2EDE2;
-    margin-top:80px;
-}
-
-.footer h2{
-    color:#D4AF37;
-    font-size:2rem;
-    margin-bottom:15px;
-    letter-spacing:3px;
-    font-weight:700;
-    text-transform:uppercase;
-}
-
-.footer p{
-    color:#C9C9C9;
-    margin:8px 0;
-    font-size:15px;
-    line-height:1.6;
-}
-.social-icons{
-    display:flex;
-    justify-content:center;
-    gap:18px;
-    margin:25px 0;
-}
-
-.social-icons a{
-    width:50px;
-    height:50px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    border:1px solid #D4AF37;
-    color:#D4AF37;
-    text-decoration:none;
-    font-size:22px;
-    transition:.3s;
-}
-
-.social-icons a:hover{
-    background:#D4AF37;
-    color:#121212;
-}
-.social-icons a:hover{
-    background:#D4AF37;
-    color:#121212;
-    transform:translateY(-5px);
-    box-shadow:0 0 20px rgba(212,175,55,0.4);
-}
-
-.copyright{
     margin-top:20px;
-    padding-top:20px;
-    border-top:1px solid rgba(212,175,55,0.15);
-    color:#8F8F8F;
+    padding:12px;
+    color:#F2EDE2;
     font-size:14px;
-    letter-spacing:1px;
+    width:100%;
 }
 
+.footer a{
+    color:#F2EDE2;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.footer a:hover{
+    color:#D4AF37;
+}
 @media(max-width:768px){
-    .footer{
+.footer{
         padding:40px 15px 25px;
     }
 
@@ -331,11 +281,7 @@ box-shadow:0 5px 15px rgba(212,175,55,.25);
         font-size:1.6rem;
     }
 
-    .social-icons a{
-        width:45px;
-        height:45px;
-        font-size:20px;
-    }
+
 }
 
 
@@ -347,18 +293,12 @@ box-shadow:0 5px 15px rgba(212,175,55,.25);
 <nav class="navbar">
 
     <a href="index.html" class="logo">
-    SS GRAND INN
+    <img src="/Img/logo.png" alt="SS Grand Inn Logo">
 </a>
 
 <div class="nav-right">
 
-    <!-- <a class="back-btn" href="index.html">
-        ← Back
-    </a> -->
 
-    <button class="lang-btn" onclick="toggleLanguage()">
-        English | తెలుగు
-    </button>
 
 </div>
 
@@ -539,194 +479,163 @@ function openMap() {
 <!-- Telugu convertion -->
  <script>
 
- let telugu = false;
+const lang = localStorage.getItem("lang") || "en";
 
-function toggleLanguage(){
+if(lang === "te"){
 
+document.getElementById("aboutSection").innerHTML = `
+<h2>🏨 SS గ్రాండ్ ఇన్ గురించి</h2>
 
-telugu = !telugu;
+<p>
+ఆంధ్రప్రదేశ్‌లోని సామర్లకోట హృదయంలో ఉన్న SS గ్రాండ్ ఇన్‌కు స్వాగతం.
+సౌకర్యం, నాణ్యమైన సేవలు మరియు ఆతిథ్యంతో మేము మీకు ఉత్తమ అనుభవాన్ని అందించడానికి కట్టుబడి ఉన్నాము.
+</p>
 
-if(telugu){
-    document.getElementById("whySection").innerHTML = `
+<br>
+
+<p>
+వ్యాపారం, కుటుంబ కార్యక్రమాలు, తీర్థయాత్రలు లేదా విహారయాత్రల కోసం వచ్చిన అతిథులకు ప్రశాంతమైన మరియు సౌకర్యవంతమైన వాతావరణాన్ని అందిస్తున్నాము.
+</p>
+`;
+
+document.getElementById("whySection").innerHTML = `
 <h2>✨ మమ్మల్ని ఎందుకు ఎంచుకోవాలి</h2>
 
 <ul>
-    <li>✔ సౌకర్యవంతమైన మరియు పరిశుభ్రమైన గదులు</li>
-    <li>✔ కుటుంబాలకు అనుకూలమైన వాతావరణం</li>
-    <li>✔ రెస్టారెంట్ మరియు రూమ్ సర్వీస్</li>
-    <li>✔ ప్రతిరోజూ హౌస్ కీపింగ్</li>
-    <li>✔ 24/7 అతిథి సహాయం</li>
-    <li>✔ భద్రమైన ప్రాంగణం</li>
-    <li>✔ సామర్లకోటలో ప్రధాన స్థానం</li>
+<li>✔ సౌకర్యవంతమైన మరియు పరిశుభ్రమైన గదులు</li>
+<li>✔ కుటుంబాలకు అనుకూలమైన వాతావరణం</li>
+<li>✔ రెస్టారెంట్ మరియు రూమ్ సర్వీస్</li>
+<li>✔ ప్రతిరోజూ హౌస్ కీపింగ్</li>
+<li>✔ 24/7 అతిథి సహాయం</li>
+<li>✔ భద్రమైన ప్రాంగణం</li>
+<li>✔ సామర్లకోటలో ప్రధాన స్థానం</li>
 </ul>
 `;
 
-    document.querySelectorAll(".section h2")[0].innerHTML =
-    "🏨 SS హోటల్స్ గురించి";
+document.getElementById("timingSection").innerHTML = `
+<h2>⏰ హోటల్ సమయాలు</h2>
 
-    document.querySelectorAll(".section h2")[1].innerHTML =
-    "✨ మమ్మల్ని ఎందుకు ఎంచుకోవాలి";
+<p>
+చెక్-ఇన్ సమయం : మధ్యాహ్నం 12:00 గంటలు<br>
+చెక్-అవుట్ సమయం : ఉదయం 11:00 గంటలు
+</p>
 
-   
-    document.getElementById("timingSection").innerHTML = `
-    <h2>⏰ హోటల్ సమయాలు</h2>
+<br>
 
-    <p>
-    చెక్-ఇన్ సమయం : మధ్యాహ్నం 12:00 గంటలు<br>
-    చెక్-అవుట్ సమయం : ఉదయం 11:00 గంటలు
-    </p>
+<p>
+<strong>రెస్టారెంట్ సమయాలు</strong><br>
+అల్పాహారం : ఉదయం 7:00 – 10:30<br>
+మధ్యాహ్న భోజనం : మధ్యాహ్నం 12:00 – 3:00<br>
+రాత్రి భోజనం : సాయంత్రం 7:00 – 10:30
+</p>
+`;
 
-    <br>
+document.getElementById("facilitySection").innerHTML = `
+<h2>🏨 సౌకర్యాలు & సేవలు</h2>
 
-    <p>
-    <strong>రెస్టారెంట్ సమయాలు</strong><br>
+<ul>
+<li>✓ రూమ్ సర్వీస్</li>
+<li>✓ హౌస్ కీపింగ్ సేవలు</li>
+<li>✓ రెస్టారెంట్ సౌకర్యం</li>
+<li>✓ లాండ్రీ సేవలు</li>
+<li>✓ ఉచిత పార్కింగ్ సౌకర్యం</li>
+<li>✓ CCTV భద్రతా వ్యవస్థ</li>
+<li>✓ 24 గంటల విద్యుత్ బ్యాకప్</li>
+<li>✓ 24/7 రిసెప్షన్ సహాయం</li>
+</ul>
+`;
 
-    అల్పాహారం : ఉదయం 7:00 – 10:30<br>
+document.getElementById("exploreSection").innerHTML = `
+<h2>🗺️ సామర్లకోటను అన్వేషించండి</h2>
 
-    మధ్యాహ్న భోజనం : మధ్యాహ్నం 12:00 – 3:00<br>
+<p>
+మీ బస సమయంలో సామర్లకోట మరియు పరిసర ప్రాంతాలలోని ప్రముఖ పర్యాటక మరియు ఆధ్యాత్మిక ప్రదేశాలను సందర్శించండి.
+</p>
 
-    రాత్రి భోజనం : సాయంత్రం 7:00 – 10:30
-    </p>
-    `;
+<br>
 
+<ul>
 
-    document.getElementById("facilitySection").innerHTML = `
-    <h2>🏨 సౌకర్యాలు & సేవలు</h2>
+<li>
+📍 కుమారరామ భీమేశ్వర స్వామి దేవాలయం
+<button class="location-btn"
+onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple+Samarlakota','_blank')">
+స్థానం
+</button>
+</li>
 
-    <ul>
-        <li>✓ రూమ్ సర్వీస్</li>
-        <li>✓ హౌస్ కీపింగ్ సేవలు</li>
-        <li>✓ రెస్టారెంట్ సౌకర్యం</li>
-        <li>✓ లాండ్రీ సేవలు</li>
-        <li>✓ ఉచిత పార్కింగ్ సౌకర్యం</li>
-        <li>✓ CCTV భద్రతా వ్యవస్థ</li>
-        <li>✓ 24 గంటల విద్యుత్ బ్యాకప్</li>
-        <li>✓ 24/7 రిసెప్షన్ సహాయం</li>
-    </ul>
-    `;
+<li>
+📍 ద్రాక్షారామ భీమేశ్వర స్వామి దేవాలయం
+<button class="location-btn"
+onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">
+స్థానం
+</button>
+</li>
 
-    document.querySelectorAll(".section h2")[4].innerHTML =
-    "🗺️ సామర్లకోటను అన్వేషించండి";
-    document.querySelectorAll(".section p")[4].innerHTML =
-    "మీ బస సమయంలో సామర్లకోట మరియు పరిసర ప్రాంతాలలోని ప్రముఖ పర్యాటక మరియు ఆధ్యాత్మిక ప్రదేశాలను సందర్శించండి.";
-        document.querySelectorAll(".location-btn")[0].innerHTML = "స్థానం";
-    document.querySelectorAll(".location-btn")[1].innerHTML = "స్థానం";
-    document.querySelectorAll(".location-btn")[2].innerHTML = "స్థానం";
-    document.querySelectorAll(".location-btn")[3].innerHTML = "స్థానం";
+<li>
+📍 కాకినాడ బీచ్
+<button class="location-btn"
+onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">
+స్థానం
+</button>
+</li>
 
-    document.querySelectorAll(".section ul")[2].innerHTML = `
-    <li>
-    📍 కుమారరామ భీమేశ్వర స్వామి దేవాలయం
-    <button class="location-btn"
-    onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple+Samarlakota','_blank')">
-    స్థానం
-    </button>
-    </li>
+<li>
+📍 కోరింగా వన్యప్రాణి అభయారణ్యం
+<button class="location-btn"
+onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">
+స్థానం
+</button>
+</li>
 
-    <li>
-    📍 ద్రాక్షారామ భీమేశ్వర స్వామి దేవాలయం
-    <button class="location-btn"
-    onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">
-    స్థానం
-    </button>
-    </li>
+</ul>
+`;
 
-    <li>
-    📍 కాకినాడ బీచ్
-    <button class="location-btn"
-    onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">
-    స్థానం
-    </button>
-    </li>
+document.getElementById("locationSection").innerHTML = `
+<h2>📍 హోటల్ స్థానం</h2>
 
-    <li>
-    📍 కోరింగా వన్యప్రాణి అభయారణ్యం
-    <button class="location-btn"
-    onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">
-    స్థానం
-    </button>
-    </li>
-    `;
-        
-        document.getElementById("locationSection").innerHTML = `
-        <h2>📍 హోటల్ స్థానం</h2>
+<p>
+SS గ్రాండ్ ఇన్ సామర్లకోట, రైల్వే స్టేషన్ ఎదురుగా, కాకినాడ జిల్లా - 533440లో ఉంది.
+దేవాలయాలు, రైల్వే స్టేషన్, స్థానిక మార్కెట్లు మరియు పర్యాటక ప్రాంతాలకు సులభంగా చేరుకోవచ్చు.
+</p>
 
-        <p>
-        SS HOTELS ఆంధ్రప్రదేశ్‌లోని సామర్లకోటలో సౌకర్యవంతమైన ప్రాంతంలో ఉంది.
-        దేవాలయాలు, రైల్వే స్టేషన్, స్థానిక మార్కెట్లు మరియు పర్యాటక ప్రాంతాలకు సులభంగా చేరుకోవచ్చు.
-        </p>
+<br>
 
-        <br>
+<button class="map-btn" onclick="openMap()">
+🗺️ గూగుల్ మ్యాప్స్‌లో చూడండి
+</button>
+`;
 
-        <button class="map-btn" onclick="openMap()">
-        🗺️ గూగుల్ మ్యాప్స్‌లో చూడండి
-        </button>
-    `;
+document.getElementById("policySection").innerHTML = `
+<h2>📜 హోటల్ నియమాలు</h2>
 
+<ul>
+<li>❌ గదులలో ధూమపానం అనుమతించబడదు.</li>
+<li>❌ రాత్రి 10:00 గంటల తర్వాత పెద్ద శబ్దం చేయకూడదు.</li>
+<li>❌ హోటల్ ఆస్తులకు నష్టం కలిగిస్తే అదనపు ఛార్జీలు వర్తించవచ్చు.</li>
+<li>✅ మీ విలువైన వస్తువులను సురక్షితంగా ఉంచండి.</li>
+<li>✅ బయటకు వెళ్లేటప్పుడు గది తలుపు లాక్ చేయండి.</li>
+</ul>
+`;
 
-    document.querySelectorAll(".section h2")[6].innerHTML =
-    "📜 హోటల్ నియమాలు";
-    document.querySelectorAll(".section ul")[3].innerHTML = `
-    <li>❌ గదులలో ధూమపానం అనుమతించబడదు.</li>
-    <li>❌ రాత్రి 10:00 గంటల తర్వాత పెద్ద శబ్దం చేయకూడదు.</li>
-    <li>❌ హోటల్ ఆస్తులకు నష్టం కలిగిస్తే అదనపు ఛార్జీలు వర్తించవచ్చు.</li>
-    <li>✅ మీ విలువైన వస్తువులను సురక్షితంగా ఉంచండి.</li>
-    <li>✅ బయటకు వెళ్లేటప్పుడు గది తలుపు లాక్ చేయండి.</li>
-    `;
-
-    document.querySelectorAll(".section h2")[7].innerHTML =
-    "🙏 ధన్యవాదాలు";
-
-    document.querySelectorAll(".section p")[0].innerHTML =
-    "ఆంధ్రప్రదేశ్‌లోని సామర్లకోట హృదయంలో ఉన్న SS HOTELS కి స్వాగతం. సౌకర్యం, నాణ్యమైన సేవలు మరియు ఆతిథ్యంతో మేము మీకు ఉత్తమ అనుభవాన్ని అందించడానికి కట్టుబడి ఉన్నాము.";
-
-    document.querySelectorAll(".section p")[1].innerHTML =
-    "వ్యాపారం, కుటుంబ కార్యక్రమాలు, తీర్థయాత్రలు లేదా విహారయాత్రల కోసం వచ్చిన అతిథులకు ప్రశాంతమైన మరియు సౌకర్యవంతమైన వాతావరణాన్ని అందిస్తున్నాము.";
-    
-    document.getElementById("thankSection").innerHTML = `
+document.getElementById("thankSection").innerHTML = `
 <h2>🙏 ధన్యవాదాలు</h2>
 
 <p>
-SS HOTELS ను ఎంచుకున్నందుకు ధన్యవాదాలు.
-
+SS గ్రాండ్ ఇన్‌ను ఎంచుకున్నందుకు ధన్యవాదాలు.
 మీ బస ఆనందదాయకంగా, సౌకర్యవంతంగా మరియు చిరస్మరణీయంగా ఉండాలని మేము కోరుకుంటున్నాము.
 </p>
 `;
-    
-}else{
-    location.reload();
-}
-
 
 }
 
-    </script>
-    <footer class   ="footer">
-      <h2>SS HOTELS</h2>
-
-      <p>Samalkot, Kakinada, Andhra Pradesh</p>
-    <p>📞 +91 xxxxxxxxxx | 📧 info@sshotels.in</p>
-
-      
-<div class="social-icons">
-
-    <a href="https://facebook.com" target="_blank">
-        <i class="fa-brands fa-facebook-f"></i>
+</script>
+    <footer>
+        <p class="footer">
+    <a href="/index.html">
+        © SS Grand Inn • Luxury Stay, Exceptional Hospitality
     </a>
-
-    <a href="https://instagram.com" target="_blank">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
-
-    <a href="https://wa.me/91 xxxxxxxxxx" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-</div>
-
-      <p class="copyright">
-        © 2026 SS GRAND INN. All Rights Reserved.
-      </p>
+</p>
     </footer>
 </body>
 </html>
