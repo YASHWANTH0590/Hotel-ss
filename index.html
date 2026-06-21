@@ -31,11 +31,10 @@
 body{
     background:var(--charcoal);
     color:var(--cream);
-    min-height:100vh;
 
+min-height:100vh;
     display:flex;
     flex-direction:column;
-
     background-image:
         radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
         radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
@@ -81,17 +80,16 @@ body{
 }
 .container{
     max-width:1200px;
-    margin:auto;
-    
+    width:100%;
+    margin:0 auto;
+    padding:8px 15px;
+ 
 }
 .welcome{
     text-align:center;
-    margin:10px auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    margin:5px 0 10px;
+    padding:0;
 }
-
 
 
 .welcome h1{
@@ -114,12 +112,13 @@ body{
 .message{
     color:var(--muted);
     font-size:16px;
-}.cards{
+}
+.cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit, 260px);
-    justify-content:center;
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
-    margin-bottom: 25px;
+    max-width:1000px;
+    margin:0 auto;
 }
 .card{
     position:relative;
@@ -192,17 +191,18 @@ body{
 @media(max-width:768px){
     .container{
         padding-top:0;
-        margin-top:0;
+        margin-top: ;    
     }
 
-    .welcome{
-        margin-top:5px;
-        margin-bottom:10px;
-    }
+  .welcome{
+    margin:5px 0 8px;
+    padding:0;
+}
 
     .navbar{
         flex-shrink:0;
         padding:8px 14px;
+        margin-bottom: 50px;
     }
 
     .logo img{
@@ -229,32 +229,27 @@ body{
         font-size:11.5px;
     }
 
-      .cards{
-        display:grid;
+    .cards{
         grid-template-columns:1fr 1fr;
         gap:8px;
-        margin-bottom:0;
     }
 
-    .card{
-        padding:10px 6px;
-        min-height:110px;
+   .card{
+        min-height:95px;
+        padding:8px 6px;
     }
 
     .icon{
-        font-size:24px;
-        margin-bottom:5px;
+        font-size:22px;
+        margin-bottom:3px;
     }
 
     .card h3{
-        font-size:12.5px;
-        margin-bottom:3px;
-        line-height:1.2;
+        font-size:11px;
     }
 
     .card p{
-        font-size:10px;
-        line-height:1.2;
+        font-size:9px;
     }
 
     .footer{
@@ -265,13 +260,12 @@ body{
 }
 
 .footer{
-    background-color: var(--charcoal);
     text-align:center;
-    margin-top:20px;
     padding:12px;
     color:#F2EDE2;
     font-size:14px;
     width:100%;
+    margin-top:auto;
 }
 
 .footer a{
