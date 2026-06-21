@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support | SS GRAND INN</title>
@@ -17,42 +14,6 @@
     box-sizing:border-box;
     font-family:'Times New Roman', Times, serif;
 }
-
-.footer{
-    text-align:center;
-    margin-top:20px;
-    padding:12px;
-    color:#F2EDE2;
-    font-size:14px;
-    width:100%;
-}
-
-.footer a{
-    color:#F2EDE2;
-    text-decoration:none;
-    display:inline-block;
-}
-
-.footer a:hover{
-    color:#D4AF37;
-}
-@media(max-width:768px){
-    .footer{
-        padding:40px 15px 25px;
-    }
-
-    .footer h2{
-        font-size:1.6rem;
-    }
-
-    .social-icons a{
-        width:45px;
-        height:45px;
-        font-size:20px;
-    }
-}
-
-
 
 :root{
     --charcoal:#121212;
@@ -71,7 +32,8 @@ body{
     background:var(--charcoal);
     color:var(--cream);
     min-height:100vh;
-    font-family:'time',sans-serif;
+    display:flex;
+    flex-direction:column;
     background-image:
         radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
         radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
@@ -79,7 +41,7 @@ body{
 
 .navbar{
     background:var(--charcoal-dark);
-    border-bottom:1px solid var(--border-gold);
+    border-bottom:3px solid var(--border-gold);
     padding:10px 20px;
     display:flex;
     justify-content:space-between;
@@ -93,16 +55,9 @@ body{
 }
 
 .logo img{
-    height: 75px;
+    height:75px;
     width:auto;
     display:block;
-}
-
-.nav-right{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    flex-shrink:0;
 }
 
 .lang-btn{
@@ -123,72 +78,114 @@ body{
     background:var(--gold);
     color:var(--charcoal-dark);
 }
+
 .container{
     max-width:1200px;
-    margin:auto;
-    padding:30px 20px;
-    
-}
-.header{
-    background:var(--charcoal-card);
-    border:1px solid var(--border-gold);
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
-    margin-bottom:25px;
+    width:100%;
+    margin:0 auto;
+    padding:8px 15px 30px;
 }
 
-.header h1{
+.welcome{
+    text-align:center;
+    margin:5px 0 10px;
+    padding:0;
+}
+
+.welcome h1{
     color:var(--gold-pale);
+    font-size:32px;
     margin-bottom:10px;
 }
 
 .room{
-    color:var(--gold);
-    font-size:18px;
+    font-size:22px;
+    color:var(--cream);
     font-weight:600;
+    margin:8px 0;
 }
 
-.grid{
+.room span{
+    color:var(--gold);
+}
+
+.message{
+    color:var(--muted);
+    font-size:16px;
+}
+
+.cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    max-width:1000px;
+    margin:0 auto;
 }
 
 .card{
-    background:var(--charcoal-card);
-    border:1px solid var(--border-gold);
+    position:relative;
+    overflow:hidden;
+    background:#F2EDE2;
+    border:3px solid var(--charcoal-card);
     border-radius:18px;
-    padding:25px;
+    padding:8px 5px;
     text-align:center;
     cursor:pointer;
-    transition:.3s;
+    transition:.4s;
+    min-height:95px;
+    height:auto;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    border-color:var(--gold);
-    background:var(--charcoal-card-hover);
-    box-shadow:0 0 20px rgba(212,175,55,.15);
+    transform:translateY(-8px) scale(1.03);
+    background:linear-gradient(
+        135deg,
+        #E8D9B5,
+        #D4AF37,
+        #C9A66B
+    );
+    border-color:#D4AF37;
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.25),
+        0 0 20px rgba(212,175,55,.35);
+}
+
+.card:hover h3{
+    color:#121212;
+}
+
+.card:hover p{
+    color:#2E2E2E;
+}
+
+.card:hover .icon{
+    transform:scale(1.1);
 }
 
 .icon{
-    font-size:42px;
-    margin-bottom:12px;
+    font-size:45px;
+    margin-bottom:15px;
+    color:var(--gold);
+    filter:drop-shadow(0 0 6px rgba(212,175,55,.25));
+    transition:.4s;
 }
 
 .card h3{
-    color:var(--gold-pale);
-    margin-bottom:8px;
+    color:#121212;
+    font-weight:700;
+    margin-bottom:10px;
 }
 
 .card p{
-    color:var(--muted);
+    color:#444444;
     font-size:14px;
 }
 
 .custom-box{
     margin-top:25px;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
     background:var(--charcoal-card);
     border:1px solid var(--border-gold);
     border-radius:18px;
@@ -210,6 +207,7 @@ textarea{
     padding:15px;
     resize:none;
     outline:none;
+    font-family:'Times New Roman', Times, serif;
 }
 
 textarea:focus{
@@ -232,34 +230,112 @@ textarea:focus{
         var(--gold-soft)
     );
     color:#000;
+    transition:.3s;
 }
 
 .send-btn:hover{
     opacity:.95;
 }
 
-.back{
-    text-align:center;
-    margin-top:25px;
-}
-
-.back a{
-    color:var(--gold);
-    text-decoration:none;
-}
-
+/* ===== MOBILE: fit all 6 cards on one screen, no scrolling ===== */
 @media(max-width:768px){
-    .grid{
-        grid-template-columns:1fr;
+    .container{
+        padding-top:0;
+        margin-top:0;
+    }
+
+    .welcome{
+        margin:0 auto 12px;
+        text-align:center;
     }
 
     .navbar{
         flex-shrink:0;
         padding:8px 14px;
+        margin-bottom:25px;
     }
 
     .logo img{
         height:70px;
+    }
+
+    .welcome h1{
+        font-size:20px;
+    }
+
+    .room{
+        font-size:18px;
+        margin:6px 0;
+    }
+
+    .message{
+        font-size:11.5px;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .card{
+        height:140px;
+        min-height:140px;
+    }
+
+    .icon{
+        font-size:28px;
+        color:#B8860B;
+        margin-bottom:8px;
+    }
+
+    .card h3{
+        font-size:13px;
+        color:#121212;
+        font-weight:700;
+    }
+
+    .card p{
+        font-size:10px;
+    }
+
+    .custom-box{
+        padding:18px;
+    }
+}
+
+/* Extra-short phones: shrink a little further */
+@media(max-width:768px) and (max-height:620px){
+    .welcome{ padding:10px 14px; margin-bottom:8px; }
+    .welcome h1{ font-size:13px; }
+    .room{ font-size:16px; margin:4px 0; }
+    .message{ font-size:10.5px; }
+    .icon{ font-size:20px; margin-bottom:3px; }
+    .card h3{ font-size:11.5px; }
+    .card p{ display:none; }
+}
+
+.footer{
+    text-align:center;
+    margin-top:auto;
+    padding:12px;
+    color:#F2EDE2;
+    font-size:14px;
+    width:100%;
+}
+
+.footer a{
+    color:#F2EDE2;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.footer a:hover{
+    color:#D4AF37;
+}
+
+@media(max-width:768px){
+    .footer{
+        padding:20px 15px 18px;
     }
 }
 </style>
@@ -273,82 +349,80 @@ textarea:focus{
         <img src="/Img/logo.png" alt="SS Grand Inn Logo">
     </a>
 
-    <div class="nav-right">
 
-        <!-- <a class="back-btn" href="index.html">
-            ← Back
-        </a> -->
-
-  
-    </div>
 
 </nav>
+
 <div class="container">
 
-<div class="header">
-    <h1>💬 Guest Support Center</h1>
-    <div class="room">
-        Room No: <span id="roomNo">101</span>
+    <div class="welcome">
+        <h1 id="headerTitle">💬 Guest Support Center</h1>
+        <div class="room">
+            <span id="roomLabel">Room No :</span>
+            <span id="roomNo">101</span>
+        </div>
     </div>
+
+    <div class="cards">
+
+        <div class="card" onclick="sendRequest('Housekeeping Assistance')">
+            <div class="icon">🧹</div>
+            <h3 id="t0">Housekeeping</h3>
+            <p id="d0">Cleaning & room assistance</p>
+        </div>
+
+        <div class="card" onclick="sendRequest('Food Related Issue')">
+            <div class="icon">🍽️</div>
+            <h3 id="t1">Food Support</h3>
+            <p id="d1">Food order & restaurant help</p>
+        </div>
+
+        <div class="card" onclick="sendRequest('WiFi Problem')">
+            <div class="icon">📶</div>
+            <h3 id="t2">WiFi Issue</h3>
+            <p id="d2">Internet connectivity support</p>
+        </div>
+
+        <div class="card" onclick="sendRequest('Need Extra Blanket / Pillow')">
+            <div class="icon">🛏️</div>
+            <h3 id="t3">Extra Bedding</h3>
+            <p id="d3">Blankets, pillows & extras</p>
+        </div>
+
+        <div class="card" onclick="sendRequest('Taxi Booking Required')">
+            <div class="icon">🚕</div>
+            <h3 id="t4">Taxi Service</h3>
+            <p id="d4">Local transportation help</p>
+        </div>
+
+        <div class="card" onclick="sendRequest('Laundry Service Required')">
+            <div class="icon">🧺</div>
+            <h3 id="t5">Laundry</h3>
+            <p id="d5">Clothes washing service</p>
+        </div>
+
+    </div>
+
+    <div class="custom-box">
+
+        <h2 id="customTitle">✍️ Describe Your Issue</h2>
+
+        <textarea id="issue"
+        placeholder="Example: AC is not cooling properly..."></textarea>
+
+        <button class="send-btn" id="sendBtn" onclick="sendCustomIssue()">
+            Send via WhatsApp
+        </button>
+
+    </div>
+
 </div>
 
-<div class="grid">
-
-    <div class="card" onclick="sendRequest('Housekeeping Assistance')">
-        <div class="icon">🧹</div>
-        <h3>Housekeeping</h3>
-        <p>Cleaning & room assistance</p>
-    </div>
-
-    <div class="card" onclick="sendRequest('Food Related Issue')">
-        <div class="icon">🍽️</div>
-        <h3>Food Support</h3>
-        <p>Food order & restaurant help</p>
-    </div>
-
-    <div class="card" onclick="sendRequest('WiFi Problem')">
-        <div class="icon">📶</div>
-        <h3>WiFi Issue</h3>
-        <p>Internet connectivity support</p>
-    </div>
-
-    <div class="card" onclick="sendRequest('Need Extra Blanket / Pillow')">
-        <div class="icon">🛏️</div>
-        <h3>Extra Bedding</h3>
-        <p>Blankets, pillows & extras</p>
-    </div>
-
-    <div class="card" onclick="sendRequest('Taxi Booking Required')">
-        <div class="icon">🚕</div>
-        <h3>Taxi Service</h3>
-        <p>Local transportation help</p>
-    </div>
-
-    <div class="card" onclick="sendRequest('Laundry Service Required')">
-        <div class="icon">🧺</div>
-        <h3>Laundry</h3>
-        <p>Clothes washing service</p>
-    </div>
-
-</div>
-
-<div class="custom-box">
-
-    <h2>✍️ Describe Your Issue</h2>
-
-    <textarea id="issue"
-    placeholder="Example: AC is not cooling properly..."></textarea>
-
-    <button class="send-btn" onclick="sendCustomIssue()">
-        Send via WhatsApp
-    </button>
-
-</div>
-
-
-
-
-</div>
+<footer class="footer">
+    <a href="/index.html">
+        © SS Grand Inn • Luxury Stay, Exceptional Hospitality
+    </a>
+</footer>
 
 <script>
 
@@ -400,68 +474,55 @@ ${issue}`;
     );
 }
 
-let telugu = false;
+// LANGUAGE SWITCH (shared across the whole site)
+function changeLanguage(){
+
+    let current = localStorage.getItem("lang") || "en";
+
+    if(current === "en"){
+        localStorage.setItem("lang","te");
+    }else{
+        localStorage.setItem("lang","en");
+    }
+
+    location.reload();
+}
+
 const lang = localStorage.getItem("lang") || "en";
 
 if(lang === "te"){
 
-    document.querySelector(".header h1").innerHTML =
+    document.getElementById("headerTitle").innerHTML =
     "💬 అతిథుల సహాయ కేంద్రం";
 
-    document.querySelector(".room").innerHTML =
-    `గది నంబర్: <span id="roomNo">${room}</span>`;
+    document.getElementById("roomLabel").innerHTML =
+    "గది నంబర్:";
 
-    document.querySelectorAll(".card h3")[0].innerHTML =
-    "హౌస్ కీపింగ్";
+    const titles = ["హౌస్ కీపింగ్","ఆహార సహాయం","వైఫై సమస్య","అదనపు పరుపు","టాక్సీ సేవ","లాండ్రీ సేవ"];
+    const descs = [
+        "గది శుభ్రపరచడం మరియు సహాయం",
+        "ఆహార ఆర్డర్ మరియు రెస్టారెంట్ సహాయం",
+        "ఇంటర్నెట్ కనెక్టివిటీ సహాయం",
+        "దుప్పట్లు మరియు దిండ్లు",
+        "స్థానిక రవాణా సహాయం",
+        "బట్టల ఉతికే సేవ"
+    ];
 
-    document.querySelectorAll(".card p")[0].innerHTML =
-    "గది శుభ్రపరచడం మరియు సహాయం";
+    for(let i=0;i<6;i++){
+        document.getElementById("t"+i).innerHTML = titles[i];
+        document.getElementById("d"+i).innerHTML = descs[i];
+    }
 
-    document.querySelectorAll(".card h3")[1].innerHTML =
-    "ఆహార సహాయం";
-
-    document.querySelectorAll(".card p")[1].innerHTML =
-    "ఆహార ఆర్డర్ మరియు రెస్టారెంట్ సహాయం";
-
-    document.querySelectorAll(".card h3")[2].innerHTML =
-    "వైఫై సమస్య";
-
-    document.querySelectorAll(".card p")[2].innerHTML =
-    "ఇంటర్నెట్ కనెక్టివిటీ సహాయం";
-
-    document.querySelectorAll(".card h3")[3].innerHTML =
-    "అదనపు పరుపు";
-
-    document.querySelectorAll(".card p")[3].innerHTML =
-    "దుప్పట్లు మరియు దిండ్లు";
-
-    document.querySelectorAll(".card h3")[4].innerHTML =
-    "టాక్సీ సేవ";
-
-    document.querySelectorAll(".card p")[4].innerHTML =
-    "స్థానిక రవాణా సహాయం";
-
-    document.querySelectorAll(".card h3")[5].innerHTML =
-    "లాండ్రీ సేవ";
-
-    document.querySelectorAll(".card p")[5].innerHTML =
-    "బట్టల ఉతికే సేవ";
-
-    document.querySelector(".custom-box h2").innerHTML =
+    document.getElementById("customTitle").innerHTML =
     "✍️ మీ సమస్యను వివరించండి";
 
     document.getElementById("issue").placeholder =
     "ఉదాహరణ: AC సరిగా చల్లబరచడం లేదు...";
 
-    document.querySelector(".send-btn").innerHTML =
+    document.getElementById("sendBtn").innerHTML =
     "వాట్సాప్ ద్వారా పంపండి";
 }
 </script>
-<footer class   ="footer">
-       <a href="/index.html">
-        © SS Grand Inn • Luxury Stay, Exceptional Hospitality
-    </a>
-      
-    </footer>
+
 </body>
 </html>
