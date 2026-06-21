@@ -42,7 +42,7 @@ min-height:100vh;
 
 .navbar{
     background:var(--charcoal-dark);
-    border-bottom:1px solid var(--border-gold);
+    border-bottom:3px solid var(--border-gold);
     padding:10px 20px;
     display:flex;
     justify-content:space-between;
@@ -123,8 +123,8 @@ min-height:100vh;
 .card{
     position:relative;
     overflow:hidden;
-    background:var(--charcoal-card);
-    border:1px solid var(--border-gold);
+    background: #F2EDE2;;
+    border:3px solid var(--charcoal-card);
     border-radius:18px;
     padding:8px 5px;
     text-align:center;
@@ -133,7 +133,7 @@ min-height:100vh;
         min-height:95px;
 
 }
-.card::before{
+/* .card::before{
     content:'';
     position:absolute;
     top:0;
@@ -149,22 +149,33 @@ min-height:100vh;
         transparent
     );
     transform:skewX(-25deg);
-}
+} */
 
 .card:hover{
-    transform:translateY(-8px);
-    background:var(--charcoal-card-hover);
-    border-color:var(--gold);
+    transform:translateY(-8px) scale(1.03);
+    background:linear-gradient(
+        135deg,
+        #E8D9B5,
+        #D4AF37,
+        #C9A66B
+    );
+    border-color:#D4AF37;
     box-shadow:
-        0 10px 25px rgba(0,0,0,.45),
-        0 0 20px rgba(212,175,55,.15);
+        0 12px 30px rgba(0,0,0,.25),
+        0 0 20px rgba(212,175,55,.35);
 }
 
-.card:hover::before{
-    animation:shine 1s ease;
+.card:hover h3{
+    color:#121212;
 }
 
-@keyframes shine{
+.card:hover p{
+    color:#2E2E2E;
+}
+
+.card:hover .icon{
+    transform:scale(1.1);
+}@keyframes shine{
     100%{
         left:200%;
     }
@@ -177,13 +188,17 @@ min-height:100vh;
     filter:drop-shadow(0 0 6px rgba(212,175,55,.25));
 }
 .card h3{
-    color:var(--gold-pale);
+    
+    color:#121212;   /* Dark Black */
+    font-weight:700;
     margin-bottom:10px;
     font-weight:600;
 }
 
 .card p{
-    color:var(--muted);
+
+
+    color:#444444;   
     font-size:14px;
 }
 
@@ -191,7 +206,7 @@ min-height:100vh;
 @media(max-width:768px){
     .container{
         padding-top:0;
-        margin-top: ;    
+        margin-top: 0;    
     }
 
   .welcome{
@@ -310,10 +325,10 @@ min-height:100vh;
 
         <h1 id="welcomeText">Welcome Back 👋!</h1>
 
-        <div class="room">
-            Room No :
-            <span id="roomNo">101</span>
-        </div>
+<div class="room">
+    <span id="roomLabel">Room No :</span>
+    <span id="roomNo">101</span>
+</div>
 
         <p class="message" id="messageText">
             Hope you are having a comfortable stay!
@@ -326,37 +341,37 @@ min-height:100vh;
         <div class="card" onclick="location.href='/food.html'">
     <div class="icon">🍽️</div>
     <h3 id="foodTitle">Order Food</h3>
-    <p>Browse menu and order instantly</p>
+<p id="foodDesc">Browse menu and order instantly</p>
     </div>
 
         <div class="card" onclick="location.href='/wifi.html'">
             <div class="icon">📶</div>
             <h3 id="wifiTitle">WiFi Access</h3>
-            <p>Get connected instantly</p>
+<p id="wifiDesc">Get connected instantly</p>
         </div>
 
         <div class="card" onclick="location.href='tel:+919030796171'">
             <div class="icon">☎️</div>
             <h3 id="receptionTitle">Call Reception</h3>
-            <p>Need assistance? Contact reception</p>
+<p id="receptionDesc">Need assistance? Contact reception</p>
         </div>
 
         <div class="card" onclick="location.href='/info.html'">
             <div class="icon">🏨</div>
             <h3 id="hotelTitle">Hotel Info</h3>
-            <p>Services, timings and facilities</p>
+<p id="hotelDesc">Services, timings and facilities</p>
         </div>
 
         <div class="card" onclick="location.href='/explore.html'">
             <div class="icon">🗺️</div>
             <h3 id="exploreTitle">Explore Samalkot</h3>
-            <p>Discover nearby attractions</p>
+<p id="exploreDesc">Discover nearby attractions</p>
         </div>
 
         <div class="card" onclick="location.href='/support.html'">
             <div class="icon">💬</div>
             <h3 id="whatsappTitle">WhatsApp Support</h3>
-            <p>Chat with our support team</p>
+<p id="supportDesc">Chat with our support team</p>
         </div>
 
     </div>
@@ -392,7 +407,7 @@ I need assistance.
 Room Number: ${roomNo}`;
 
     window.open(
-        `https://wa.me/91xxxxxxxxxx?text=${encodeURIComponent(msg)}`,
+        `https://wa.me/919030796171?text=${encodeURIComponent(msg)}`,
         '_blank'
     );
 }
@@ -414,9 +429,28 @@ function changeLanguage(){
 const lang = localStorage.getItem("lang") || "en";
 
 if(lang === "te"){
+      document.getElementById("roomLabel").innerHTML =
+        "గది నం :";
 
     document.getElementById("welcomeText").innerHTML =
     "👋 తిరిగి స్వాగతం";
+        document.getElementById("foodDesc").innerHTML =
+    "మెనూను చూసి వెంటనే ఆర్డర్ చేయండి";
+
+    document.getElementById("wifiDesc").innerHTML =
+    "తక్షణమే కనెక్ట్ అవ్వండి";
+
+    document.getElementById("receptionDesc").innerHTML =
+    "సహాయం కావాలా? రిసెప్షన్‌ను సంప్రదించండి";
+
+    document.getElementById("hotelDesc").innerHTML =
+    "సేవలు, సమయాలు మరియు సౌకర్యాలు";
+
+    document.getElementById("exploreDesc").innerHTML =
+    "సమీప ఆకర్షణలను కనుగొనండి";
+
+    document.getElementById("supportDesc").innerHTML =
+    "మా సపోర్ట్ బృందంతో చాట్ చేయండి";
 
     document.getElementById("messageText").innerHTML =
     "మీ బస సౌకర్యవంతంగా సాగుతుందని ఆశిస్తున్నాము!";
