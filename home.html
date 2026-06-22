@@ -81,6 +81,8 @@ body{
     width:100%;
     margin:0 auto;
     padding:8px 15px;
+        flex:1;
+
 }
 .welcome{
     text-align:center;
@@ -238,23 +240,22 @@ body{
    @media(max-width:768px){
 
     .cards{
-        width:82%;
+           width:88%;
+    max-width:240px;
         gap:8px;
         margin-top:6px;
     }
 
-    .card{
-        height:44px;
-        min-height:44px;
-        border-radius:6px;
-        padding:0 14px;
-    }
+.card{
+    height:42px;
+    min-height:42px;
+    padding:0 14px;
+}
 
-    .card h3{
-        font-size:15px;
-        font-family:'Montserrat',sans-serif;
-        font-weight:500;
-    }
+.card h3{
+    font-size:14px;
+    font-family:'Montserrat',sans-serif;
+}
 
     .icon{
         font-size:15px;
@@ -274,16 +275,17 @@ body{
 
 }
 .welcome h1{
-    font-size:38px;
-    font-weight:700;
-    color:#001236;
-    font-family:'Cormorant Garamond', serif;
-    letter-spacing:1px;
-    line-height:1;
+    font-size:28px;
+    margin-bottom:2px;
 }
+
 .tagline{
-    font-size: 20px;
-    color: #16305F;
+    font-size:12px;
+    margin:2px 0 4px;
+}
+
+.message{
+    display:none;
 }
 .card:hover,
 .card:active{
@@ -319,8 +321,8 @@ body{
     color:#F8F6F0;
     text-align:center;
     padding:10px;
-    font-size:11px;
-    margin-top:8px;
+    font-size:10px;
+    margin-top:auto;
 }
 
 .footer a{
