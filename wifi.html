@@ -6,44 +6,43 @@
 <title>Wifi | SS GRAND INN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Times New Roman', Times, serif
+font-family:'Cormorant Garamond', serif;
 
 }
 :root{
-    --charcoal:#121212;
-    --charcoal-dark:#0A0A0A;
-    --charcoal-card:#1C1C1C;
-    --charcoal-field:#161616;
+    --navy:#001236;
     --gold:#D4AF37;
-    --gold-soft:#C9A66B;
-    --gold-pale:#E8D9B5;
-    --cream:#F2EDE2;
-    --muted:#9C9282;
-    --border-gold:rgba(212,175,55,.25);
+    --cream:#EFEAE5;
+    --darkcream:#D8D0C4;
+    --white:#FFFFFF;
 }
 
 body{
-    background:var(--charcoal);
-    color:var(--cream);
+    background:#EFEAE5;
+    color:#001236;
     min-height:100vh;
-    font-family:'time',sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+
     background-image:
-        radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
-        radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
+        radial-gradient(circle at 15% 0%, rgba(212,175,55,.08), transparent 40%),
+        radial-gradient(circle at 85% 100%, rgba(0,18,54,.05), transparent 45%);
 }
 
 
 .navbar{
-    background:var(--charcoal-dark);
-    border-bottom:3px solid var(--border-gold);
+ background:#001236;
+    border-bottom:2px solid #D4AF37;
     padding:10px 20px;
     display:flex;
     justify-content:space-between;
@@ -100,37 +99,30 @@ body{
 }
 
 .wifi-icon{
-    font-size:50px;
-    color:var(--gold);
-    margin-bottom:18px;
-    filter:drop-shadow(0 0 8px rgba(212,175,55,.3));
+    font-size:55px;
+    color:#D4AF37;
 }
 
 .page-title{
-    color:var(--gold-pale);
-    font-family:'Times New Roman', Times, serif;
-    font-weight:600;
-    font-size:24px;
-    margin-bottom:6px;
-    text-align:center;
+    color:#001236;
+font-family:'Cormorant Garamond', serif;
+    font-size:34px;
+    font-weight:700;
 }
-
 .page-sub{
-    color:var(--muted);
+    color:#666;
     font-size:14px;
-    margin-bottom:35px;
-    text-align:center;
 }
-
 .wifi-card{
     width:100%;
-    background:var(--charcoal-card);
-    border:1px solid var(--border-gold);
-    border-radius:20px;
+    max-width:550px;
+    background:#D8D0C4;
+    border:2px solid #D4AF37;
+    border-radius:18px;
     padding:30px;
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-    margin-bottom: 0;
+    margin-top: 25px;
 }
+
 .field{
     margin-bottom:22px;
 }
@@ -140,50 +132,41 @@ body{
 }
 
 .field-label{
-    display:block;
-    color:var(--gold-soft);
-    font-size:12px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    margin-bottom:8px;
+    color:#001236;
+    font-weight:600;
+    letter-spacing:1px;
 }
 
 .field-value-row{
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    gap:10px;
-    background:var(--charcoal-field);
-    border:1px solid var(--border-gold);
+    align-items:center;
+
+    background:#F8F6F0;
+    border:1px solid rgba(212,175,55,.35);
     border-radius:12px;
-    padding:14px 16px;
+
+    padding:12px 14px;
 }
 
 .field-value{
-    color:var(--cream);
-    font-size:18px;
+    color:#001236;
     font-weight:600;
-    font-family:'Times New Roman', Times, serif;
-    letter-spacing:.5px;
-    word-break:break-all;
 }
 
 .copy-btn{
-    background:transparent;
-    border:1px solid var(--border-gold);
-    color:var(--gold);
+    background:#001236;
+    color:#fff;
+    border:none;
     border-radius:8px;
-    padding:8px 10px;
-    cursor:pointer;
-    font-size:15px;
-    flex-shrink:0;
-    transition:.25s;
-    font-family:'Times New Roman', Times, serif
-}
 
+    padding:8px 16px;
+    font-size:14px;
+    font-weight:600;
+}
 .copy-btn:hover{
-    background:var(--gold);
-    color:var(--charcoal-dark);
+    background:#D4AF37;
+    color:#001236;
 }
 
 .copy-btn.copied{
@@ -191,12 +174,15 @@ body{
     color:var(--charcoal-dark);
 }
 .footer{
-    text-align:center;
-    padding:20px 15px;
+    background:#001236;
     color:#F2EDE2;
-    font-size:14px;
+
+    text-align:center;
+
+    padding:12px;
+    font-size:12px;
+
     width:100%;
-    border-top:1px solid rgba(212,175,55,.15);
     margin-top:auto;
 }
 
@@ -207,16 +193,22 @@ body{
 
 .footer a:hover{
     color:#D4AF37;
-
 }
-
+.container{
+    min-height:calc(100vh - 170px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 @media(max-width:768px){
+
     .navbar{
-        flex-shrink:0;
-        padding:8px 14px;
+        padding:8px 12px;
+        margin-bottom:10px;
+        height: 68px;
     }
     .logo img{
-        height:70px;
+        height:50px;
     }
     .footer{
         padding:40px 15px 25px;
@@ -231,6 +223,28 @@ body{
         height:45px;
         font-size:20px;
     }
+
+.footer{
+    background:#001236;
+    color:#F2EDE2;
+
+    text-align:center;
+
+    padding:12px;
+    font-size:12px;
+
+    width:100%;
+    margin-top:auto;
+}
+
+.footer a{
+    color:#F8F6F0;        /* Ivory */
+    text-decoration:none;
+    transition:0.3s;
+}
+.footer a:hover{
+    color:#D4AF37;
+}
 }
 
 
@@ -239,7 +253,7 @@ body{
 <body>
 
 <nav class="navbar">
-<a href="index.html" class="logo">
+<a href="home.html" class="logo">
     <img src="/Img/logo.png" alt="SS Grand Inn Logo">
 </a>
     <!-- <a class="back-btn" href="index.html">← Back</a> -->

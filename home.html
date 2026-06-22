@@ -26,6 +26,7 @@
     --text:#1A1A1A;
 }
 body{
+     font-family:'Cormorant Garamond', serif;
  
   background:#EFEAE5;
     color:#F8F6F0;
@@ -44,6 +45,7 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    height: 68px;
 }
 
 .logo{
@@ -69,7 +71,7 @@ body{
     transition:.3s;
     white-space:nowrap;
     flex-shrink:0;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Cormorant Garamond', serif;
 }
 
 .lang-btn:hover{
@@ -110,7 +112,7 @@ max-width:1200px;
     color: #001236;
     font-weight:500;
     margin:8px 0;
-    font-family:'Cormorant Garamond', Georgia, serif;
+    font-family:'Cormorant Garamond', serif;
 }
 
 .room span{
@@ -120,7 +122,7 @@ max-width:1200px;
 .message{
     color:var(--muted);
     font-size:14px;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Cormorant Garamond', serif;
     font-weight:300;
     letter-spacing:.03em;
 }
@@ -132,6 +134,7 @@ max-width:1200px;
     max-width:420px;
     margin:0 auto;
     margin-top: 5px;
+    
 }.card{
     background-color: #102348;
     width:100%;
@@ -170,7 +173,7 @@ max-width:1200px;
 
 .arrow{
     color:#fff;
-    font-size:14px;
+    font-size:25px;
 }
 .card:hover{
     background:linear-gradient(
@@ -207,13 +210,32 @@ max-width:1200px;
     font-weight:400;
 }
 .section-line{
-    width:85%;
+    width:90%;
+    max-width:280px;
     height:1px;
     background:#9CA3AF;
-    margin:10px auto;
+    margin:12px auto;
 }
 
+.headline{
+    text-align:center;
+    color:#001236;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:2px;
+    margin:10px 0;
+    position:relative;
+    font-family:'Cormorant Garamond', serif
+}
 
+.headline::after{
+    content:"";
+    display:block;
+    width:80px;
+    height:2px;
+    background:#D4AF37;
+    margin:6px auto 0;
+}
 @media(max-width:768px){
 
     .navbar{
@@ -256,7 +278,7 @@ max-width:1200px;
 
 .card h3{
     font-size:14px;
-    font-family:'Montserrat',sans-serif;
+    font-family:'font-family:'Cormorant Garamond', serif', serif';
 }
 
     .icon{
@@ -264,7 +286,7 @@ max-width:1200px;
     }
 
     .arrow{
-        font-size:12px;
+        font-size:30px;
     }
 }
     .title{
@@ -325,10 +347,14 @@ max-width:1200px;
 }
 .footer{
     background:#001236;
-    color:#F8F6F0;
+    color:#F2EDE2;
+
     text-align:center;
-    padding:10px;
-    font-size:10px;
+
+    padding:12px;
+    font-size:12px;
+
+    width:100%;
     margin-top:auto;
 }
 
@@ -341,13 +367,13 @@ max-width:1200px;
     color:#D4AF37;
 }
 .section-line{
-    width:85%;
+    width:90%;
+    max-width:280px;
     height:1px;
     background:#9CA3AF;
-
-    margin-top:15px;
-    margin-bottom:8px;
+    margin:12px auto;
 }
+
 @media(max-width:768px) and (max-height:620px){
     .welcome{ padding:10px 14px; margin-bottom:8px; }
     .welcome h1{ font-size:13px; }
@@ -362,7 +388,7 @@ max-width:1200px;
 <body>
 
 <nav class="navbar">
-<a href="index.html" class="logo">
+<a href="home.html" class="logo">
     <img src="/Img/logo.png" alt="SS Grand Inn Logo">
 </a>
 
@@ -372,15 +398,13 @@ max-width:1200px;
 </nav>
 
 <div class="container">
-
+<h2 class="headline" id="headlineText">
+    Luxury • Comfort • Hospitality
+</h2>
     <div class="welcome">
-        <h1 id="welcomeText">Welcome Back 👋!</h1>
         <p class="tagline">Experience luxury, comfort and exceptional hospitality.</p>
 
-        <!-- <div class="room">
-            <span id="roomLabel">Room No :</span>
-            <span id="roomNo">101</span>
-        </div> -->
+    
 
         <p class="message" id="messageText">
             Hope you are having a comfortable stay!
@@ -458,11 +482,11 @@ const lang = localStorage.getItem("lang") || "en";
 
 if(lang === "te"){
 
-    document.getElementById("roomLabel").innerHTML = "గది నం :";
-    document.getElementById("welcomeText").innerHTML = " తిరిగి స్వాగతం 👋";
 
     document.getElementById("messageText").innerHTML =
     "మీ బస సౌకర్యవంతంగా సాగుతుందని ఆశిస్తున్నాము!";
+    document.getElementById("headlineText").innerHTML =
+"లగ్జరీ • సౌకర్యం • ఆతిథ్యం";
 
     document.getElementById("foodDesc").innerHTML = "ఆహారం";
     document.getElementById("wifiDesc").innerHTML = "వైఫై";
@@ -476,6 +500,7 @@ if(lang === "te"){
 else{
 
     // document.getElementById("roomLabel").innerHTML = "Room No :";
+    
     document.getElementById("welcomeText").innerHTML = "Welcome Back 👋!";
 
     document.getElementById("messageText").innerHTML =
