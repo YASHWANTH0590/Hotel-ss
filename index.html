@@ -4,35 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SS GRAND INN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
-
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Times New Roman', Times, serif;
-}
-
-:root{
-    --charcoal:#121212;
-    --charcoal-dark:#0A0A0A;
-    --charcoal-card:#1C1C1C;
-    --charcoal-card-hover:#212121;
-    --gold:#D4AF37;
-    --gold-soft:#C9A66B;
-    --gold-pale:#E8D9B5;
-    --cream:#F2EDE2;
-    --muted:#9C9282;
-    --border-gold:rgba(212,175,55,.25);
+    font-family:'Cormorant Garamond', Georgia, serif;
+}:root{
+    --primary:#001236;      /* Deep Navy Blue */
+    --secondary:#002B6B;    /* Royal Blue */
+    --gold:#D4AF37;         /* Luxury Gold */
+    --gold-light:#E6C768;   /* Light Gold */
+    --cream:#F8F6F0;        /* Ivory */
+    --white:#FFFFFF;
+    --text:#1A1A1A;
 }
 body{
-    background:var(--charcoal);
-    color:var(--cream);
-
-min-height:100vh;
+ 
+  background:#EFEAE5;
+    color:#F8F6F0;
+ min-height:100vh;
     display:flex;
     flex-direction:column;
     background-image:
@@ -41,8 +38,8 @@ min-height:100vh;
 }
 
 .navbar{
-    background:var(--charcoal-dark);
-    border-bottom:3px solid var(--border-gold);
+ background:#001236;
+    border-bottom:2px solid #D4AF37;
     padding:10px 20px;
     display:flex;
     justify-content:space-between;
@@ -72,6 +69,7 @@ min-height:100vh;
     transition:.3s;
     white-space:nowrap;
     flex-shrink:0;
+    font-family:'Montserrat', sans-serif;
 }
 
 .lang-btn:hover{
@@ -83,223 +81,235 @@ min-height:100vh;
     width:100%;
     margin:0 auto;
     padding:8px 15px;
- 
 }
 .welcome{
     text-align:center;
-    margin:5px 0 10px;
-    padding:0;
+     margin:5px 0;
+     padding:0;
 }
 
-
 .welcome h1{
-    color:var(--gold-pale);
-    font-size:32px;
-    margin-bottom:10px;
+    font-size:58px;
+    font-weight:700;
+    color:#001236;
+    font-family:'Cormorant Garamond', serif;
+    letter-spacing:1px;
+    line-height:1;
+}
+.welcome-divider{
+    color:#D4AF37;
+    font-size:20px;
+    margin:8px 0;
+    letter-spacing:8px;
 }
 
 .room{
     font-size:22px;
-    color:var(--cream);
-    font-weight:600;
+    color: #001236;
+    font-weight:500;
     margin:8px 0;
+    font-family:'Cormorant Garamond', Georgia, serif;
 }
 
 .room span{
-    color:var(--gold);
+    color: #001236;
 }
 
 .message{
     color:var(--muted);
-    font-size:16px;
+    font-size:14px;
+    font-family:'Montserrat', sans-serif;
+    font-weight:300;
+    letter-spacing:.03em;
 }
 .cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    max-width:1000px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    max-width:420px;
     margin:0 auto;
-}
-.card{
-    position:relative;
-    overflow:hidden;
-    background: #F2EDE2;;
-    border:3px solid var(--charcoal-card);
-    border-radius:18px;
-    padding:8px 5px;
-    text-align:center;
+    margin-top: 5px;
+}.card{
+    background-color: #102348;
+    width:100%;
+    max-width:420px;
+    height:56px;
+    border-radius:8px;
+    border:none;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 18px;
     cursor:pointer;
-    transition:.4s;
-     min-height:95px;
-     height: auto;
-
+    margin-top: 2px;
 }
-/* .card::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:-150%;
-    width:60%;
-    height:100%;
-    background:linear-gradient(
-        50deg,
-        transparent,
-        rgba(72, 63, 31, 0.12),
-        rgba(212, 175, 55, 0.203),
-        rgba(212,175,55,.12),
-        transparent
-    );
-    transform:skewX(-25deg);
-} */
 
+.left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.icon{
+    color:#fff;
+    font-size:18px;
+    width:20px;
+    text-align:center;
+}
+
+.title{
+    color:#fff;
+    font-size:16px;
+    font-weight:500;
+}
+
+.arrow{
+    color:#fff;
+    font-size:14px;
+}
 .card:hover{
-    transform:translateY(-8px) scale(1.03);
     background:linear-gradient(
-        135deg,
-        #E8D9B5,
-        #D4AF37,
-        #C9A66B
+        90deg,
+        #16305F,
+        #1C3D78,
+        #16305F
     );
-    border-color:#D4AF37;
+
+    transform:translateY(-3px);
+
     box-shadow:
-        0 12px 30px rgba(0,0,0,.25),
-        0 0 20px rgba(212,175,55,.35);
+        0 8px 20px rgba(0,0,0,0.25),
+        0 0 15px rgba(212,175,55,0.20);
 }
-
-.card:hover h3{
-    color:#121212;
-}
-
-.card:hover p{
-    color:#2E2E2E;
+.card:hover .arrow{
+    transform:translateX(4px);
 }
 
 .card:hover .icon{
     transform:scale(1.1);
-}@keyframes shine{
-    100%{
-        left:200%;
-    }
 }
 
+.arrow,
 .icon{
-    font-size:45px;
-    margin-bottom:15px;
-    color:var(--gold);
-    filter:drop-shadow(0 0 6px rgba(212,175,55,.25));
+    transition:all 0.3s ease;
 }
-.card h3{
-    
-    color:#121212;   /* Dark Black */
-    font-weight:700;
-    margin-bottom:10px;
-    font-weight:600;
+.tagline{
+    color:#042a75;
+    font-size:13px;
+    margin-top:4px;
+    margin-bottom:8px;
+    letter-spacing:0.5px;
+    font-weight:400;
 }
-
-.card p{
-
-
-    color:#444444;   
-    font-size:14px;
-}
-
-/* ===== MOBILE: fit all 6 cards on one screen, no scrolling ===== */
 @media(max-width:768px){
-    .container{
-        padding-top:0;
-        margin-top: 0;    
-    }
-
-  .welcome{
-    margin:5px 0 8px;
-    padding:0;
-}
 
     .navbar{
-        flex-shrink:0;
-        padding:8px 14px;
-        margin-bottom: 25px;
+        padding:8px 12px;
+        margin-bottom:10px;
     }
 
     .logo img{
-        height:70px;
-    }
-
-
-
-   .welcome{
-        margin:0 auto 12px;
-        text-align:center;
+        height:50px;
     }
 
     .welcome h1{
-        font-size:20px;
+        font-size:32px;
+        color:#001236;
     }
 
     .room{
-        font-size:18px;
-        margin:6px 0;
+        font-size:22px;
+        margin:2px 0;
     }
 
     .message{
-        font-size:11.5px;
+        font-size:12px;
     }
 
-
     .cards{
-        grid-template-columns:1fr 1fr;
+        width:100%;
+        max-width:360px;
         gap:10px;
     }
 
     .card{
-        height:140px;
-        min-height:140px;
+        height:54px;
+        min-height:54px;
+    }
+
+    .title{
+        font-size:15px;
     }
 
     .icon{
-        font-size:28px;
-            color:#B8860B;
-
+        font-size:16px;
     }
 
-    .card h3{
-        font-size:13px;
-          color:#121212;
+}
+.welcome h1{
+    font-size:38px;
     font-weight:700;
-    }
+    color:#001236;
+    font-family:'Cormorant Garamond', serif;
+    letter-spacing:1px;
+    line-height:1;
+}
+.tagline{
+    font-size: 20px;
+    color: #16305F;
+}
+.card:hover,
+.card:active{
+    background:linear-gradient(
+        90deg,
+        #16305F,
+        #1C3D78,
+        #16305F
+    );
 
-    .card p{
-        font-size:10px;
-    }
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.25),
+        0 0 15px rgba(212,175,55,0.20);
+}
+.card:hover .icon,
+.card:active .icon{
+    transform:scale(1.1);
 }
 
-    .footer{
-        margin-top:10px;
-        padding:6px;
-    }
+.card:hover .arrow,
+.card:active .arrow{
+    transform:translateX(4px);
+}
 
-
-
-.footer{
+.icon,
+.arrow{
+    transition:all .3s ease;
+}.footer{
+    background:#001236;   /* Same as navbar */
+    color:#F8F6F0;        /* Ivory */
+    
     text-align:center;
-    padding:12px;
-    color:#F2EDE2;
-    font-size:14px;
-    width:100%;
+    padding:14px;
     margin-top:auto;
+    
+    font-size:13px;
+    font-weight:400;
 }
 
 .footer a{
-    color:#F2EDE2;
+    color:#F8F6F0;        /* Ivory */
     text-decoration:none;
-    display:inline-block;
+    transition:0.3s;
 }
-
 .footer a:hover{
     color:#D4AF37;
 }
 
-/* Extra-short phones: shrink a little further */
 @media(max-width:768px) and (max-height:620px){
     .welcome{ padding:10px 14px; margin-bottom:8px; }
     .welcome h1{ font-size:13px; }
@@ -323,61 +333,60 @@ min-height:100vh;
 </button>
 </nav>
 
-
-
 <div class="container">
 
     <div class="welcome">
-
         <h1 id="welcomeText">Welcome Back 👋!</h1>
+        <p class="tagline">Experience Luxury & Hospitality</p>
 
-<div class="room">
-    <span id="roomLabel">Room No :</span>
-    <span id="roomNo">101</span>
-</div>
+        <!-- <div class="room">
+            <span id="roomLabel">Room No :</span>
+            <span id="roomNo">101</span>
+        </div> -->
 
         <p class="message" id="messageText">
             Hope you are having a comfortable stay!
         </p>
-
     </div>
 
     <div class="cards">
 
         <div class="card" onclick="location.href='/food.html'">
-    <div class="icon">🍽️</div>
-    <h3 id="foodTitle">Order Food</h3>
-<p id="foodDesc">Browse menu and order instantly</p>
-    </div>
+            <i class="fas fa-utensils icon"></i>
+
+            <h3 id="foodDesc">Order Food</h3>
+            <span class="arrow">›</span>
+        </div>
 
         <div class="card" onclick="location.href='/wifi.html'">
-            <div class="icon">📶</div>
-            <h3 id="wifiTitle">WiFi Access</h3>
-<p id="wifiDesc">Get connected instantly</p>
+              <i class="fas fa-wifi icon"></i>
+            <h3 id="wifiDesc">WiFi Access</h3>
+            <span class="arrow">›</span>
         </div>
 
         <div class="card" onclick="location.href='tel:+919030796171'">
-            <div class="icon">☎️</div>
-            <h3 id="receptionTitle">Call Reception</h3>
-<p id="receptionDesc">Need assistance? Contact reception</p>
+<i class="fas fa-phone icon"></i>
+            <h3 id="receptionDesc">Call Reception</h3>
+            <span class="arrow">›</span>
         </div>
 
         <div class="card" onclick="location.href='/info.html'">
-            <div class="icon">🏨</div>
-            <h3 id="hotelTitle">Hotel Info</h3>
-<p id="hotelDesc">Services, timings and facilities</p>
+<i class="fas fa-hotel icon"></i>
+            <h3 id="hotelDesc">Hotel Info</h3>
+            <span class="arrow">›</span>
         </div>
 
         <div class="card" onclick="location.href='/explore.html'">
-            <div class="icon">🗺️</div>
-            <h3 id="exploreTitle">Explore Samalkot</h3>
-<p id="exploreDesc">Discover nearby attractions</p>
+       <i class="fas fa-map icon"></i>
+            <h3 id="exploreDesc">Explore Samalkot</h3>
+            <span class="arrow">›</span>
+
         </div>
 
         <div class="card" onclick="location.href='/support.html'">
-            <div class="icon">💬</div>
-            <h3 id="whatsappTitle">WhatsApp Support</h3>
-<p id="supportDesc">Chat with our support team</p>
+<i class="fab fa-whatsapp icon"></i>            
+<h3 id="whatsappDesc">WhatsApp Support</h3>
+            <span class="arrow">›</span>
         </div>
 
     </div>
@@ -389,99 +398,58 @@ min-height:100vh;
     </a>
 </p>
 
- 
 <script>
-
-// ROOM NUMBER FROM QR URL
 const params = new URLSearchParams(window.location.search);
 const room = params.get("room");
+if(room){ document.getElementById("roomNo").innerText = room; }
 
-if(room){
-    document.getElementById("roomNo").innerText = room;
-}
-
-// WHATSAPP SUPPORT
 function openWhatsapp(){
-
     let roomNo = room || "101";
-
-    let msg =
-`Hello SS HOTELS,
-
-I need assistance.
-
-Room Number: ${roomNo}`;
-
-    window.open(
-        `https://wa.me/919030796171?text=${encodeURIComponent(msg)}`,
-        '_blank'
-    );
+    let msg = `Hello SS HOTELS,\n\nI need assistance.\n\nRoom Number: ${roomNo}`;
+    window.open(`https://wa.me/919030796171?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
-// LANGUAGE SWITCH// Save language for entire website
 function changeLanguage(){
-
     let lang = localStorage.getItem("lang") || "en";
-
-    if(lang === "en"){
-        localStorage.setItem("lang","te");
-    }else{
-        localStorage.setItem("lang","en");
-    }
-
+    localStorage.setItem("lang", lang === "en" ? "te" : "en");
     location.reload();
 }
 
 const lang = localStorage.getItem("lang") || "en";
 
 if(lang === "te"){
-      document.getElementById("roomLabel").innerHTML =
-        "గది నం :";
 
-    document.getElementById("welcomeText").innerHTML =
-    "👋 తిరిగి స్వాగతం";
-        document.getElementById("foodDesc").innerHTML =
-    "మెనూను చూసి వెంటనే ఆర్డర్ చేయండి";
-
-    document.getElementById("wifiDesc").innerHTML =
-    "తక్షణమే కనెక్ట్ అవ్వండి";
-
-    document.getElementById("receptionDesc").innerHTML =
-    "సహాయం కావాలా? రిసెప్షన్‌ను సంప్రదించండి";
-
-    document.getElementById("hotelDesc").innerHTML =
-    "సేవలు, సమయాలు మరియు సౌకర్యాలు";
-
-    document.getElementById("exploreDesc").innerHTML =
-    "సమీప ఆకర్షణలను కనుగొనండి";
-
-    document.getElementById("supportDesc").innerHTML =
-    "మా సపోర్ట్ బృందంతో చాట్ చేయండి";
+    document.getElementById("roomLabel").innerHTML = "గది నం :";
+    document.getElementById("welcomeText").innerHTML = " తిరిగి స్వాగతం 👋";
 
     document.getElementById("messageText").innerHTML =
     "మీ బస సౌకర్యవంతంగా సాగుతుందని ఆశిస్తున్నాము!";
 
-    document.getElementById("foodTitle").innerHTML =
-    "ఆహారం ఆర్డర్ చేయండి";
-
-    document.getElementById("wifiTitle").innerHTML =
-    "వైఫై యాక్సెస్";
-
-    document.getElementById("receptionTitle").innerHTML =
-    "రిసెప్షన్‌కు కాల్ చేయండి";
-
-    document.getElementById("hotelTitle").innerHTML =
-    "హోటల్ సమాచారం";
-
-    document.getElementById("exploreTitle").innerHTML =
-    "సామర్లకోటను అన్వేషించండి";
-
-    document.getElementById("whatsappTitle").innerHTML =
-    "వాట్సాప్ సహాయం";
+    document.getElementById("foodDesc").innerHTML = "ఆహారం";
+    document.getElementById("wifiDesc").innerHTML = "వైఫై";
+    document.getElementById("receptionDesc").innerHTML = "రిసెప్షన్";
+    document.getElementById("hotelDesc").innerHTML = "సమాచారం";
+    document.getElementById("exploreDesc").innerHTML = " సామర్లకోటలోని ప్రదేశాలు";
+    document.getElementById("whatsappDesc").innerHTML = "వాట్సాప్";
+    document.querySelector(".tagline").innerHTML =
+"విలాసం మరియు ఆతిథ్యాన్ని అనుభవించండి";
 }
+else{
 
+    // document.getElementById("roomLabel").innerHTML = "Room No :";
+    document.getElementById("welcomeText").innerHTML = "Welcome Back 👋!";
+
+    document.getElementById("messageText").innerHTML =
+    "Hope you are having a comfortable stay!";
+
+    document.getElementById("foodDesc").innerHTML = "Order Food";
+    document.getElementById("wifiDesc").innerHTML = "WiFi Access";
+    document.getElementById("receptionDesc").innerHTML = "Call Reception";
+    document.getElementById("hotelDesc").innerHTML = "Hotel Info";
+    document.getElementById("exploreDesc").innerHTML = "Explore Samalkot";
+    document.getElementById("whatsappDesc").innerHTML = "WhatsApp Support";
+}
 </script>
-
 
 </body>
 </html>
