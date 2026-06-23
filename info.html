@@ -36,34 +36,27 @@ body {
     display: flex;
     flex-direction: column;
 }
-
-/* ── NAVBAR ── */.navbar{
-    background: var(--primary);
-    border-bottom: 3px solid var(--gold);
+.navbar{
+    background:#001236;
+    border-bottom:2px solid #D4AF37;
+    padding:10px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 20px;
     height:68px;
-    position:sticky;
-    top:0;
-    z-index:1000;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
+.logo{
+    display:flex;
+    align-items:center;
+    line-height:0;
 }
 
-.logo img {
-    /* Hard-cap the logo so it never pushes the navbar taller */
-    height: 40px;
-    max-height: 40px;
-    width: auto;
-    display: block;
-    object-fit: contain;
+.logo img{
+    height:75px;
+    width:auto;
+    display:block;
 }
-
 .nav-right {
     display: flex;
     align-items: center;
@@ -104,16 +97,21 @@ body {
     margin: auto;
 }
 
-.section ul {
-    text-align: center;
-    list-style: none;
-    padding: 0;
+.section ul{
+    list-style:none;
+    padding:0;
+    margin:0 auto;
+    width:fit-content;
+    text-align:left;
 }
 
-.section ul li {
-    font-size: 18px;
-    line-height: 2;
-    color: var(--primary);
+.section ul li{
+    font-size:18px;
+    line-height:2;
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .divider {
@@ -150,20 +148,19 @@ body {
 }
 
 /* ── BUTTONS ── */
-.location-btn,
-.map-btn {
-    background: var(--primary);
-    color: var(--cream);
-    border: 1px solid var(--primary);
-    padding: 8px 16px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-    font-family: 'Cormorant Garamond', serif;
-    transition: all .3s ease;
-    flex-shrink: 0;
-    white-space: nowrap;
+.location-btn,.map-btn{
+    background:#001236;
+    color:#F8F6F0;
+    border:1px solid #001236;
+    padding:10px 18px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+
+    display:block;
+    margin:20px auto 0;
 }
 
 .location-btn:hover,
@@ -205,8 +202,14 @@ footer a:hover { color: var(--gold); }
     }
 
     .section p,
-    .section ul li {
-        font-size: 15px;
+    .section ul{
+        width:fit-content;
+        margin:0 auto;
+    }
+
+    .section ul li{
+        font-size:15px;
+        line-height:1.8;
     }
 
     .places-list {
@@ -225,9 +228,10 @@ footer a:hover { color: var(--gold); }
 }
 @media(max-width:768px){
 
-    .navbar{
-        height:56px;
-        padding:0 12px;
+.navbar{
+        padding:8px 12px;
+        margin-bottom:10px;
+        height:68px;
     }
 
     .logo img{
@@ -258,13 +262,9 @@ footer a:hover { color: var(--gold); }
 
 <div class="divider"></div>
 
-<div class="section" id="whySection">
-    <h2>Why Choose Us</h2>
-    <p>Comfortable rooms, family-friendly hospitality, restaurant service, daily housekeeping, secure premises,
-    24/7 guest assistance, and a prime location in Samarlakota combine to create a relaxing and memorable stay.</p>
-</div>
 
-<div class="divider"></div>
+
+
 
 <div class="section" id="timingSection">
     <h2>Hotel Timings</h2>
@@ -324,7 +324,7 @@ footer a:hover { color: var(--gold); }
     <p>SS GRAND INN is conveniently located in Samarlakota, Opp. Railway Station, Kakinada Dist - 533 440,
     Andhra Pradesh, providing easy access to temples, railway station, local markets, and nearby attractions.</p>
     <br>
-    <button class="map-btn" onclick="window.open('https://maps.app.goo.gl/fLiXEJ5ea48a5WoSA','_blank')">🗺️ View on Google Maps</button>
+    <button class="map-btn" onclick="window.open('https://maps.app.goo.gl/fLiXEJ5ea48a5WoSA','_blank')">View on Google Maps</button>
 </div>
 
 <div class="divider"></div>
@@ -358,17 +358,7 @@ if (lang === "te") {
 <br>
 <p>వ్యాపారం, కుటుంబ కార్యక్రమాలు, తీర్థయాత్రలు లేదా విహారయాత్రల కోసం వచ్చిన అతిథులకు ప్రశాంతమైన మరియు సౌకర్యవంతమైన వాతావరణాన్ని అందిస్తున్నాము.</p>`;
 
-    document.getElementById("whySection").innerHTML = `
-<h2>మమ్మల్ని ఎందుకు ఎంచుకోవాలి</h2>
-<ul>
-<li>✔ సౌకర్యవంతమైన మరియు పరిశుభ్రమైన గదులు</li>
-<li>✔ కుటుంబాలకు అనుకూలమైన వాతావరణం</li>
-<li>✔ రెస్టారెంట్ మరియు రూమ్ సర్వీస్</li>
-<li>✔ ప్రతిరోజూ హౌస్ కీపింగ్</li>
-<li>✔ 24/7 అతిథి సహాయం</li>
-<li>✔ భద్రమైన ప్రాంగణం</li>
-<li>✔ సామర్లకోటలో ప్రధాన స్థానం</li>
-</ul>`;
+
 
     document.getElementById("timingSection").innerHTML = `
 <h2>హోటల్ సమయాలు</h2>

@@ -38,31 +38,25 @@ body{
 /* ─── NAVBAR ─── */
 .navbar{
     background:#001236;
-    border-bottom:3px solid #D4AF37;
-    padding:0 20px;
+    border-bottom:2px solid #D4AF37;
+    padding:10px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    /* sticky on ALL sizes — no fixed, no iOS overscroll gap */
-    position:sticky;
-    top:0;
-    z-index:1000;
-    height:58px;
-    /* stretch into iOS status-bar notch if present */
-    padding-top:env(safe-area-inset-top,0px);
-    height:calc(58px + env(safe-area-inset-top,0px));
-    overflow:hidden;
+    height:68px;
 }
 
-.logo{display:flex;align-items:center;line-height:0;}
+.logo{
+    display:flex;
+    align-items:center;
+    line-height:0;
+}
+
 .logo img{
-    height:40px;
-    max-height:40px;
+    height:75px;
     width:auto;
     display:block;
-    object-fit:contain;
 }
-
 /* ─── CONTAINER ─── */
 .container{
     max-width:1100px;
@@ -75,7 +69,7 @@ body{
 /* ─── HEADER ─── */
 .welcome{text-align:center;margin-bottom:18px;}
 .welcome h1{
-    color:#D4AF37;
+    color:#001236;
     font-family:'Cormorant Garamond',serif;
     font-size:35px;
     font-weight:700;
@@ -83,7 +77,7 @@ body{
     letter-spacing:.5px;
 }
 .headline{
-    font-family:'Great Vibes',cursive;
+    /* font-family:'Great Vibes',cursive; */
     font-size:18px;
     color:#D4AF37;
     font-weight:normal;
@@ -91,6 +85,7 @@ body{
     letter-spacing:1px;
     margin:8px 0 5px;
     line-height:1.2;
+    font-style: italic;
 }
 
 .room{
@@ -133,8 +128,8 @@ body{
 .card{
     overflow:hidden;
     border-radius:13px;
-    border:1.5px solid rgba(212,175,55,.45);
-    background:#fff;
+    border:2px solid #D4AF37;
+    background:#f6f6f6;
     color:#001236;
     padding:18px 12px 14px;
     text-align:center;
@@ -256,7 +251,7 @@ textarea:focus{border-color:#D4AF37;box-shadow:0 0 12px rgba(212,175,55,.2);}
     </div>
     <h2 class="headline">We're Here to Help</h2>
     <div class="room">
-        <span id="roomLabel">Room No:</span>&nbsp;<input id="roomNo" type="text" placeholder="Enter room no." maxlength="10">
+        <span id="roomLabel">Room No:</span>&nbsp;<input id="roomNo" type="text" placeholder="Room no." maxlength="10">
     </div>
 
     <div class="cards" style="margin-top:18px;">

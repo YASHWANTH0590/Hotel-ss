@@ -42,12 +42,13 @@ body{
 
 
 .navbar{
- background:#001236;
+    background:#001236;
     border-bottom:2px solid #D4AF37;
     padding:10px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    height:68px;
 }
 
 .logo{
@@ -57,11 +58,10 @@ body{
 }
 
 .logo img{
-    height: 75px;
+    height:75px;
     width:auto;
     display:block;
 }
-
 .nav-right {
     display: flex;
     align-items: center;
@@ -107,7 +107,7 @@ body{
 }
 
 .page-title{
-    color:#D4AF37;
+    color:#001236;
 font-family:'Cormorant Garamond', serif;
     font-size:34px;
     font-weight:bolder;
@@ -200,7 +200,7 @@ font-family:'Cormorant Garamond', serif;
 
 
 .headline{
-    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Great Vibes', cursive; */
     font-size: 18px;
     color: #D4AF37; /* Gold */
     font-weight: normal;
@@ -208,6 +208,7 @@ font-family:'Cormorant Garamond', serif;
     letter-spacing: 1px;
     margin: 10px 0;
     line-height: 1.2;
+    font-style: italic;
 }
 
 .headline::after{
@@ -223,11 +224,12 @@ font-family:'Cormorant Garamond', serif;
         font: size 15px;;
     }
 
-    .navbar{
+.navbar{
         padding:8px 12px;
         margin-bottom:10px;
-        height: 68px;
+        height:68px;
     }
+
     .logo img{
         height:50px;
     }
@@ -335,6 +337,8 @@ function copyText(id, btn){
 const lang = localStorage.getItem("lang") || "en";
 
 if(lang === "te"){
+      document.getElementById("headlineText").innerHTML =
+"లగ్జరీ • సౌకర్యం • ఆతిథ్యం";
 
     document.getElementById("wifiTitle").innerHTML =
     "వైఫై యాక్సెస్";

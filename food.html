@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Food Order | SS GRAND INN</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -83,8 +84,11 @@ body{
 }
 .cart-badge.visible{display:flex;}
 
-.header{text-align:center;margin-bottom:14px;}
-.header h1{
+.header{
+    text-align:center;
+    padding:4px 0 0;
+    margin:0;
+}.header h1{
   color:#D4AF37; 
   font-family:'Cormorant Garamond',serif;
   font-size:30px;font-weight:700;letter-spacing:.5px;
@@ -131,66 +135,75 @@ body{
 
 /* ─── MENU CARDS ─── */
 .menu-grid{display:flex;flex-direction:column;gap:9px;margin-bottom:18px;}
-
 .food-card{
-  overflow:hidden;border-radius:13px;
-  border:1.5px solid rgba(212,175,55,.45);
-  background:#fff;color:#001236;
-  display:flex;align-items:stretch;
-  transition:.25s;
+    background:#FFFFFF;
+    border:2px solid #D4AF37;
+    border-radius:12px;
+    min-height:82px;
+    max-height:82px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    padding:0;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
+
+
 .food-card:hover{
-  border-color:#D4AF37;
-  box-shadow:0 5px 18px rgba(0,18,54,.12),0 0 10px rgba(212,175,55,.18);
-  background:linear-gradient(135deg,#faf7f0,#fff);
+    transform:scale(1.03);
+    border-color:#D4AF37;
+    box-shadow:
+        0 8px 25px rgba(0,18,54,.15),
+        0 0 15px rgba(212,175,55,.25);
 }
 .food-card.hidden{display:none;}
 
 .food-image{
-  width:88px;height:88px;
-  object-fit:cover;
-  border-radius:11px 0 0 11px;
-  flex-shrink:0;display:block;
-  align-self:center;
+    width:72px;
+    height:72px;
+    object-fit:cover;
+    border-radius:8px;
+    margin:5px;
+    flex-shrink:0;
 }
 
 .food-details{
-  flex:1;padding:10px 12px;
-  display:flex;align-items:center;gap:10px;
+    padding:6px 8px;
+    gap:6px;
 }
 .food-info{flex:1;min-width:0;}
 
 .food-category{
   font-family:'Montserrat',sans-serif;
-  font-size:9.5px;font-weight:700;
-  color:#888;text-transform:uppercase;letter-spacing:.9px;
+  font-size:5px;font-weight:700;
+  color:#001236;text-transform:uppercase;letter-spacing:.9px;
   margin-bottom:3px;
 }
 .food-name{
   font-family:'Cormorant Garamond',serif;
-  font-size:17px;font-weight:700;
+  font-size:20px;font-weight:700;
   color:#0a0a0a;
   margin-bottom:2px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   display:flex;align-items:center;gap:5px;
 }
 .food-desc{
-  font-family:'Montserrat',sans-serif;
-  font-size:10.5px;font-weight:500;
-  color:#555;
-  margin-bottom:4px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-size:10px;
+    line-height:1.2;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
 }
+ 
 .food-price-tag{
   font-family:'Montserrat',sans-serif;
   font-size:13px;font-weight:700;
   color:#7a5c1a;
 }
 
-.veg-dot{
-  display:inline-block;width:9px;height:9px;border-radius:50%;
-  flex-shrink:0;
-}
+
+
 .veg-dot.veg{background:#2e7d32;}
 .veg-dot.nonveg{background:#c62828;}
 
@@ -311,15 +324,16 @@ body{
 
 .no-results{text-align:center;padding:40px;color:#001236;font-size:16px;font-weight:600;display:none;}
 .headline{
-    font-family: 'Great Vibes', cursive;
+    /* font-family: 'Great Vibes', cursive; */
     font-size: 18px;
-    color: #D4AF37;
+    color:  #C79A3B;
     font-weight: normal;
     text-align: center;
     letter-spacing: 1px;
     margin: 10px 0;
     line-height: 1.2;
     margin-top: 10px;
+    font-style: italic;
 }
 .headline::after{
     content:"";
@@ -332,23 +346,90 @@ body{
 #menuTitle{
     font-family:'Cormorant Garamond', serif;
     font-size:25px;
-    font-weight:600;
-    color:#D4AF37;
+    font-weight:700;
+  color:#001236;
     text-align:center;
     letter-spacing:2px;
-    text-transform:uppercase;
+    /* text-transform:uppercase; */
     margin:20px 0 10px;
-    font-style: italic;
+    /* font-style: italic; */
+}
+.header{
+    text-align:center;
+    padding:4px 0 0;
+    margin:0;
+}
+.dining-icon{
+    font-size:28px;
+    color:#001236;
+    margin:0;
+    line-height:1;
+}
+
+#menuTitle{
+    margin:4px 0 0;
+    padding:0;
+    line-height:1.1;
+}
+
+.headline{
+    margin:2px 0 8px;
+    padding:0;
+}
+.veg-mark{
+    display:inline-block;
+    width:12px;
+    height:12px;
+    border:1.5px solid #1e8e3e;
+    position:relative;
+    margin-right:6px;
+}
+
+.veg-mark::after{
+    content:"";
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#1e8e3e;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.nonveg-mark{
+    display:inline-block;
+    width:12px;
+    height:12px;
+    border:1.5px solid #c62828;
+    position:relative;
+    margin-right:6px;
+    vertical-align:middle;
+}
+
+.nonveg-mark::after{
+    content:"";
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#c62828;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
 }
 
 /* ─── MOBILE ─── */
 @media(max-width:768px){
 
-  .food-card{
-      display:flex;
-      align-items:center;
-      padding:8px;
-  }
+    .food-card.selected{
+        min-height:30vh;
+    }
+
+    .food-card.selected .food-image{
+        width:100px;
+        height:100px;
+    }
+}
 
   .food-image{
       width:65px;
@@ -377,13 +458,13 @@ body{
   }
 
   /* CHANGE 1: show description on mobile (1 line, truncated) */
-  .food-desc{
+  /* .food-desc{
       display:block;
       font-size:9.5px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-  }
+  } */
 
   .qty-controls{
       display:flex;
@@ -404,7 +485,7 @@ body{
       font-size:11px;
       padding:0;
   }
-}
+
 
 .footer{
     background:#001236;
@@ -470,7 +551,9 @@ body{
 
 <div class="container">
   <div class="header">
-    <h1 id="menuTitle">ROOM DINE IN MENU</h1>
+  
+<i class="fas fa-concierge-bell dining-icon"></i>
+<h1 id="menuTitle">In-Room Dining</h1>
   </div>
 <h2 class="headline" id="headlineText">
     Luxury • Comfort • Hospitality
@@ -502,7 +585,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">South Indian • Breakfast</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Idli</div>
+          <div class="food-name"></span>Idli<span class="veg-mark"></span></div>
           <div class="food-desc">Steamed rice cakes with sambar & coconut chutney</div>
           <div class="food-price-tag">₹60</div>
         </div>
@@ -519,7 +602,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">South Indian • Breakfast</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Masala Dosa</div>
+          <div class="food-name"></span>Masala Dosa<span class="veg-mark"></span></div>
           <div class="food-desc">Crisp rice crêpe filled with spiced potato masala</div>
           <div class="food-price-tag">₹80</div>
         </div>
@@ -536,7 +619,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">South Indian • Breakfast</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Uttapam</div>
+          <div class="food-name"></span>Uttapam<span class="veg-mark"></span></div>
           <div class="food-desc">Thick rice pancake topped with onion & tomato</div>
           <div class="food-price-tag">₹50</div>
         </div>
@@ -554,7 +637,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">North Indian • Dinner</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Roti</div>
+          <div class="food-name"></span>Roti<span class="veg-mark"></span></div>
           <div class="food-desc">Soft whole wheat flatbread, freshly made on tawa</div>
           <div class="food-price-tag">₹15</div>
         </div>
@@ -571,7 +654,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">North Indian • Dinner</div>
-          <div class="food-name"><span class="veg-dot nonveg"></span>Chicken Curry</div>
+          <div class="food-name"></span>Chicken Curry<span class="nonveg-mark"></span></div>
           <div class="food-desc">Tender chicken in rich onion-tomato masala gravy</div>
           <div class="food-price-tag">₹220</div>
         </div>
@@ -588,7 +671,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">North Indian • Dinner</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Paneer Butter Masala</div>
+          <div class="food-name"></span>Paneer Butter Masala<span class="veg-mark"></span></div>
           <div class="food-desc">Cottage cheese cubes in creamy tomato-butter sauce</div>
           <div class="food-price-tag">₹180</div>
         </div>
@@ -606,7 +689,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Lunch Special</div>
-          <div class="food-name"><span class="veg-dot nonveg"></span>Chicken Biryani</div>
+          <div class="food-name"></span>Chicken Biryani<span class="nonveg-mark"></span></div>
           <div class="food-desc">Aromatic basmati rice with spiced chicken & saffron</div>
           <div class="food-price-tag">₹250</div>
         </div>
@@ -623,7 +706,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Lunch Special</div>
-          <div class="food-name"><span class="veg-dot nonveg"></span>Mutton Biryani</div>
+          <div class="food-name"></span>Mutton Biryani<span class="nonveg-mark"></span></div>
           <div class="food-desc">Slow-cooked tender mutton layered with fragrant rice</div>
           <div class="food-price-tag">₹320</div>
         </div>
@@ -641,7 +724,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Chinese</div>
-          <div class="food-name"><span class="veg-dot nonveg"></span>Chicken Fried Rice</div>
+          <div class="food-name"></span>Chicken Fried Rice<span class="nonveg-mark"></span></div>
           <div class="food-desc">Wok-tossed rice with chicken, egg & soy sauce</div>
           <div class="food-price-tag">₹160</div>
         </div>
@@ -658,7 +741,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Chinese</div>
-          <div class="food-name"><span class="veg-dot nonveg"></span>Chicken Noodles</div>
+          <div class="food-name"></span>Chicken Noodles<span class="nonveg-mark"></span></div>
           <div class="food-desc">Stir-fried Hakka noodles with chicken & vegetables</div>
           <div class="food-price-tag">₹150</div>
         </div>
@@ -676,7 +759,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Snacks</div>
-          <div class="food-name"><span class="veg-dot veg"></span>French Fries</div>
+          <div class="food-name"></span>French Fries<span class="veg-mark"></span></div>
           <div class="food-desc">Golden crispy potato fries with dipping sauce</div>
           <div class="food-price-tag">₹90</div>
         </div>
@@ -693,7 +776,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Snacks</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Veg Puff</div>
+          <div class="food-name"></span>Veg Puff<span class="veg-mark"></span></div>
           <div class="food-desc">Flaky pastry stuffed with spiced potato filling</div>
           <div class="food-price-tag">₹30</div>
         </div>
@@ -711,7 +794,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Beverages</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Tea</div>
+          <div class="food-name"></span>Tea<span class="veg-mark"></span></div>
           <div class="food-desc">Hot masala chai with ginger & cardamom</div>
           <div class="food-price-tag">₹20</div>
         </div>
@@ -728,7 +811,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Beverages</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Coffee</div>
+          <div class="food-name"></span>Coffee<span class="veg-mark"></span></div>
           <div class="food-desc">South Indian filter coffee, frothy & aromatic</div>
           <div class="food-price-tag">₹30</div>
         </div>
@@ -745,7 +828,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Beverages</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Cool Drink</div>
+          <div class="food-name"></span>Cool Drink<span class="veg-mark"></span></div>
           <div class="food-desc">Chilled soft drink, choice of Pepsi, 7UP or Mirinda</div>
           <div class="food-price-tag">₹40</div>
         </div>
@@ -763,7 +846,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Desserts</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Gulab Jamun</div>
+          <div class="food-name"></span>Gulab Jamun<span class="veg-mark"></span></div>
           <div class="food-desc">Soft milk-solid dumplings soaked in rose syrup</div>
           <div class="food-price-tag">₹60</div>
         </div>
@@ -780,7 +863,7 @@ body{
       <div class="food-details">
         <div class="food-info">
           <div class="food-category">Desserts</div>
-          <div class="food-name"><span class="veg-dot veg"></span>Ice Cream</div>
+          <div class="food-name"></span>Ice Cream<span class="veg-mark"></span></div>
           <div class="food-desc">Creamy scoops — vanilla, chocolate or strawberry</div>
           <div class="food-price-tag">₹80</div>
         </div>
@@ -1037,6 +1120,15 @@ foodDescs.forEach((el, i) => {
   roomInput.placeholder = "గది నంబర్ నమోదు చేయండి";
   document.getElementById("customerName").placeholder = "మీ పేరు నమోదు చేయండి";
   document.getElementById("specialRequest").placeholder = "ఉదా. తక్కువ కారం, అదనపు సాస్...";
+document.querySelectorAll('.food-card').forEach(card => {
+      const qty = parseInt(card.querySelector('.qty-input').value) || 0;
+
+      if(qty > 0){
+          card.classList.add('selected');
+      } else {
+          card.classList.remove('selected');
+      }
+  });
 }
 
 updateOrder();
