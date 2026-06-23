@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Support | SS GRAND INN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -14,8 +14,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-        font-family:'Cormorant Garamond', Georgia, serif;
-
+    font-family:'Cormorant Garamond', Georgia, serif;
 }
 
 :root{
@@ -40,15 +39,29 @@ body{
 .navbar{
     background:#001236;
     border-bottom:3px solid #D4AF37;
-    padding:10px 20px;
+    padding:0 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    position:sticky;top:0;z-index:100;
-    height:68px;
+    /* sticky on ALL sizes — no fixed, no iOS overscroll gap */
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:58px;
+    /* stretch into iOS status-bar notch if present */
+    padding-top:env(safe-area-inset-top,0px);
+    height:calc(58px + env(safe-area-inset-top,0px));
+    overflow:hidden;
 }
+
 .logo{display:flex;align-items:center;line-height:0;}
-.logo img{height:75px;width:auto;display:block;}
+.logo img{
+    height:40px;
+    max-height:40px;
+    width:auto;
+    display:block;
+    object-fit:contain;
+}
 
 /* ─── CONTAINER ─── */
 .container{
@@ -60,10 +73,7 @@ body{
 }
 
 /* ─── HEADER ─── */
-.welcome{
-    text-align:center;
-    margin-bottom:18px;
-}
+.welcome{text-align:center;margin-bottom:18px;}
 .welcome h1{
     color:#D4AF37;
     font-family:'Cormorant Garamond',serif;
@@ -93,9 +103,7 @@ body{
     text-align:center;
     margin-top:10px;
 }
-.room span{
-    color:#7a5c1a;
-}
+.room span{color:#7a5c1a;}
 .room input{
     border:none;
     border-bottom:1.5px solid #D4AF37;
@@ -111,11 +119,7 @@ body{
     outline:none;
     padding:1px 4px;
 }
-.room input::placeholder{
-    color:#bbb;
-    font-weight:400;
-    text-transform:none;
-}
+.room input::placeholder{color:#bbb;font-weight:400;text-transform:none;}
 
 /* ─── CARDS GRID ─── */
 .cards{
@@ -143,31 +147,18 @@ body{
     background:linear-gradient(135deg,#faf7f0,#fff);
 }
 
-.icon{
-    font-size:36px;
-    margin-bottom:10px;
-    display:block;
-    transition:.25s;
-}
-.card:hover .icon{
-    transform:scale(1.1);
-}
+.icon{font-size:36px;margin-bottom:10px;display:block;transition:.25s;}
+.card:hover .icon{transform:scale(1.1);}
 
 .card h3{
     font-family:'Cormorant Garamond',serif;
-    font-size:16px;
-    font-weight:700;
-    /* font-style:italic; */
-    color:#0a0a0a;
-    margin-bottom:5px;
+    font-size:16px;font-weight:700;
+    color:#0a0a0a;margin-bottom:5px;
 }
-
 .card p{
     font-family:'Montserrat',sans-serif;
-    font-size:11px;
-    font-weight:500;
-    color:#555;
-    line-height:1.4;
+    font-size:11px;font-weight:500;
+    color:#555;line-height:1.4;
 }
 
 /* ─── CUSTOM BOX ─── */
@@ -180,118 +171,66 @@ body{
     padding:18px;
     box-shadow:0 8px 20px rgba(0,18,54,.08);
 }
-
 .custom-box h2{
     font-family:'Cormorant Garamond',serif;
-    font-size:20px;
-    font-weight:700;
-    /* font-style:italic; */
-    color:#001236;
-    margin-bottom:12px;
+    font-size:20px;font-weight:700;
+    color:#001236;margin-bottom:12px;
 }
 
 textarea{
-    width:100%;
-    min-height:110px;
-    background:#fff;
-    color:#001236;
+    width:100%;min-height:110px;
+    background:#fff;color:#001236;
     border:1.5px solid rgba(212,175,55,.5);
-    border-radius:12px;
-    padding:12px 14px;
-    resize:none;
-    outline:none;
+    border-radius:12px;padding:12px 14px;
+    resize:none;outline:none;
     font-family:'Cormorant Garamond',serif;
-    font-size:15px;
-    font-weight:600;
+    font-size:15px;font-weight:600;
 }
-textarea::placeholder{
-    color:#bbb;
-    font-weight:400;
-}
-textarea:focus{
-    border-color:#D4AF37;
-    box-shadow:0 0 12px rgba(212,175,55,.2);
-}
+textarea::placeholder{color:#bbb;font-weight:400;}
+textarea:focus{border-color:#D4AF37;box-shadow:0 0 12px rgba(212,175,55,.2);}
 
 .send-btn{
-    width:100%;
-    margin-top:12px;
-    padding:15px;
-    border:2px solid #001236;
-    border-radius:12px;
-    cursor:pointer;
-    font-size:17px;
-    font-weight:700;
+    width:100%;margin-top:12px;padding:15px;
+    border:2px solid #001236;border-radius:12px;
+    cursor:pointer;font-size:17px;font-weight:700;
     font-family:'Cormorant Garamond',serif;
-    background:#001236;
-    color:#fff;
-    transition:.3s;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
+    background:#001236;color:#fff;
+    transition:.3s;display:flex;
+    align-items:center;justify-content:center;gap:10px;
 }
 .send-btn:hover{
-    background:#D4AF37;
-    color:#001236;
+    background:#D4AF37;color:#001236;
     border-color:#D4AF37;
     box-shadow:0 8px 20px rgba(212,175,55,.25);
 }
 
 /* ─── FOOTER ─── */
 .footer{
-    background:#001236;
-    color:#F2EDE2;
-    text-align:center;
-    padding:12px;
-    font-size:12px;
-    width:100%;
-    margin-top:auto;
+    background:#001236;color:#F2EDE2;
+    text-align:center;padding:12px;
+    font-size:12px;width:100%;margin-top:auto;
     font-family:'Montserrat',sans-serif;
+    padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));
 }
-.footer a{
-    color:#F8F6F0;
-    text-decoration:none;
-    transition:.3s;
-}
+.footer a{color:#F8F6F0;text-decoration:none;transition:.3s;}
 .footer a:hover{color:#D4AF37;}
 
 /* ─── MOBILE ─── */
 @media(max-width:768px){
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: var(--navbar-height-mobile);
-        padding: 8px 12px;
-        z-index: 1000;
-        overflow: hidden;
-    }  
-     .logo img{height:70px;}
     .welcome h1{font-size:22px;}
     .container{padding:12px 8px 24px;}
-
-    .cards{
-        grid-template-columns:1fr 1fr;
-        gap:9px;
-    }
-    .card{
-        padding:14px 8px 12px;
-    }
+    .cards{grid-template-columns:1fr 1fr;gap:9px;}
+    .card{padding:14px 8px 12px;}
     .icon{font-size:28px;margin-bottom:7px;}
     .card h3{font-size:13px;}
     .card p{font-size:11px;}
-
     .custom-box{padding:14px;}
 }
-
 @media(max-width:400px){
     .card h3{font-size:12px;}
     .card p{font-size:10px;}
 }
 </style>
-
 </head>
 <body>
 
@@ -302,7 +241,6 @@ textarea:focus{
 </nav>
 
 <div class="container">
-
     <div class="welcome">
         <h1 id="headerTitle">Guest Support Center</h1>
     </div>
@@ -312,43 +250,36 @@ textarea:focus{
     </div>
 
     <div class="cards" style="margin-top:18px;">
-
         <div class="card" onclick="sendRequest('Housekeeping Assistance')">
             <span class="icon">🧹</span>
             <h3 id="t0">Housekeeping</h3>
             <p id="d0">Cleaning & room assistance</p>
         </div>
-
         <div class="card" onclick="sendRequest('Food Related Issue')">
             <span class="icon">🍽️</span>
             <h3 id="t1">Food Support</h3>
             <p id="d1">Food order & restaurant help</p>
         </div>
-
         <div class="card" onclick="sendRequest('WiFi Problem')">
             <span class="icon">📶</span>
             <h3 id="t2">WiFi Issue</h3>
             <p id="d2">Internet connectivity support</p>
         </div>
-
         <div class="card" onclick="sendRequest('Need Extra Blanket / Pillow')">
             <span class="icon">🛏️</span>
             <h3 id="t3">Extra Bedding</h3>
             <p id="d3">Blankets, pillows & extras</p>
         </div>
-
         <div class="card" onclick="sendRequest('Taxi Booking Required')">
             <span class="icon">🚕</span>
             <h3 id="t4">Taxi Service</h3>
             <p id="d4">Local transportation help</p>
         </div>
-
         <div class="card" onclick="sendRequest('Laundry Service Required')">
             <span class="icon">🧺</span>
             <h3 id="t5">Laundry</h3>
             <p id="d5">Clothes washing service</p>
         </div>
-
     </div>
 
     <div class="custom-box">
@@ -361,7 +292,6 @@ textarea:focus{
             <span id="sendBtnText">Send via WhatsApp</span>
         </button>
     </div>
-
 </div>
 
 <footer class="footer">
@@ -379,65 +309,37 @@ const whatsappNumber = "919030796171";
 function getRoom(){
     return document.getElementById("roomNo").value.trim() || "";
 }
-
 function sendRequest(type){
     const room = getRoom();
     if(!room){ alert("Please enter your room number first."); document.getElementById("roomNo").focus(); return; }
-    const message =
-`🏨 SS HOTELS SUPPORT
-
-Room No: ${room}
-
-Request Type:
-${type}
-
-Please assist me.`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    const message = `🏨 SS HOTELS SUPPORT\n\nRoom No: ${room}\n\nRequest Type:\n${type}\n\nPlease assist me.`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,'_blank');
 }
-
 function sendCustomIssue(){
     const room = getRoom();
     if(!room){ alert("Please enter your room number first."); document.getElementById("roomNo").focus(); return; }
     const issue = document.getElementById("issue").value.trim();
     if(issue === ""){ alert("Please enter your issue."); return; }
-    const message =
-`🏨 SS HOTELS SUPPORT
-
-Room No: ${room}
-
-Issue:
-${issue}`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    const message = `🏨 SS HOTELS SUPPORT\n\nRoom No: ${room}\n\nIssue:\n${issue}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,'_blank');
 }
 
 const lang = localStorage.getItem("lang") || "en";
-
 if(lang === "te"){
-    document.querySelector(".headline").innerHTML =
-"మేము మీకు సహాయం చేయడానికి ఇక్కడ ఉన్నాము";
+    document.querySelector(".headline").innerHTML = "మేము మీకు సహాయం చేయడానికి ఇక్కడ ఉన్నాము";
     document.getElementById("headerTitle").innerHTML = "అతిథుల సహాయ కేంద్రం";
     document.getElementById("roomLabel").innerHTML = "గది నంబర్:";
     document.getElementById("roomNo").placeholder = "గది నం.";
-
     const titles = ["హౌస్ కీపింగ్","ఆహార సహాయం","వైఫై సమస్య","అదనపు పరుపు","టాక్సీ సేవ","లాండ్రీ సేవ"];
-    const descs = [
-        "గది శుభ్రపరచడం మరియు సహాయం",
-        "ఆహార ఆర్డర్ మరియు రెస్టారెంట్ సహాయం",
-        "ఇంటర్నెట్ కనెక్టివిటీ సహాయం",
-        "దుప్పట్లు మరియు దిండ్లు",
-        "స్థానిక రవాణా సహాయం",
-        "బట్టల ఉతికే సేవ"
-    ];
+    const descs = ["గది శుభ్రపరచడం మరియు సహాయం","ఆహార ఆర్డర్ మరియు రెస్టారెంట్ సహాయం","ఇంటర్నెట్ కనెక్టివిటీ సహాయం","దుప్పట్లు మరియు దిండ్లు","స్థానిక రవాణా సహాయం","బట్టల ఉతికే సేవ"];
     for(let i=0;i<6;i++){
         document.getElementById("t"+i).innerHTML = titles[i];
         document.getElementById("d"+i).innerHTML = descs[i];
     }
-
     document.getElementById("customTitle").innerHTML = "✍️ మీ సమస్యను వివరించండి";
     document.getElementById("issue").placeholder = "ఉదాహరణ: AC సరిగా చల్లబరచడం లేదు...";
     document.getElementById("sendBtnText").innerHTML = "వాట్సాప్ ద్వారా పంపండి";
 }
 </script>
-
 </body>
 </html>
