@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,33 +23,52 @@
     padding:0;
     box-sizing:border-box;
 }
-html,
 
-body{
- min-height:100vh;
-    position:relative;   /* IMPORTANT */
+html, body{
+    min-height:100vh;
+    position:relative;
     overflow:hidden;
     background:
         radial-gradient(circle at top left,
         rgba(212,175,55,.10), transparent 35%),
-
         radial-gradient(circle at bottom right,
         rgba(0,18,54,.08), transparent 40%),
-
         #EFEAE5;
-
     display:flex;
     justify-content:center;
     align-items:center;
-    
 }
-/* Background Decorations */
 
+/* ── Diamond trellis pattern ── */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:0;
+    background-image:
+        linear-gradient(45deg,  rgba(212,175,55,.10) 1px, transparent 1px),
+        linear-gradient(-45deg, rgba(212,175,55,.10) 1px, transparent 1px);
+    background-size:36px 36px;
+    pointer-events:none;
+}
+
+/* ── Thin viewport border frame ── */
+body::after{
+    content:"";
+    position:fixed;
+    inset:18px;
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:4px;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* ── Background circles ── */
 .circle{
-    position:fixed;      /* instead of absolute */
+    position:fixed;
     border-radius:50%;
     background:rgba(212,175,55,0.08);
-    z-index:-1;
+    z-index:0;
 }
 
 .circle1{
@@ -60,6 +78,28 @@ body{
     left:-180px;
 }
 
+/* extra ring on circle1 */
+.circle1::before,
+.circle1::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:transparent;
+}
+.circle1::before{
+    width:420px;
+    height:420px;
+    border:1px solid rgba(212,175,55,.13);
+}
+.circle1::after{
+    width:500px;
+    height:500px;
+    border:1px solid rgba(212,175,55,.07);
+}
+
 .circle2{
     width:450px;
     height:450px;
@@ -67,14 +107,162 @@ body{
     right:-250px;
 }
 
+/* extra ring on circle2 */
+.circle2::before,
+.circle2::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:transparent;
+}
+.circle2::before{
+    width:540px;
+    height:540px;
+    border:1px solid rgba(0,18,54,.07);
+}
+.circle2::after{
+    width:630px;
+    height:630px;
+    border:1px solid rgba(0,18,54,.04);
+}
+
+/* ── Corner cross ornaments ── */
+.corner{
+    position:fixed;
+    width:28px;
+    height:28px;
+    z-index:1;
+    pointer-events:none;
+}
+.corner::before,
+.corner::after{
+    content:"";
+    position:absolute;
+    background:rgba(212,175,55,.55);
+    border-radius:10px;
+}
+.corner::before{ width:100%; height:1px; top:50%; left:0; transform:translateY(-50%); }
+.corner::after{  width:1px; height:100%; left:50%; top:0; transform:translateX(-50%); }
+
+/* center dot */
+.corner span{
+    position:absolute;
+    width:5px; height:5px;
+    border-radius:50%;
+    background:rgba(212,175,55,.7);
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.corner-tl{ top:32px;  left:32px; }
+.corner-tr{ top:32px;  right:32px; }
+.corner-bl{ bottom:32px; left:32px; }
+.corner-br{ bottom:32px; right:32px; }
+
+/* ── Corner bracket triangles ── */
+.bracket{
+    position:fixed;
+    width:0; height:0;
+    z-index:0;
+    pointer-events:none;
+    opacity:.12;
+}
+.bracket-tl{
+    top:18px; left:18px;
+    border-top: 40px solid #D4AF37;
+    border-right: 40px solid transparent;
+}
+.bracket-tr{
+    top:18px; right:18px;
+    border-top: 40px solid #D4AF37;
+    border-left: 40px solid transparent;
+}
+.bracket-bl{
+    bottom:18px; left:18px;
+    border-bottom: 40px solid #D4AF37;
+    border-right: 40px solid transparent;
+}
+.bracket-br{
+    bottom:18px; right:18px;
+    border-bottom: 40px solid #D4AF37;
+    border-left: 40px solid transparent;
+}
+
+/* ── Center watermark monogram ── */
+.monogram{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family:'Cormorant Garamond', serif;
+    font-size:220px;
+    font-weight:700;
+    color:rgba(212,175,55,.045);
+    letter-spacing:10px;
+    pointer-events:none;
+    user-select:none;
+    z-index:0;
+    white-space:nowrap;
+    line-height:1;
+}
+
+/* ── Diagonal streak lines (top-left area) ── */
+.streaks{
+    position:fixed;
+    top:0; left:0;
+    width:200px; height:200px;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+.streaks::before{
+    content:"";
+    position:absolute;
+    top:-60px; left:-60px;
+    width:300px; height:2px;
+    background:rgba(212,175,55,.13);
+    transform:rotate(45deg);
+    transform-origin:left center;
+    box-shadow:
+        0 18px 0 rgba(212,175,55,.08),
+        0 36px 0 rgba(212,175,55,.05);
+}
+
+/* ── Bottom-right streaks ── */
+.streaks-br{
+    position:fixed;
+    bottom:0; right:0;
+    width:200px; height:200px;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+.streaks-br::before{
+    content:"";
+    position:absolute;
+    bottom:-60px; right:-60px;
+    width:300px; height:2px;
+    background:rgba(0,18,54,.09);
+    transform:rotate(45deg);
+    transform-origin:right center;
+    box-shadow:
+        0 -18px 0 rgba(0,18,54,.05),
+        0 -36px 0 rgba(0,18,54,.03);
+}
+
+/* ════════════════════════════
+   Everything below is UNCHANGED
+   ════════════════════════════ */
+
 .hero{
     text-align:center;
     width:90%;
     max-width:900px;
     z-index:1;
 }
-
-/* Logo */
 
 .logo{
     width:220px;
@@ -84,8 +272,6 @@ body{
     margin:0 auto 25px;
 }
 
-/* Heading */
-
 .hero h1{
     font-family:'Cormorant Garamond',serif;
     color:#001236;
@@ -93,8 +279,6 @@ body{
     font-weight:500;
     margin-bottom:0;
 }
-
-/* Location */
 
 .location{
     color:#001236;
@@ -113,10 +297,8 @@ body{
     left:50%;
     transform:translateX(-50%);
     bottom:0;
-
     width:180px;
     height:3px;
-
     background:linear-gradient(
         to right,
         transparent 0%,
@@ -125,10 +307,9 @@ body{
         rgba(212,175,55,.4) 85%,
         transparent 100%
     );
-
     border-radius:10px;
-border-radius:10px;
 }
+
 .hotel-name{
     font-family:'Cormorant Garamond', serif;
     color:#D4AF37;
@@ -142,7 +323,6 @@ border-radius:10px;
     line-height:0;
     display:inline-block;
 }
-/* Divider */
 
 .divider{
     width:180px;
@@ -156,8 +336,6 @@ border-radius:10px;
     );
 }
 
-/* Caption */
-
 .caption{
     color:#555;
     font-size:18px;
@@ -165,8 +343,6 @@ border-radius:10px;
     max-width:650px;
     margin:0 auto;
 }
-
-/* Button */
 
 .btn{
     display:inline-block;
@@ -188,21 +364,18 @@ border-radius:10px;
     transform:translateY(-3px);
     box-shadow:0 10px 25px rgba(212,175,55,.25);
 }
+
 .lang-btn{
     position:fixed;
     top:20px;
     right:20px;
-
     background:var(--cream);
     color:#D4AF37;
-
     border:1px solid #D4AF37;
     border-radius:12px;
-
     padding:10px 18px;
     font-size:14px;
     font-weight:600;
-
     cursor:pointer;
     transition:.3s;
     z-index:999;
@@ -212,6 +385,7 @@ border-radius:10px;
     background:#D4AF37;
     color:#001236;
 }
+
 .welcome h1{
     font-family: 'Great Vibes', cursive;
     font-size: 3rem;
@@ -219,104 +393,72 @@ border-radius:10px;
     font-weight: normal;
     text-align: center;
 }
-/* Mobile */
 
 @media(max-width:768px){
-        .lang-btn{
-        top:15px;
-        right:15px;
-
-        padding:8px 14px;
-        font-size:12px;
-    }
-
-    .logo{
-        width:200px;
-    }
-
-    .hero h1{
-        font-size:42px;
-    }
-
-    .location{
-        font-size:18px;
-    }
-
-    .caption{
-        font-size:15px;
-        padding:0 10px;
-    }
-
-    .btn{
-        padding:14px 35px;
-    }
-.circle{
-    position:fixed;
-    z-index:-1;
-}
-.circle1{
-        width:180px;
-        height:180px;
-        top:-90px;
-        left:-90px;
-    }
-
-    .circle2{
-        width:180px;
-        height:180px;
-        bottom:-90px;
-        right:-90px;
-    }
-
-    .hero{
-        width:100%;
-        padding:0 20px;
-    }
-
-    .hotel-name{
-        font-size:32px;
-        letter-spacing:1px;
-    }
+    .lang-btn{ top:15px; right:15px; padding:8px 14px; font-size:12px; }
+    .logo{ width:200px; }
+    .hero h1{ font-size:42px; }
+    .location{ font-size:18px; }
+    .caption{ font-size:15px; padding:0 10px; }
+    .btn{ padding:14px 35px; }
+    .circle{ position:fixed; z-index:0; }
+    .circle1{ width:180px; height:180px; top:-90px; left:-90px; }
+    .circle2{ width:180px; height:180px; bottom:-90px; right:-90px; }
+    .hero{ width:100%; padding:0 20px; }
+    .hotel-name{ font-size:32px; letter-spacing:1px; }
+    .monogram{ font-size:130px; }
+    body::after{ inset:10px; }
+    .corner-tl{ top:20px; left:20px; }
+    .corner-tr{ top:20px; right:20px; }
+    .corner-bl{ bottom:20px; left:20px; }
+    .corner-br{ bottom:20px; right:20px; }
 }
 
 </style>
 </head>
 <body>
-    <button class="lang-btn" onclick="changeLanguage()">
-    EN / TE
-</button>
 
-<div class="circle circle1"></div>
-<div class="circle circle2"></div>
+    <button class="lang-btn" onclick="changeLanguage()">EN / TE</button>
 
-<div class="hero">
+    <!-- Background decorations -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="streaks"></div>
+    <div class="streaks-br"></div>
 
-    <!-- Replace with your logo -->
-    <img src="Img/logo main.png" alt="SS Grand Inn" class="logo">
-<div class="welcome">
-    <h1>Welcome to</h1>
-</div>
+    <!-- Corner cross ornaments -->
+    <div class="corner corner-tl"><span></span></div>
+    <div class="corner corner-tr"><span></span></div>
+    <div class="corner corner-bl"><span></span></div>
+    <div class="corner corner-br"><span></span></div>
 
-<h2 class="hotel-name">
-    <span class="big">SS</span> <span class="big">G</span>RAND <span class="big">I</span>NN
-</h2>
+    <!-- Corner bracket triangles -->
+    <div class="bracket bracket-tl"></div>
+    <div class="bracket bracket-tr"></div>
+    <div class="bracket bracket-bl"></div>
+    <div class="bracket bracket-br"></div>
 
-<div class="location" id="locationText">
-    SAMARALAKOTA
-</div>
+    <!-- Watermark monogram -->
+    <div class="monogram" aria-hidden="true">SS</div>
 
-<p class="caption" id="captionText">
-    Experience luxury, comfort and exceptional hospitality.
-    We are delighted to have you with us and wish you a pleasant stay.
-</p>
-
-<a href="home.html" class="btn" id="startBtn">
-    Get Started →
-</a>
-</div>
+    <!-- Main content (UNCHANGED) -->
+    <div class="hero">
+        <img src="Img/logo main.png" alt="SS Grand Inn" class="logo">
+        <div class="welcome">
+            <h1>Welcome to</h1>
+        </div>
+        <h2 class="hotel-name">
+            <span class="big">SS</span> <span class="big">G</span>RAND <span class="big">I</span>NN
+        </h2>
+        <div class="location" id="locationText">SAMARALAKOTA</div>
+        <p class="caption" id="captionText">
+            Experience luxury, comfort and exceptional hospitality.
+            We are delighted to have you with us and wish you a pleasant stay.
+        </p>
+        <a href="home.html" class="btn" id="startBtn">Get Started →</a>
+    </div>
 
 <script>
-    
 function changeLanguage(){
     let lang = localStorage.getItem("lang") || "en";
     localStorage.setItem("lang", lang === "en" ? "te" : "en");
@@ -326,25 +468,15 @@ function changeLanguage(){
 const lang = localStorage.getItem("lang") || "en";
 
 if(lang === "te"){
-
-    document.querySelector(".welcome h1").innerHTML =
-    "స్వాగతం";
-
+    document.querySelector(".welcome h1").innerHTML = "స్వాగతం";
     document.querySelector(".hotel-name").innerHTML =
-    "<span class='big'>SS</span> <span class='big'>G</span>RAND <span class='big'>I</span>NN";
-
-    document.getElementById("locationText").innerHTML =
-    "సామర్లకోట";
-
+        "<span class='big'>SS</span> <span class='big'>G</span>RAND <span class='big'>I</span>NN";
+    document.getElementById("locationText").innerHTML = "సామర్లకోట";
     document.getElementById("captionText").innerHTML =
-    "విలాసవంతమైన బస, సౌకర్యం మరియు అత్యుత్తమ ఆతిథ్యాన్ని అనుభవించండి. మేము మిమ్మల్ని ఆహ్వానిస్తున్నందుకు సంతోషిస్తున్నాము మరియు మీ బస ఆనందదాయకంగా ఉండాలని కోరుకుంటున్నాము.";
-
-    document.getElementById("startBtn").innerHTML =
-    "ప్రారంభించండి →";
+        "విలాసవంతమైన బస, సౌకర్యం మరియు అత్యుత్తమ ఆతిథ్యాన్ని అనుభవించండి. మేము మిమ్మల్ని ఆహ్వానిస్తున్నందుకు సంతోషిస్తున్నాము మరియు మీ బస ఆనందదాయకంగా ఉండాలని కోరుకుంటున్నాము.";
+    document.getElementById("startBtn").innerHTML = "ప్రారంభించండి →";
 }
-
 </script>
 
 </body>
 </html>
-
