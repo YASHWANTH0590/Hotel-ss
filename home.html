@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
-
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 *{
     margin:0;
@@ -208,6 +208,8 @@ max-width:1200px;
     margin-bottom:8px;
     letter-spacing:0.5px;
     font-weight:400;
+    font-style: italic;
+    
 }
 .section-line{
     width:90%;
@@ -218,14 +220,14 @@ max-width:1200px;
 }
 
 .headline{
-    text-align:center;
-    color:#001236;
-    font-size:20px;
-    font-weight:600;
-    letter-spacing:2px;
-    margin:10px 0;
-    position:relative;
-    font-family:'Cormorant Garamond', serif
+    font-family: 'Great Vibes', cursive;
+    font: size 1px;
+    color: #D4AF37; /* Gold */
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    line-height: 1.2;
 }
 
 .headline::after{
@@ -236,7 +238,18 @@ max-width:1200px;
     background:#D4AF37;
     margin:6px auto 0;
 }
+.service-note{
+    text-align:center;
+    margin-top:20px;
+    color:#001236;
+    font-size:14px;
+    font-style:italic;
+    margin-bottom: 20px;
+}
 @media(max-width:768px){
+     .headline{
+        font: size 25px;;
+    }
 
     .navbar{
         padding:8px 12px;
@@ -455,6 +468,9 @@ max-width:1200px;
 
 </div>
 <div class="section-line"></div>
+<p class="service-note">
+    We are here to make your stay comfortable and memorable.
+</p>
 <p class="footer">
     <a href="/index.html">
         © SS Grand Inn • Luxury Stay, Exceptional Hospitality
@@ -487,8 +503,7 @@ if(lang === "te"){
     "మీ బస సౌకర్యవంతంగా సాగుతుందని ఆశిస్తున్నాము!";
     document.getElementById("headlineText").innerHTML =
 "లగ్జరీ • సౌకర్యం • ఆతిథ్యం";
-
-    document.getElementById("foodDesc").innerHTML = "ఆహారం";
+document.getElementById("foodDesc").innerHTML = "రూమ్ డైన్ ఇన్";
     document.getElementById("wifiDesc").innerHTML = "వైఫై";
     document.getElementById("receptionDesc").innerHTML = "రిసెప్షన్";
     document.getElementById("hotelDesc").innerHTML = "సమాచారం";
@@ -496,6 +511,8 @@ if(lang === "te"){
     document.getElementById("whatsappDesc").innerHTML = "వాట్సాప్";
     document.querySelector(".tagline").innerHTML =
 "విలాసం మరియు ఆతిథ్యాన్ని అనుభవించండి";
+document.querySelector(".service-note").innerHTML =
+"మీ బస సౌకర్యవంతంగా మరియు మధురంగా ఉండేలా మేము ఎల్లప్పుడూ మీ సేవలో ఉంటాము.";
 }
 else{
 
@@ -506,7 +523,7 @@ else{
     document.getElementById("messageText").innerHTML =
     "Hope you are having a comfortable stay!";
 
-    document.getElementById("foodDesc").innerHTML = "Order Food";
+document.getElementById("foodDesc").innerHTML = "Room Dine In";
     document.getElementById("wifiDesc").innerHTML = "WiFi Access";
     document.getElementById("receptionDesc").innerHTML = "Call Reception";
     document.getElementById("hotelDesc").innerHTML = "Hotel Info";

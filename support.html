@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support | SS GRAND INN</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
@@ -12,331 +14,272 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-font-family:'Cormorant Garamond', serif;
+        font-family:'Cormorant Garamond', Georgia, serif;
+
 }
 
 :root{
-    --charcoal:#121212;
-    --charcoal-dark:#0A0A0A;
-    --charcoal-card:#1C1C1C;
-    --charcoal-card-hover:#212121;
+    --navy:#001236;
     --gold:#D4AF37;
-    --gold-soft:#C9A66B;
-    --gold-pale:#E8D9B5;
-    --cream:#F2EDE2;
-    --muted:#9C9282;
-    --border-gold:rgba(212,175,55,.25);
+    --cream:#EFEAE5;
 }
 
 body{
-    background:var(--charcoal);
-    color:var(--cream);
+    background:#EFEAE5;
+    color:#001236;
     min-height:100vh;
     display:flex;
     flex-direction:column;
+    font-family:'Cormorant Garamond',Georgia,serif;
     background-image:
-        radial-gradient(circle at 15% 0%, rgba(212,175,55,.06), transparent 40%),
-        radial-gradient(circle at 85% 100%, rgba(212,175,55,.05), transparent 45%);
+        radial-gradient(circle at 15% 0%,rgba(212,175,55,.06),transparent 40%),
+        radial-gradient(circle at 85% 100%,rgba(212,175,55,.05),transparent 45%);
 }
 
+/* ─── NAVBAR ─── */
 .navbar{
-    background:var(--charcoal-dark);
-    border-bottom:3px solid var(--border-gold);
+    background:#001236;
+    border-bottom:3px solid #D4AF37;
     padding:10px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    position:sticky;top:0;z-index:100;
+    height:68px;
 }
+.logo{display:flex;align-items:center;line-height:0;}
+.logo img{height:75px;width:auto;display:block;}
 
-.logo{
-    display:flex;
-    align-items:center;
-    line-height:0;
-}
-
-.logo img{
-    height:75px;
-    width:auto;
-    display:block;
-}
-
-.lang-btn{
-    background:transparent;
-    color:var(--gold);
-    border:1px solid var(--gold);
-    padding:clamp(6px, 1.6vw, 10px) clamp(10px, 3vw, 18px);
-    border-radius:10px;
-    font-weight:600;
-    font-size:clamp(11px, 2.6vw, 14px);
-    cursor:pointer;
-    transition:.3s;
-    white-space:nowrap;
-    flex-shrink:0;
-}
-
-.lang-btn:hover{
-    background:var(--gold);
-    color:var(--charcoal-dark);
-}
-
+/* ─── CONTAINER ─── */
 .container{
-    max-width:1200px;
+    max-width:1100px;
     width:100%;
     margin:0 auto;
-    padding:8px 15px 30px;
+    padding:18px 16px 30px;
+    flex:1;
 }
 
+/* ─── HEADER ─── */
 .welcome{
     text-align:center;
-    margin:5px 0 10px;
-    padding:0;
+    margin-bottom:18px;
 }
-
 .welcome h1{
-    color:var(--gold-pale);
-    font-size:32px;
-    margin-bottom:10px;
+    color:#D4AF37;
+    font-family:'Cormorant Garamond',serif;
+    font-size:35px;
+    font-weight:700;
+    font-style:italic;
+    letter-spacing:.5px;
+}
+.headline{
+    font-family:'Great Vibes',cursive;
+    font-size:18px;
+    color:#D4AF37;
+    font-weight:normal;
+    text-align:center;
+    letter-spacing:1px;
+    margin:8px 0 5px;
+    line-height:1.2;
 }
 
 .room{
-    font-size:22px;
-    color:var(--cream);
-    font-weight:600;
-    margin:8px 0;
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#888;
+    text-align:center;
+    margin-top:10px;
 }
-
 .room span{
-    color:var(--gold);
+    color:#7a5c1a;
+}
+.room input{
+    border:none;
+    border-bottom:1.5px solid #D4AF37;
+    background:transparent;
+    color:#7a5c1a;
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    text-align:center;
+    width:80px;
+    outline:none;
+    padding:1px 4px;
+}
+.room input::placeholder{
+    color:#bbb;
+    font-weight:400;
+    text-transform:none;
 }
 
-.message{
-    color:var(--muted);
-    font-size:16px;
-}
-
+/* ─── CARDS GRID ─── */
 .cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    gap:12px;
     max-width:1000px;
-    margin:0 auto;
+    margin:0 auto 20px;
 }
 
 .card{
-    position:relative;
     overflow:hidden;
-    background:#F2EDE2;
-    border:3px solid var(--charcoal-card);
-    border-radius:18px;
-    padding:8px 5px;
+    border-radius:13px;
+    border:1.5px solid rgba(212,175,55,.45);
+    background:#fff;
+    color:#001236;
+    padding:18px 12px 14px;
     text-align:center;
     cursor:pointer;
-    transition:.4s;
-    min-height:95px;
-    height:auto;
+    transition:.25s;
 }
-
 .card:hover{
-    transform:translateY(-8px) scale(1.03);
-    background:linear-gradient(
-        135deg,
-        #E8D9B5,
-        #D4AF37,
-        #C9A66B
-    );
     border-color:#D4AF37;
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.25),
-        0 0 20px rgba(212,175,55,.35);
+    box-shadow:0 5px 18px rgba(0,18,54,.12),0 0 10px rgba(212,175,55,.18);
+    background:linear-gradient(135deg,#faf7f0,#fff);
 }
 
-.card:hover h3{
-    color:#121212;
+.icon{
+    font-size:36px;
+    margin-bottom:10px;
+    display:block;
+    transition:.25s;
 }
-
-.card:hover p{
-    color:#2E2E2E;
-}
-
 .card:hover .icon{
     transform:scale(1.1);
 }
 
-.icon{
-    font-size:45px;
-    margin-bottom:15px;
-    color:var(--gold);
-    filter:drop-shadow(0 0 6px rgba(212,175,55,.25));
-    transition:.4s;
-}
-
 .card h3{
-    color:#121212;
+    font-family:'Cormorant Garamond',serif;
+    font-size:16px;
     font-weight:700;
-    margin-bottom:10px;
+    /* font-style:italic; */
+    color:#0a0a0a;
+    margin-bottom:5px;
 }
 
 .card p{
-    color:#444444;
-    font-size:14px;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    font-weight:500;
+    color:#555;
+    line-height:1.4;
 }
 
+/* ─── CUSTOM BOX ─── */
 .custom-box{
-    margin-top:25px;
     max-width:1000px;
-    margin-left:auto;
-    margin-right:auto;
-    background:var(--charcoal-card);
-    border:1px solid var(--border-gold);
+    margin:0 auto;
+    background:#D8D0C4;
+    border:2px solid #D4AF37;
     border-radius:18px;
-    padding:25px;
+    padding:18px;
+    box-shadow:0 8px 20px rgba(0,18,54,.08);
 }
 
 .custom-box h2{
-    color:var(--gold-pale);
-    margin-bottom:15px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    font-weight:700;
+    /* font-style:italic; */
+    color:#001236;
+    margin-bottom:12px;
 }
 
 textarea{
     width:100%;
-    min-height:120px;
-    background:var(--charcoal-dark);
-    color:var(--cream);
-    border:1px solid var(--border-gold);
+    min-height:110px;
+    background:#fff;
+    color:#001236;
+    border:1.5px solid rgba(212,175,55,.5);
     border-radius:12px;
-    padding:15px;
+    padding:12px 14px;
     resize:none;
     outline:none;
-font-family:'Cormorant Garamond', serif;
+    font-family:'Cormorant Garamond',serif;
+    font-size:15px;
+    font-weight:600;
 }
-
+textarea::placeholder{
+    color:#bbb;
+    font-weight:400;
+}
 textarea:focus{
-    border-color:var(--gold);
+    border-color:#D4AF37;
+    box-shadow:0 0 12px rgba(212,175,55,.2);
 }
 
 .send-btn{
     width:100%;
-    margin-top:15px;
+    margin-top:12px;
     padding:15px;
-    border:none;
+    border:2px solid #001236;
     border-radius:12px;
     cursor:pointer;
-    font-size:18px;
+    font-size:17px;
     font-weight:700;
-    background:linear-gradient(
-        135deg,
-        var(--gold-pale),
-        var(--gold),
-        var(--gold-soft)
-    );
-    color:#000;
+    font-family:'Cormorant Garamond',serif;
+    background:#001236;
+    color:#fff;
+    transition:.3s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+.send-btn:hover{
+    background:#D4AF37;
+    color:#001236;
+    border-color:#D4AF37;
+    box-shadow:0 8px 20px rgba(212,175,55,.25);
+}
+
+/* ─── FOOTER ─── */
+.footer{
+    background:#001236;
+    color:#F2EDE2;
+    text-align:center;
+    padding:12px;
+    font-size:12px;
+    width:100%;
+    margin-top:auto;
+    font-family:'Montserrat',sans-serif;
+}
+.footer a{
+    color:#F8F6F0;
+    text-decoration:none;
     transition:.3s;
 }
+.footer a:hover{color:#D4AF37;}
 
-.send-btn:hover{
-    opacity:.95;
-}
-
-/* ===== MOBILE: fit all 6 cards on one screen, no scrolling ===== */
+/* ─── MOBILE ─── */
 @media(max-width:768px){
-    .container{
-        padding-top:0;
-        margin-top:0;
-    }
-
-    .welcome{
-        margin:0 auto 12px;
-        text-align:center;
-    }
-
-    .navbar{
-        flex-shrink:0;
-        padding:8px 14px;
-        margin-bottom:25px;
-    }
-
-    .logo img{
-        height:70px;
-    }
-
-    .welcome h1{
-        font-size:20px;
-    }
-
-    .room{
-        font-size:18px;
-        margin:6px 0;
-    }
-
-    .message{
-        font-size:11.5px;
-    }
+    .navbar{padding:8px 14px;}
+    .logo img{height:70px;}
+    .welcome h1{font-size:22px;}
+    .container{padding:12px 8px 24px;}
 
     .cards{
         grid-template-columns:1fr 1fr;
-        gap:10px;
+        gap:9px;
     }
-
     .card{
-        height:140px;
-        min-height:140px;
+        padding:14px 8px 12px;
     }
+    .icon{font-size:28px;margin-bottom:7px;}
+    .card h3{font-size:13px;}
+    .card p{font-size:11px;}
 
-    .icon{
-        font-size:28px;
-        color:#B8860B;
-        margin-bottom:8px;
-    }
-
-    .card h3{
-        font-size:13px;
-        color:#121212;
-        font-weight:700;
-    }
-
-    .card p{
-        font-size:10px;
-    }
-
-    .custom-box{
-        padding:18px;
-    }
+    .custom-box{padding:14px;}
 }
 
-/* Extra-short phones: shrink a little further */
-@media(max-width:768px) and (max-height:620px){
-    .welcome{ padding:10px 14px; margin-bottom:8px; }
-    .welcome h1{ font-size:13px; }
-    .room{ font-size:16px; margin:4px 0; }
-    .message{ font-size:10.5px; }
-    .icon{ font-size:20px; margin-bottom:3px; }
-    .card h3{ font-size:11.5px; }
-    .card p{ display:none; }
-}
-
-.footer{
-    text-align:center;
-    margin-top:auto;
-    padding:12px;
-    color:#F2EDE2;
-    font-size:14px;
-    width:100%;
-}
-
-.footer a{
-    color:#F2EDE2;
-    text-decoration:none;
-    display:inline-block;
-}
-
-.footer a:hover{
-    color:#D4AF37;
-}
-
-@media(max-width:768px){
-    .footer{
-        padding:20px 15px 18px;
-    }
+@media(max-width:400px){
+    .card h3{font-size:12px;}
+    .card p{font-size:10px;}
 }
 </style>
 
@@ -344,59 +287,55 @@ textarea:focus{
 <body>
 
 <nav class="navbar">
-
     <a href="home.html" class="logo">
         <img src="/Img/logo.png" alt="SS Grand Inn Logo">
     </a>
-
-
-
 </nav>
 
 <div class="container">
 
     <div class="welcome">
-        <h1 id="headerTitle">💬 Guest Support Center</h1>
-        <div class="room">
-            <span id="roomLabel">Room No :</span>
-            <span id="roomNo">101</span>
-        </div>
+        <h1 id="headerTitle">Guest Support Center</h1>
+    </div>
+    <h2 class="headline">We're Here to Help</h2>
+    <div class="room">
+        <span id="roomLabel">Room No:</span>&nbsp;<input id="roomNo" type="text" placeholder="Enter room no." maxlength="10">
     </div>
 
-    <div class="cards">
+    <div class="cards" style="margin-top:18px;">
 
         <div class="card" onclick="sendRequest('Housekeeping Assistance')">
-            <div class="icon">🧹</div>
+            <span class="icon">🧹</span>
             <h3 id="t0">Housekeeping</h3>
             <p id="d0">Cleaning & room assistance</p>
         </div>
 
         <div class="card" onclick="sendRequest('Food Related Issue')">
-            <div class="icon">🍽️</div>
+            <span class="icon">🍽️</span>
             <h3 id="t1">Food Support</h3>
             <p id="d1">Food order & restaurant help</p>
         </div>
 
         <div class="card" onclick="sendRequest('WiFi Problem')">
-            <div class="icon">📶</div>
+            <span class="icon">📶</span>
             <h3 id="t2">WiFi Issue</h3>
             <p id="d2">Internet connectivity support</p>
         </div>
 
         <div class="card" onclick="sendRequest('Need Extra Blanket / Pillow')">
-            <div class="icon">🛏️</div>
+            <span class="icon">🛏️</span>
             <h3 id="t3">Extra Bedding</h3>
             <p id="d3">Blankets, pillows & extras</p>
         </div>
 
         <div class="card" onclick="sendRequest('Taxi Booking Required')">
-            <div class="icon">🚕</div>
+            <span class="icon">🚕</span>
             <h3 id="t4">Taxi Service</h3>
             <p id="d4">Local transportation help</p>
         </div>
 
         <div class="card" onclick="sendRequest('Laundry Service Required')">
-            <div class="icon">🧺</div>
+            <span class="icon">🧺</span>
             <h3 id="t5">Laundry</h3>
             <p id="d5">Clothes washing service</p>
         </div>
@@ -404,37 +343,37 @@ textarea:focus{
     </div>
 
     <div class="custom-box">
-
         <h2 id="customTitle">✍️ Describe Your Issue</h2>
-
-        <textarea id="issue"
-        placeholder="Example: AC is not cooling properly..."></textarea>
-
+        <textarea id="issue" placeholder="Example: AC is not cooling properly..."></textarea>
         <button class="send-btn" id="sendBtn" onclick="sendCustomIssue()">
-            Send via WhatsApp
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span id="sendBtnText">Send via WhatsApp</span>
         </button>
-
     </div>
 
 </div>
 
 <footer class="footer">
-    <a href="/index.html">
-        © SS Grand Inn • Luxury Stay, Exceptional Hospitality
-    </a>
+    <a href="/index.html">© SS Grand Inn • Luxury Stay, Exceptional Hospitality</a>
 </footer>
 
 <script>
-
 const params = new URLSearchParams(window.location.search);
-const room = params.get("room") || "101";
-
-document.getElementById("roomNo").innerText = room;
+const roomFromUrl = params.get("room") || "";
+const roomInput = document.getElementById("roomNo");
+if(roomFromUrl) roomInput.value = roomFromUrl;
 
 const whatsappNumber = "919030796171";
 
-function sendRequest(type){
+function getRoom(){
+    return document.getElementById("roomNo").value.trim() || "";
+}
 
+function sendRequest(type){
+    const room = getRoom();
+    if(!room){ alert("Please enter your room number first."); document.getElementById("roomNo").focus(); return; }
     const message =
 `🏨 SS HOTELS SUPPORT
 
@@ -444,22 +383,14 @@ Request Type:
 ${type}
 
 Please assist me.`;
-
-    window.open(
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
-        '_blank'
-    );
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 function sendCustomIssue(){
-
+    const room = getRoom();
+    if(!room){ alert("Please enter your room number first."); document.getElementById("roomNo").focus(); return; }
     const issue = document.getElementById("issue").value.trim();
-
-    if(issue === ""){
-        alert("Please enter your issue.");
-        return;
-    }
-
+    if(issue === ""){ alert("Please enter your issue."); return; }
     const message =
 `🏨 SS HOTELS SUPPORT
 
@@ -467,36 +398,17 @@ Room No: ${room}
 
 Issue:
 ${issue}`;
-
-    window.open(
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
-        '_blank'
-    );
-}
-
-// LANGUAGE SWITCH (shared across the whole site)
-function changeLanguage(){
-
-    let current = localStorage.getItem("lang") || "en";
-
-    if(current === "en"){
-        localStorage.setItem("lang","te");
-    }else{
-        localStorage.setItem("lang","en");
-    }
-
-    location.reload();
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 const lang = localStorage.getItem("lang") || "en";
 
 if(lang === "te"){
-
-    document.getElementById("headerTitle").innerHTML =
-    "💬 అతిథుల సహాయ కేంద్రం";
-
-    document.getElementById("roomLabel").innerHTML =
-    "గది నంబర్:";
+    document.querySelector(".headline").innerHTML =
+"మేము మీకు సహాయం చేయడానికి ఇక్కడ ఉన్నాము";
+    document.getElementById("headerTitle").innerHTML = "అతిథుల సహాయ కేంద్రం";
+    document.getElementById("roomLabel").innerHTML = "గది నంబర్:";
+    document.getElementById("roomNo").placeholder = "గది నం.";
 
     const titles = ["హౌస్ కీపింగ్","ఆహార సహాయం","వైఫై సమస్య","అదనపు పరుపు","టాక్సీ సేవ","లాండ్రీ సేవ"];
     const descs = [
@@ -507,20 +419,14 @@ if(lang === "te"){
         "స్థానిక రవాణా సహాయం",
         "బట్టల ఉతికే సేవ"
     ];
-
     for(let i=0;i<6;i++){
         document.getElementById("t"+i).innerHTML = titles[i];
         document.getElementById("d"+i).innerHTML = descs[i];
     }
 
-    document.getElementById("customTitle").innerHTML =
-    "✍️ మీ సమస్యను వివరించండి";
-
-    document.getElementById("issue").placeholder =
-    "ఉదాహరణ: AC సరిగా చల్లబరచడం లేదు...";
-
-    document.getElementById("sendBtn").innerHTML =
-    "వాట్సాప్ ద్వారా పంపండి";
+    document.getElementById("customTitle").innerHTML = "✍️ మీ సమస్యను వివరించండి";
+    document.getElementById("issue").placeholder = "ఉదాహరణ: AC సరిగా చల్లబరచడం లేదు...";
+    document.getElementById("sendBtnText").innerHTML = "వాట్సాప్ ద్వారా పంపండి";
 }
 </script>
 

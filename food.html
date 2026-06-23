@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Food Order | SS GRAND INN</title>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
 <style>
+  
 *{margin:0;padding:0;box-sizing:border-box;}
 
 :root{
@@ -28,18 +31,15 @@ body{
 .footer{
     background:#001236;
     color:#F2EDE2;
-
     text-align:center;
-
     padding:12px;
     font-size:12px;
-
     width:100%;
     margin-top:auto;
 }
 
 .footer a{
-    color:#F8F6F0;        /* Ivory */
+    color:#F8F6F0;
     text-decoration:none;
     transition:0.3s;
 }
@@ -83,11 +83,9 @@ body{
 }
 .cart-badge.visible{display:flex;}
 
-/* ─── HEADER ─── */
-.container{max-width:1100px;margin:auto;padding:18px 16px;}
 .header{text-align:center;margin-bottom:14px;}
 .header h1{
-  color:#001236;
+  color:#D4AF37; 
   font-family:'Cormorant Garamond',serif;
   font-size:30px;font-weight:700;letter-spacing:.5px;
 }
@@ -111,7 +109,6 @@ body{
   width:100%;height:2px;background:#D4AF37;
 }
 
-/* Timing badge on filter buttons */
 .filter-time{
   display:block;
   font-size:9px;font-weight:500;color:#888;
@@ -190,7 +187,6 @@ body{
   color:#7a5c1a;
 }
 
-/* Veg/Non-veg dot */
 .veg-dot{
   display:inline-block;width:9px;height:9px;border-radius:50%;
   flex-shrink:0;
@@ -231,7 +227,6 @@ body{
   font-family:'Cormorant Garamond',serif;
 }
 
-/* Room & customer row in summary */
 .summary-meta{
   display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;
 }
@@ -239,6 +234,11 @@ body{
   flex:1;min-width:120px;
   background:#fff;border:1.5px solid rgba(212,175,55,.5);
   border-radius:10px;padding:8px 12px;
+}
+/* Special request field spans full width */
+.summary-meta-field.full-width{
+  flex:1 1 100%;
+  min-width:100%;
 }
 .summary-meta-label{
   font-family:'Montserrat',sans-serif;
@@ -303,19 +303,46 @@ body{
   font-family:'Cormorant Garamond',serif;
   border-radius:12px;cursor:pointer;transition:.3s;
   display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-bottom: 25px;
 }
 .order-btn:hover{background:#D4AF37;color:#001236;border-color:#D4AF37;box-shadow:0 8px 20px rgba(212,175,55,.25);}
 .order-btn:disabled{background:#18294b;border-color:#556;color:#aaa;cursor:not-allowed;}
 .whatsapp-icon{width:21px;height:21px;}
 
 .no-results{text-align:center;padding:40px;color:#001236;font-size:16px;font-weight:600;display:none;}
+.headline{
+    font-family: 'Great Vibes', cursive;
+    font-size: 18px;
+    color: #D4AF37;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+.headline::after{
+    content:"";
+    display:block;
+    width:80px;
+    height:2px;
+    background:#D4AF37;
+    margin:6px auto 0;
+}
+#menuTitle{
+    font-family:'Cormorant Garamond', serif;
+    font-size:25px;
+    font-weight:600;
+    color:#D4AF37;
+    text-align:center;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin:20px 0 10px;
+    font-style: italic;
+}
 
-/* ─── FOOTER ─── */
-.footer{text-align:center;margin-top:20px;padding:12px;color:#F2EDE2;font-size:14px;}
-.footer a{color:#F2EDE2;text-decoration:none;}
-.footer a:hover{color:#D4AF37;}
-
-/* ─── MOBILE ─── */@media(max-width:768px){
+/* ─── MOBILE ─── */
+@media(max-width:768px){
 
   .food-card{
       display:flex;
@@ -330,25 +357,32 @@ body{
   }
 
   .food-details{
-      width:100%;
+      flex:1;
+      min-width:0;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:8px;
-      padding:0 0 0 8px;
+      gap:6px;
+      padding:0 6px 0 8px;
   }
 
   .food-info{
-      width:calc(100% - 90px);
+      flex:1;
       min-width:0;
+      overflow:hidden;
   }
 
   .food-name{
       font-size:14px;
   }
 
+  /* CHANGE 1: show description on mobile (1 line, truncated) */
   .food-desc{
-      display:none; /* hides description on mobile */
+      display:block;
+      font-size:9.5px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
   }
 
   .qty-controls{
@@ -371,29 +405,27 @@ body{
       padding:0;
   }
 }
-  
+
 .footer{
     background:#001236;
     color:#F2EDE2;
-
     text-align:center;
-
     padding:12px;
     font-size:12px;
-
     width:100%;
     margin-top:auto;
 }
 
 .footer a{
-    color:#F8F6F0;        /* Ivory */
+    color:#F8F6F0;
     text-decoration:none;
     transition:0.3s;
 }
 .footer a:hover{
     color:#D4AF37;
 }
- .filter-buttons{
+
+.filter-buttons{
       display:flex;
       flex-wrap:nowrap;
       overflow-x:scroll;
@@ -413,15 +445,12 @@ body{
       display:block;
       font-size:8px;
   }
-   .container{
-      padding-left:8px;
-      padding-right:8px;
-  }
 
 @media(max-width:400px){
   .food-image{width:70px;height:70px;}
   .qty-btn{width:27px;height:27px;font-size:16px;}
   .qty-input{width:30px;font-size:13px;}
+  .headline{font-size:15px;}
 }
 </style>
 </head>
@@ -441,9 +470,11 @@ body{
 
 <div class="container">
   <div class="header">
-    <h1 id="menuTitle">🍽️ SS HOTELS MENU</h1>
+    <h1 id="menuTitle">ROOM DINE IN MENU</h1>
   </div>
-
+<h2 class="headline" id="headlineText">
+    Luxury • Comfort • Hospitality
+</h2>
   <!-- Filter buttons with meal timings -->
   <div class="filter-buttons">
     <button class="active" onclick="filterFood('all')">All</button>
@@ -452,10 +483,10 @@ body{
     <button onclick="filterFood('dinner')">Dinner<span class="filter-time">7:00 – 10:30 PM</span></button>
     <button onclick="filterFood('snacks')">Snacks<span class="filter-time">5:00PM – 7:30 PM</span></button>
     <button onclick="filterFood('beverages')">Beverages<span class="filter-time">9AM– 10:30 PM</span></button>
-    <button onclick="filterFood('south-indian')">South Indian<span class="filter-time">12:00 – 3:00 PM</span></button></button>
-    <button onclick="filterFood('north-indian')">North Indian<span class="filter-time">12:00 – 3:00 PM</span></button></button>
-    <button onclick="filterFood('chinese')">Chinese<span class="filter-time">12:00 – 10:00 PM</span></button></button>
-    <button onclick="filterFood('desserts')">Desserts<span class="filter-time">12:00 – 10:00 PM</span></button></button>
+    <button onclick="filterFood('south-indian')">South Indian<span class="filter-time">12:00 – 3:00 PM</span></button>
+    <button onclick="filterFood('north-indian')">North Indian<span class="filter-time">12:00 – 3:00 PM</span></button>
+    <button onclick="filterFood('chinese')">Chinese<span class="filter-time">12:00 – 10:00 PM</span></button>
+    <button onclick="filterFood('desserts')">Desserts<span class="filter-time">12:00 – 10:00 PM</span></button>
   </div>
 
   <div class="search-container">
@@ -769,15 +800,20 @@ body{
   <div class="order-summary" id="orderSummary" style="display:none;">
     <h3 id="summaryTitle">📋 Order Summary</h3>
 
-    <!-- Room & Customer fields -->
+    <!-- CHANGE 2: Room No. is now an editable input -->
     <div class="summary-meta">
       <div class="summary-meta-field">
         <div class="summary-meta-label">Room No.</div>
-        <div class="summary-meta-value" id="summaryRoom">101</div>
+        <input class="summary-meta-input" id="summaryRoom" type="text" placeholder="Enter room no." maxlength="10">
       </div>
       <div class="summary-meta-field">
         <div class="summary-meta-label">Customer Name</div>
         <input class="summary-meta-input" id="customerName" type="text" placeholder="Enter your name" maxlength="40">
+      </div>
+      <!-- CHANGE 3: Any special request field -->
+      <div class="summary-meta-field full-width">
+        <div class="summary-meta-label">Any Special Request?</div>
+        <input class="summary-meta-input" id="specialRequest" type="text" placeholder="e.g. Less spicy, extra sauce, no onions..." maxlength="120">
       </div>
     </div>
 
@@ -817,8 +853,10 @@ body{
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const room = params.get("room") || "101";
-document.getElementById("summaryRoom").innerText = room;
+const roomFromUrl = params.get("room") || "";
+// CHANGE 2: pre-fill room input if URL param present, otherwise leave for user to type
+const roomInput = document.getElementById("summaryRoom");
+if (roomFromUrl) roomInput.value = roomFromUrl;
 
 let currentFilter = 'all';
 const SERVICE_TAX_RATE = 0.05;
@@ -914,13 +952,18 @@ function placeOrder() {
   if (!orderList.length) { alert("Please select at least one item."); return; }
 
   const customerName = document.getElementById('customerName').value.trim() || 'Guest';
+  const room = document.getElementById('summaryRoom').value.trim() || 'Not specified';
+  const specialRequest = document.getElementById('specialRequest').value.trim();
   const tax = Math.round(subtotal * SERVICE_TAX_RATE);
   const total = subtotal + tax;
+
+  // CHANGE 3: include special request in WhatsApp message if provided
+  const requestLine = specialRequest ? `\n📝 *Special Request:* ${specialRequest}` : '';
 
   const message = `🏨 *SS GRAND INN - FOOD ORDER*
 
 👤 *Customer:* ${customerName}
-📍 *Room No:* ${room}
+📍 *Room No:* ${room}${requestLine}
 
 ━━━━━━━━━━━━━━━
 📋 *Order Details:*
@@ -941,7 +984,34 @@ Please confirm this order. Thank you! 🙏`;
 // Telugu support
 const lang = localStorage.getItem("lang") || "en";
 if (lang === "te") {
-  document.getElementById("menuTitle").innerHTML = "🍽️ ఎస్ఎస్ గ్రాండ్ ఇన్ మెనూ";
+  const foodDescs = document.querySelectorAll(".food-desc");
+
+const teDescs = [
+"సాంబార్ మరియు కొబ్బరి చట్నీతో వడ్డించే ఇడ్లీలు",
+"ఆలుగడ్డ మసాలాతో నింపిన కరకరలాడే దోస",
+"ఉల్లిపాయ, టమాటాతో చేసిన ఉత్తప్పం",
+"తాజాగా తయారు చేసిన గోధుమ రొట్టె",
+"రుచికరమైన మసాలా గ్రేవీలో చికెన్",
+"క్రీమీ టమాటా గ్రేవీలో పనీర్ ముక్కలు",
+"సుగంధ ద్రవ్యాలతో తయారైన చికెన్ బిర్యానీ",
+"మృదువైన మటన్‌తో ప్రత్యేక బిర్యానీ",
+"చికెన్‌తో తయారైన ఫ్రైడ్ రైస్",
+"చికెన్ మరియు కూరగాయలతో నూడుల్స్",
+"కరకరలాడే బంగాళాదుంప ఫ్రైస్",
+"మసాలా ఆలుగడ్డతో నింపిన వెజ్ పఫ్",
+"అల్లం మరియు యాలకులతో టీ",
+"దక్షిణ భారతీయ ఫిల్టర్ కాఫీ",
+"చల్లటి శీతల పానీయం",
+"రోజ్ సిరప్‌లో నానబెట్టిన గులాబ్ జామున్",
+"వెనిల్లా, చాక్లెట్ లేదా స్ట్రాబెర్రీ ఐస్ క్రీమ్"
+];
+
+foodDescs.forEach((el, i) => {
+    if(teDescs[i]) el.innerHTML = teDescs[i];
+});
+  document.getElementById("headlineText").innerHTML =
+"లగ్జరీ • సౌకర్యం • ఆతిథ్యం";
+  document.getElementById("menuTitle").innerHTML = "ఎస్ఎస్ గ్రాండ్ ఇన్ మెనూ";
   document.getElementById("searchBar").placeholder = "🔍 వంటకాలను వెతకండి...";
   const categories = document.querySelectorAll(".food-category");
   const teCategories = [
@@ -964,6 +1034,9 @@ if (lang === "te") {
 
   document.getElementById("summaryTitle").innerHTML = "📋 ఆర్డర్ సారాంశం";
   document.getElementById("orderBtnText").innerHTML = "వాట్సాప్ ద్వారా ఆర్డర్ చేయండి";
+  roomInput.placeholder = "గది నంబర్ నమోదు చేయండి";
+  document.getElementById("customerName").placeholder = "మీ పేరు నమోదు చేయండి";
+  document.getElementById("specialRequest").placeholder = "ఉదా. తక్కువ కారం, అదనపు సాస్...";
 }
 
 updateOrder();

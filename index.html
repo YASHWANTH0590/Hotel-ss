@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 
 :root{
@@ -102,6 +102,32 @@ body{
     font-weight:600;
     letter-spacing:3px;
     margin-top:10px;
+    position:relative;
+    display:inline-block;
+    padding-bottom:18px;
+}
+
+.location::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:0;
+
+    width:180px;
+    height:3px;
+
+    background:linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(212,175,55,.4) 15%,
+        #D4AF37 50%,
+        rgba(212,175,55,.4) 85%,
+        transparent 100%
+    );
+
+    border-radius:10px;
+border-radius:10px;
 }
 .hotel-name{
     font-family:'Cormorant Garamond', serif;
@@ -186,6 +212,13 @@ body{
     background:#D4AF37;
     color:#001236;
 }
+.welcome h1{
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--gold);
+    font-weight: normal;
+    text-align: center;
+}
 /* Mobile */
 
 @media(max-width:768px){
@@ -260,7 +293,9 @@ body{
 
     <!-- Replace with your logo -->
     <img src="Img/logo main.png" alt="SS Grand Inn" class="logo">
-<h1 id="welcomeText">Welcome to</h1>
+<div class="welcome">
+    <h1>Welcome to</h1>
+</div>
 
 <h2 class="hotel-name">
     <span class="big">SS</span> <span class="big">G</span>RAND <span class="big">I</span>NN
@@ -292,14 +327,17 @@ const lang = localStorage.getItem("lang") || "en";
 
 if(lang === "te"){
 
-    document.getElementById("welcomeText").innerHTML =
+    document.querySelector(".welcome h1").innerHTML =
     "స్వాగతం";
+
+    document.querySelector(".hotel-name").innerHTML =
+    "<span class='big'>SS</span> <span class='big'>G</span>RAND <span class='big'>I</span>NN";
 
     document.getElementById("locationText").innerHTML =
     "సామర్లకోట";
 
     document.getElementById("captionText").innerHTML =
-    "లగ్జరీ, సౌకర్యం మరియు అద్భుతమైన ఆతిథ్యాన్ని అనుభవించండి. మీకు సంతోషకరమైన బస కలగాలని కోరుకుంటున్నాము.";
+    "విలాసవంతమైన బస, సౌకర్యం మరియు అత్యుత్తమ ఆతిథ్యాన్ని అనుభవించండి. మేము మిమ్మల్ని ఆహ్వానిస్తున్నందుకు సంతోషిస్తున్నాము మరియు మీ బస ఆనందదాయకంగా ఉండాలని కోరుకుంటున్నాము.";
 
     document.getElementById("startBtn").innerHTML =
     "ప్రారంభించండి →";
