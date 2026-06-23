@@ -229,8 +229,16 @@ body{
 
 /* ─── MOBILE ─── */
 @media(max-width:768px){
-    .navbar{padding:8px 14px;}
-    .logo img{height:70px;}
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--navbar-height-mobile);
+        padding: 8px 12px;
+        z-index: 1000;
+        overflow: hidden;
+    }    .logo img{height:70px;}
     .header h1{font-size:22px;}
     .places{grid-template-columns:1fr;}
     .container{padding-left:8px;padding-right:8px;}

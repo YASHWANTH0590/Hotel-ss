@@ -5,578 +5,467 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Info | SS GRAND INN</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏨</text></svg>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-
-    <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cormorant Garamond', serif;
-}
-.section p{
-    text-align:center;
-    color:#001236;
-    line-height:2;
-    font-size:18px;
-    max-width:800px;
-    margin:auto;
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cormorant Garamond', serif;
 }
 
-:root{
-    --primary:#001236;
-    --secondary:#002B6B;
-    --gold:#D4AF37;
-    --gold-light:#E6C768;
-    --cream:#F8F6F0;
-    --bg:#EFEAE5;
-}
-body{
-    background:#EFEAE5;
-    color:#001236;
-    font-family:'Cormorant Garamond', serif;
-    min-height:100vh;
-
-}.location-btn{
-    background:#001236;
-    color:#F8F6F0;
-    border:1px solid #001236;
-    padding:8px 16px;
-    border-radius:25px;
-    cursor:pointer;
-    font-size:13px;
-    font-weight:600;
-    font-family:'Cormorant Garamond', serif;
-    transition:all .3s ease;
-    flex-shrink:0;
+:root {
+    --primary: #001236;
+    --secondary: #002B6B;
+    --gold: #D4AF37;
+    --gold-light: #E6C768;
+    --cream: #F8F6F0;
+    --bg: #EFEAE5;
+    --navbar-height-desktop: 68px;
+    --navbar-height-mobile: 58px;
 }
 
-.location-btn:hover{
-    background:#D4AF37;
-    color:#001236;
-    border-color:#D4AF37;
+body {
+    background: #EFEAE5;
+    color: #001236;
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Desktop: no padding needed (navbar is sticky, not fixed) */
 }
 
-.navbar{
-  background:#001236;
-  border-bottom:3px solid #D4AF37;
-  padding:10px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;top:0;z-index:100;
-  height: 68px;
+/* ── NAVBAR ── */
+.navbar {
+    background: #001236;
+    border-bottom: 3px solid #D4AF37;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--navbar-height-desktop);
+    overflow: hidden; /* prevent logo from pushing height */
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    line-height:0;
+.logo {
+    display: flex;
+    align-items: center;
+    line-height: 0;
 }
 
-.logo img{
-    height: 75px;
-    width:auto;
-    display:block;
+.logo img {
+    height: 50px; /* fits inside navbar height on all sizes */
+    width: auto;
+    display: block;
 }
 
-.nav-right{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    flex-shrink:0;
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
-.lang-btn{
-    background:transparent;
-    color:var(--gold);
-    border:1px solid var(--gold);
-    padding:clamp(6px, 1.6vw, 10px) clamp(10px, 3vw, 18px);
-    border-radius:10px;
-    font-weight:600;
-    font-size:clamp(11px, 2.6vw, 14px);
-    cursor:pointer;
-    transition:.3s;
-    white-space:nowrap;
-    flex-shrink:0;
+.lang-btn {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: clamp(6px, 1.6vw, 10px) clamp(10px, 3vw, 18px);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: clamp(11px, 2.6vw, 14px);
+    cursor: pointer;
+    transition: .3s;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-.lang-btn:hover{
-    background:var(--gold);
-    color:var(--charcoal-dark);
-}
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:30px 20px;
-    
-}
-.section{
-    max-width:900px;
-    margin:25px auto;
-    padding:0 20px;
-    background:none;
-    border:none;
-    box-shadow:none;
-    
-}
-.field-value-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-}
-.field-value{
-    flex:1;
-    word-break:break-word;
+.lang-btn:hover {
+    background: var(--gold);
+    color: #001236;
 }
 
-.divider{
-    width:80px;
-    height:2px;
-    background:#001236;
-    margin:35px auto;
-    border-radius:10px;
-    opacity:.35;
+/* ── MAIN CONTENT ── */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+    flex: 1;
 }
-.section h2{
-    text-align:center;
-    color:#001236;
-    font-size:28px;
-    font-weight:600;
-    margin-bottom:15px;
+
+.section {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 0 20px;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.section h2 {
+    text-align: center;
+    color: #001236;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
     font-style: italic;
 }
 
-.section h2::after{
-    content:"";
-    display:block;
-    width:60px;
-    height:2px;
-    background:#D4AF37;
-    margin:8px auto 0;
+.section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #D4AF37;
+    margin: 8px auto 0;
 }
 
-.section p{
-    font-size:18px;
-    line-height:1.9;
-    text-align:center;
-    color:#001236;
+.section p {
+    font-size: 18px;
+    line-height: 1.9;
+    text-align: center;
+    color: #001236;
+    max-width: 800px;
+    margin: auto;
 }
 
-/* ABOUT SECTION */
-
-.section:first-child{
-text-align:center;
+.section ul {
+    text-align: center;
+    list-style: none;
+    padding: 0;
 }
 
-.section:first-child h2{
-font-size:34px;
-color:var(--gold-pale);
+.section ul li {
+    font-size: 18px;
+    line-height: 2;
+    color: #001236;
 }
 
-.section:first-child p{
-color:var(--cream);
-font-size:18px;
+.divider {
+    width: 80px;
+    height: 2px;
+    background: #001236;
+    margin: 35px auto;
+    border-radius: 10px;
+    opacity: .35;
 }
 
-/* THANK YOU SECTION */
-
-.section:last-child{
-text-align:center;
+/* ── PLACES LIST ── */
+.places-list {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+    list-style: none;
 }
 
-.section:last-child h2{
-color:var(--gold-pale);
-border:none;
-}
-
-.section:last-child p{
-color:var(--gold-soft);
-font-size:18px;
-}
-.place-item{
-    text-align:center;
-    margin-bottom:15px;
-}
-.map-btn{
-    background:#001236;
-    color:#F8F6F0;
-    border:1px solid #001236;
-    padding:8px 16px;
-    border-radius:25px;
-    cursor:pointer;
-    font-size:13px;
-    font-weight:600;
-    font-family:'Cormorant Garamond', serif;
-    transition:all .3s ease;
+.place-item {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
 }
 
-.map-btn:hover{
-    background:#D4AF37;
-    color:#001236;
-    border-color:#D4AF37;
+.place-item span {
+    flex: 1;
+    text-align: left;
+    font-size: 18px;
+    color: #001236;
 }
 
-.map-btn:active{
-    background:#D4AF37;
-    color:#001236;
-}
-.footer{
-    background:#001236;
-    color:#F2EDE2;
-
-    text-align:center;
-
-    padding:12px;
-    font-size:12px;
-
-    width:100%;
-    margin-top:auto;
-}
-
-.footer a{
-    color:#F8F6F0;        /* Ivory */
-    text-decoration:none;
-    transition:0.3s;
-}
-.footer a:hover{
-    color:#D4AF37;
-}.places-list{
-    max-width:800px;
-    margin:30px auto;
-    padding:0;
-    list-style:none;
+/* ── BUTTONS ── */
+.location-btn {
+    background: #001236;
+    color: #F8F6F0;
+    border: 1px solid #001236;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all .3s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
-.place-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    margin-bottom:15px;
+.location-btn:hover {
+    background: #D4AF37;
+    color: #001236;
+    border-color: #D4AF37;
 }
 
-.place-item span{
-    flex:1;
-    text-align:left;
+.map-btn {
+    background: #001236;
+    color: #F8F6F0;
+    border: 1px solid #001236;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all .3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-/* .location-btn{
-    flex-shrink:
-} */
-/* MOBILE */
+.map-btn:hover,
+.map-btn:active {
+    background: #D4AF37;
+    color: #001236;
+    border-color: #D4AF37;
+}
 
-@media(max-width:768px){
-    
+/* ── FOOTER ── */
+.footer {
+    background: #001236;
+    color: #F2EDE2;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    width: 100%;
+    margin-top: auto;
+    /* Ensure footer never hides behind anything */
+    position: relative;
+    z-index: 1;
+}
 
-    .navbar{
-        padding:8px 12px;
-        margin-bottom:10px;
+.footer a {
+    color: #F8F6F0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #D4AF37;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+
+    /* On mobile the navbar becomes fixed — add padding to body to compensate */
+    body {
+        padding-top: var(--navbar-height-mobile);
     }
 
-.logo img{
-    height:50px;
-}
-
-.section{
-    padding:20px;
-}
-
-.section h2{
-    font-size:22px;
-}
-
-.section p,
-.section ul li{
-    font-size:15px;
-}
-
-.section:first-child h2{
-    font-size:28px;
-}
-
-
-}
-@media(max-width:768px){
-
-.footer{
-    background:#001236;
-    color:#F2EDE2;
-
-    text-align:center;
-
-    padding:12px;
-    font-size:12px;
-
-    width:100%;
-    margin-top:auto;
-}
-
-.footer a{
-    color:#F8F6F0;        /* Ivory */
-    text-decoration:none;
-    transition:0.3s;
-}
-.footer a:hover{
-    color:#D4AF37;
-}
-@media(max-width:768px){
-
-    .places-list{
-        width:100%;
-        padding:0 15px;
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--navbar-height-mobile);
+        padding: 8px 12px;
+        z-index: 1000;
+        overflow: hidden;
     }
 
-    .place-item{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        gap:10px;
-        margin-bottom:12px;
+    .logo img {
+        height: 40px; /* smaller on mobile, stays inside navbar */
     }
 
-    .place-item span{
-        font-size:15px;
-        line-height:1.4;
-        flex:1;
+    .section {
+        padding: 0 15px;
     }
 
-    .location-btn{
-        font-size:12px;
-        padding:7px 14px;
-        white-space:nowrap;
+    .section h2 {
+        font-size: 22px;
+    }
+
+    .section p,
+    .section ul li {
+        font-size: 15px;
+    }
+
+    .places-list {
+        padding: 0 15px;
+    }
+
+    .place-item {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .place-item span {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    .location-btn {
+        font-size: 12px;
+        padding: 7px 14px;
+    }
+
+    .footer {
+        padding: 14px 12px;
+        font-size: 12px;
     }
 }
-}
-
-
-
-
-    </style>
+</style>
 </head>
 <body>
+
 <nav class="navbar">
-
     <a href="home.html" class="logo">
-    <img src="/Img/logo.png" alt="SS Grand Inn Logo">
-</a>
-
-<div class="nav-right">
-
-
-
-</div>
-
-
+        <img src="/Img/logo.png" alt="SS Grand Inn Logo">
+    </a>
+    <div class="nav-right"></div>
 </nav>
 
 <div class="section" id="aboutSection">
-        <h2>About SS GRAND INN</h2>
-
-
-<p>
-SS GRAND INN offers comfortable and well-maintained rooms, a family-friendly atmosphere,
-24/7 guest support, daily housekeeping, restaurant service, secure premises,
-and a prime location in Samarlakota, ensuring a pleasant stay for every guest.
-</p>
-
-<br>
-
-<p>
-    Whether you are visiting for business, family functions, pilgrimages, or leisure travel, SS HOTELS provides a peaceful and welcoming environment for every guest.
-    Our commitment to quality service ensures a memorable and relaxing stay.
-</p>
-
-
-
+    <h2>About SS GRAND INN</h2>
+    <p>
+        SS GRAND INN offers comfortable and well-maintained rooms, a family-friendly atmosphere,
+        24/7 guest support, daily housekeeping, restaurant service, secure premises,
+        and a prime location in Samarlakota, ensuring a pleasant stay for every guest.
+    </p>
+    <br>
+    <p>
+        Whether you are visiting for business, family functions, pilgrimages, or leisure travel, SS HOTELS provides a peaceful and welcoming environment for every guest.
+        Our commitment to quality service ensures a memorable and relaxing stay.
+    </p>
 </div>
+
 <div class="divider"></div>
 
 <div class="section" id="whySection">
-        <h2>Why Choose Us</h2>
-
-
-<p>
-Comfortable rooms, family-friendly hospitality,
-restaurant service, daily housekeeping, secure premises,
-24/7 guest assistance, and a prime location in Samarlakota
-combine to create a relaxing and memorable stay.
-</p>
-
-
+    <h2>Why Choose Us</h2>
+    <p>
+        Comfortable rooms, family-friendly hospitality,
+        restaurant service, daily housekeeping, secure premises,
+        24/7 guest assistance, and a prime location in Samarlakota
+        combine to create a relaxing and memorable stay.
+    </p>
 </div>
+
 <div class="divider"></div>
 
 <div class="section" id="timingSection">
-        <h2>Hotel Timings</h2>
-
-
-<p>
-    Check-In Time: 12:00 PM<br>
-    Check-Out Time: 11:00 AM
-</p>
-
-<br>
-
-<p>
-    Restaurant Hours<br>
-    Breakfast: 7:00 AM – 10:30 AM<br>
-    Lunch: 12:00 PM – 3:00 PM<br>
-    Dinner: 7:00 PM – 10:30 PM
-</p>
-
-
+    <h2>Hotel Timings</h2>
+    <p>
+        Check-In Time: 12:00 PM<br>
+        Check-Out Time: 11:00 AM
+    </p>
+    <br>
+    <p>
+        Restaurant Hours<br>
+        Breakfast: 7:00 AM – 10:30 AM<br>
+        Lunch: 12:00 PM – 3:00 PM<br>
+        Dinner: 7:00 PM – 10:30 PM
+    </p>
 </div>
+
 <div class="divider"></div>
 
 <div class="section" id="facilitySection">
-        <h2>Facilities & Services</h2>
-
-
-<ul>
-    <li>✓ Room Service</li>
-    <li>✓ Housekeeping</li>
-    <li>✓ Restaurant</li>
-    <li>✓ Laundry Service</li>
-    <li>✓ Parking Facility</li>
-    <li>✓ CCTV Security</li>
-    <li>✓ Power Backup</li>
-    <li>✓ Reception Assistance</li>
-</ul>
-
-
+    <h2>Facilities &amp; Services</h2>
+    <ul>
+        <li>✓ Room Service</li>
+        <li>✓ Housekeeping</li>
+        <li>✓ Restaurant</li>
+        <li>✓ Laundry Service</li>
+        <li>✓ Parking Facility</li>
+        <li>✓ CCTV Security</li>
+        <li>✓ Power Backup</li>
+        <li>✓ Reception Assistance</li>
+    </ul>
 </div>
+
 <div class="divider"></div>
 
 <div class="section" id="exploreSection">
-        <h2>Explore Samarlakota</h2>
-
-
-<p>
-    During your stay, explore some of the most popular attractions near our hotel.
-</p>
-
-<br>
+    <h2>Explore Samarlakota</h2>
+    <p>During your stay, explore some of the most popular attractions near our hotel.</p>
+    <br>
 </div>
 
 <ul class="places-list">
-
-<li class="place-item">
-    <span>Kumararama Bhimeswara Swamy Temple</span>
-    <button class="location-btn"
-        onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple','_blank')">
-        Location
-    </button>
-</li>
-
-<li class="place-item">
-    <span>Draksharamam Temple</span>
-    <button class="location-btn"
-        onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">
-        Location
-    </button>
-</li>
-
-<li class="place-item">
-    <span>Kakinada Beach</span>
-    <button class="location-btn"
-        onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">
-        Location
-    </button>
-</li>
-
-<li class="place-item">
-    <span>Coringa Wildlife Sanctuary</span>
-    <button class="location-btn"
-        onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">
-        Location
-    </button>
-</li>
-
+    <li class="place-item">
+        <span>Kumararama Bhimeswara Swamy Temple</span>
+        <button class="location-btn"
+            onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple','_blank')">
+            Location
+        </button>
+    </li>
+    <li class="place-item">
+        <span>Draksharamam Temple</span>
+        <button class="location-btn"
+            onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">
+            Location
+        </button>
+    </li>
+    <li class="place-item">
+        <span>Kakinada Beach</span>
+        <button class="location-btn"
+            onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">
+            Location
+        </button>
+    </li>
+    <li class="place-item">
+        <span>Coringa Wildlife Sanctuary</span>
+        <button class="location-btn"
+            onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">
+            Location
+        </button>
+    </li>
 </ul>
 
 <div class="section" id="locationSection">
-        <h2>Hotel Location</h2>
-
-<p>
-    SS GRAND INN is conveniently located in Samarlakota, Opp. Railway Station, Kakinada Dist - 533 440,
-    Andhra Pradesh, providing easy access to temples,
-    railway station, local markets, and nearby attractions.
-</p>
-
-<br>
-
-<button class="map-btn" onclick="openMap()">
-    🗺️ View on Google Maps
-</button>
-
-<script>
-function openMap() {
-    window.open("https://maps.app.goo.gl/fLiXEJ5ea48a5WoSA", "_blank");
-}
-</script>
-
+    <h2>Hotel Location</h2>
+    <p>
+        SS GRAND INN is conveniently located in Samarlakota, Opp. Railway Station, Kakinada Dist - 533 440,
+        Andhra Pradesh, providing easy access to temples,
+        railway station, local markets, and nearby attractions.
+    </p>
+    <br>
+    <button class="map-btn" onclick="window.open('https://maps.app.goo.gl/fLiXEJ5ea48a5WoSA','_blank')">
+        🗺️ View on Google Maps
+    </button>
 </div>
+
 <div class="divider"></div>
 
 <div class="section" id="policySection">
-        <h2> Hotel Policies</h2>
-
-
-<ul>
-    <li> Smoking inside rooms is not permitted.</li>
-    <li> Loud music after 10:00 PM is not allowed.</li>
-    <li> Damage to hotel property may incur charges.</li>
-    <li> Please secure valuables responsibly.</li>
-    <li> Keep your room locked when leaving.</li>
-</ul>
-
+    <h2>Hotel Policies</h2>
+    <ul>
+        <li>Smoking inside rooms is not permitted.</li>
+        <li>Loud music after 10:00 PM is not allowed.</li>
+        <li>Damage to hotel property may incur charges.</li>
+        <li>Please secure valuables responsibly.</li>
+        <li>Keep your room locked when leaving.</li>
+    </ul>
 </div>
+
 <div class="divider"></div>
 
 <div class="section" id="thankSection">
-        <h2>🙏 Thank You</h2>
-
-
-<p>
-    Thank you for choosing SS GRAND INN.
-    We are honored to be a part of your journey and wish you a pleasant and comfortable stay in Samarlakota.
-</p>
-
+    <h2>🙏 Thank You</h2>
+    <p>
+        Thank you for choosing SS GRAND INN.
+        We are honored to be a part of your journey and wish you a pleasant and comfortable stay in Samarlakota.
+    </p>
 </div>
 
-
-<!-- Telugu convertion -->
- <script>
-
+<!-- Telugu translation -->
+<script>
 const lang = localStorage.getItem("lang") || "en";
 
-if(lang === "te"){
-
-document.getElementById("aboutSection").innerHTML = `
-<h2> SS గ్రాండ్ ఇన్ గురించి</h2>
-
-<p>
-ఆంధ్రప్రదేశ్‌లోని సామర్లకోట హృదయంలో ఉన్న SS గ్రాండ్ ఇన్‌కు స్వాగతం.
-సౌకర్యం, నాణ్యమైన సేవలు మరియు ఆతిథ్యంతో మేము మీకు ఉత్తమ అనుభవాన్ని అందించడానికి కట్టుబడి ఉన్నాము.
-</p>
-
+if (lang === "te") {
+    document.getElementById("aboutSection").innerHTML = `
+<h2>SS గ్రాండ్ ఇన్ గురించి</h2>
+<p>ఆంధ్రప్రదేశ్‌లోని సామర్లకోట హృదయంలో ఉన్న SS గ్రాండ్ ఇన్‌కు స్వాగతం.
+సౌకర్యం, నాణ్యమైన సేవలు మరియు ఆతిథ్యంతో మేము మీకు ఉత్తమ అనుభవాన్ని అందించడానికి కట్టుబడి ఉన్నాము.</p>
 <br>
+<p>వ్యాపారం, కుటుంబ కార్యక్రమాలు, తీర్థయాత్రలు లేదా విహారయాత్రల కోసం వచ్చిన అతిథులకు ప్రశాంతమైన మరియు సౌకర్యవంతమైన వాతావరణాన్ని అందిస్తున్నాము.</p>`;
 
-<p>
-వ్యాపారం, కుటుంబ కార్యక్రమాలు, తీర్థయాత్రలు లేదా విహారయాత్రల కోసం వచ్చిన అతిథులకు ప్రశాంతమైన మరియు సౌకర్యవంతమైన వాతావరణాన్ని అందిస్తున్నాము.
-</p>
-`;
-
-document.getElementById("whySection").innerHTML = `
-<h2> మమ్మల్ని ఎందుకు ఎంచుకోవాలి</h2>
-
+    document.getElementById("whySection").innerHTML = `
+<h2>మమ్మల్ని ఎందుకు ఎంచుకోవాలి</h2>
 <ul>
 <li>✔ సౌకర్యవంతమైన మరియు పరిశుభ్రమైన గదులు</li>
 <li>✔ కుటుంబాలకు అనుకూలమైన వాతావరణం</li>
@@ -585,30 +474,16 @@ document.getElementById("whySection").innerHTML = `
 <li>✔ 24/7 అతిథి సహాయం</li>
 <li>✔ భద్రమైన ప్రాంగణం</li>
 <li>✔ సామర్లకోటలో ప్రధాన స్థానం</li>
-</ul>
-`;
+</ul>`;
 
-document.getElementById("timingSection").innerHTML = `
-<h2> హోటల్ సమయాలు</h2>
-
-<p>
-చెక్-ఇన్ సమయం : మధ్యాహ్నం 12:00 గంటలు<br>
-చెక్-అవుట్ సమయం : ఉదయం 11:00 గంటలు
-</p>
-
+    document.getElementById("timingSection").innerHTML = `
+<h2>హోటల్ సమయాలు</h2>
+<p>చెక్-ఇన్ సమయం : మధ్యాహ్నం 12:00 గంటలు<br>చెక్-అవుట్ సమయం : ఉదయం 11:00 గంటలు</p>
 <br>
+<p>రెస్టారెంట్ సమయాలు<br>అల్పాహారం : ఉదయం 7:00 – 10:30<br>మధ్యాహ్న భోజనం : మధ్యాహ్నం 12:00 – 3:00<br>రాత్రి భోజనం : సాయంత్రం 7:00 – 10:30</p>`;
 
-<p>
-<strong>రెస్టారెంట్ సమయాలు</strong><br>
-అల్పాహారం : ఉదయం 7:00 – 10:30<br>
-మధ్యాహ్న భోజనం : మధ్యాహ్నం 12:00 – 3:00<br>
-రాత్రి భోజనం : సాయంత్రం 7:00 – 10:30
-</p>
-`;
-
-document.getElementById("facilitySection").innerHTML = `
-<h2> సౌకర్యాలు & సేవలు</h2>
-
+    document.getElementById("facilitySection").innerHTML = `
+<h2>సౌకర్యాలు & సేవలు</h2>
 <ul>
 <li>✓ రూమ్ సర్వీస్</li>
 <li>✓ హౌస్ కీపింగ్ సేవలు</li>
@@ -618,94 +493,59 @@ document.getElementById("facilitySection").innerHTML = `
 <li>✓ CCTV భద్రతా వ్యవస్థ</li>
 <li>✓ 24 గంటల విద్యుత్ బ్యాకప్</li>
 <li>✓ 24/7 రిసెప్షన్ సహాయం</li>
-</ul>
-`;
-document.getElementById("exploreSection").innerHTML = `
-<h2>సామర్లకోటను అన్వేషించండి</h2>
+</ul>`;
 
-<p>
-మీ బస సమయంలో సామర్లకోట మరియు పరిసర ప్రాంతాలలోని ప్రముఖ పర్యాటక మరియు ఆధ్యాత్మిక ప్రదేశాలను సందర్శించండి.
-</p>
-`;
-document.querySelector(".places-list").innerHTML = `
+    document.getElementById("exploreSection").innerHTML = `
+<h2>సామర్లకోటను అన్వేషించండి</h2>
+<p>మీ బస సమయంలో సామర్లకోట మరియు పరిసర ప్రాంతాలలోని ప్రముఖ పర్యాటక మరియు ఆధ్యాత్మిక ప్రదేశాలను సందర్శించండి.</p>`;
+
+    document.querySelector(".places-list").innerHTML = `
 <li class="place-item">
     <span>కుమారరామ భీమేశ్వర స్వామి దేవాలయం</span>
-    <button class="location-btn"
-    onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple','_blank')">
-        స్థానం
-    </button>
+    <button class="location-btn" onclick="window.open('https://maps.google.com/?q=Kumararama+Bhimeswara+Swamy+Temple','_blank')">స్థానం</button>
 </li>
-
 <li class="place-item">
     <span>ద్రాక్షారామం దేవాలయం</span>
-    <button class="location-btn"
-    onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">
-        స్థానం
-    </button>
+    <button class="location-btn" onclick="window.open('https://maps.google.com/?q=Draksharamam+Temple','_blank')">స్థానం</button>
 </li>
-
 <li class="place-item">
     <span>కాకినాడ బీచ్</span>
-    <button class="location-btn"
-    onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">
-        స్థానం
-    </button>
+    <button class="location-btn" onclick="window.open('https://maps.google.com/?q=Kakinada+Beach','_blank')">స్థానం</button>
 </li>
-
 <li class="place-item">
     <span>కోరింగా వన్యప్రాణి అభయారణ్యం</span>
-    <button class="location-btn"
-    onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">
-        స్థానం
-    </button>
-</li>
-`;
+    <button class="location-btn" onclick="window.open('https://maps.google.com/?q=Coringa+Wildlife+Sanctuary','_blank')">స్థానం</button>
+</li>`;
 
-document.getElementById("locationSection").innerHTML = `
+    document.getElementById("locationSection").innerHTML = `
 <h2>హోటల్ స్థానం</h2>
-
-<p>
-SS గ్రాండ్ ఇన్ సామర్లకోట, రైల్వే స్టేషన్ ఎదురుగా, కాకినాడ జిల్లా - 533440లో ఉంది.
-దేవాలయాలు, రైల్వే స్టేషన్, స్థానిక మార్కెట్లు మరియు పర్యాటక ప్రాంతాలకు సులభంగా చేరుకోవచ్చు.
-</p>
-
+<p>SS గ్రాండ్ ఇన్ సామర్లకోట, రైల్వే స్టేషన్ ఎదురుగా, కాకినాడ జిల్లా - 533440లో ఉంది.
+దేవాలయాలు, రైల్వే స్టేషన్, స్థానిక మార్కెట్లు మరియు పర్యాటక ప్రాంతాలకు సులభంగా చేరుకోవచ్చు.</p>
 <br>
+<button class="map-btn" onclick="window.open('https://maps.app.goo.gl/fLiXEJ5ea48a5WoSA','_blank')">గూగుల్ మ్యాప్స్‌లో చూడండి</button>`;
 
-<button class="map-btn" onclick="openMap()">
-గూగుల్ మ్యాప్స్‌లో చూడండి
-</button>
-`;
-
-document.getElementById("policySection").innerHTML = `
-<h2> హోటల్ నియమాలు</h2>
-
+    document.getElementById("policySection").innerHTML = `
+<h2>హోటల్ నియమాలు</h2>
 <ul>
-<li> గదులలో ధూమపానం అనుమతించబడదు.</li>
-<li> రాత్రి 10:00 గంటల తర్వాత పెద్ద శబ్దం చేయకూడదు.</li>
-<li> హోటల్ ఆస్తులకు నష్టం కలిగిస్తే అదనపు ఛార్జీలు వర్తించవచ్చు.</li>
-<li> మీ విలువైన వస్తువులను సురక్షితంగా ఉంచండి.</li>
-<li> బయటకు వెళ్లేటప్పుడు గది తలుపు లాక్ చేయండి.</li>
-</ul>
-`;
+<li>గదులలో ధూమపానం అనుమతించబడదు.</li>
+<li>రాత్రి 10:00 గంటల తర్వాత పెద్ద శబ్దం చేయకూడదు.</li>
+<li>హోటల్ ఆస్తులకు నష్టం కలిగిస్తే అదనపు ఛార్జీలు వర్తించవచ్చు.</li>
+<li>మీ విలువైన వస్తువులను సురక్షితంగా ఉంచండి.</li>
+<li>బయటకు వెళ్లేటప్పుడు గది తలుపు లాక్ చేయండి.</li>
+</ul>`;
 
-document.getElementById("thankSection").innerHTML = `
+    document.getElementById("thankSection").innerHTML = `
 <h2>🙏 ధన్యవాదాలు</h2>
-
-<p>
-SS గ్రాండ్ ఇన్‌ను ఎంచుకున్నందుకు ధన్యవాదాలు.
-మీ బస ఆనందదాయకంగా, సౌకర్యవంతంగా మరియు చిరస్మరణీయంగా ఉండాలని మేము కోరుకుంటున్నాము.
-</p>
-`;
-
+<p>SS గ్రాండ్ ఇన్‌ను ఎంచుకున్నందుకు ధన్యవాదాలు.
+మీ బస ఆనందదాయకంగా, సౌకర్యవంతంగా మరియు చిరస్మరణీయంగా ఉండాలని మేము కోరుకుంటున్నాము.</p>`;
 }
-
 </script>
-    <footer>
-<p class="footer">
-    <a href="/index.html">
-        © SS Grand Inn • Luxury Stay, Exceptional Hospitality
-    </a>
-</p>
-    </footer>
+
+<footer>
+    <p class="footer">
+        <a href="/index.html">© SS Grand Inn • Luxury Stay, Exceptional Hospitality</a>
+    </p>
+</footer>
+
 </body>
 </html>
