@@ -16,10 +16,8 @@
     font-family: 'Cormorant Garamond', serif;
 }
 
-html,
 body{
-    overscroll-behavior-y: none;
-    overflow-x: hidden;
+    overflow-x:hidden;
 }
 :root {
     --primary: #001236;
@@ -39,22 +37,17 @@ body {
     flex-direction: column;
 }
 
-/* ── NAVBAR ── */
-.navbar {
+/* ── NAVBAR ── */.navbar{
     background: var(--primary);
     border-bottom: 3px solid var(--gold);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    height: var(--nav-h);
-    /* sticky on all sizes — no fixed, no iOS overscroll gap */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    /* stretch into the iOS status-bar safe area if needed */
-    padding-top: env(safe-area-inset-top, 0px);
-    height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+    height:68px;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo {
@@ -228,7 +221,20 @@ footer a:hover { color: var(--gold); }
         font-size: 12px;
         padding: 7px 12px;
     }
+
 }
+@media(max-width:768px){
+
+    .navbar{
+        height:56px;
+        padding:0 12px;
+    }
+
+    .logo img{
+        height:42px;
+    }
+}
+
 </style>
 </head>
 <body>
